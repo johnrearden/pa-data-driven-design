@@ -147,7 +147,7 @@ For additional information, please visit and read the Project README file.
 The project has 2 business requirements:
 
 1 - The client is interested in understanding the patterns from the customer base so that the client can learn the most relevant variables that are correlated to a churned customer.
-2 - The client is interested in determining whether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+2 - The client is interested in quicly determining ball bark estimates on design parameters quick design whether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
 
 
 
