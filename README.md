@@ -147,13 +147,38 @@ For additional information, please visit and read the Project README file.
 The project has 2 business requirements:
 
 1 - The client is interested in understanding the patterns from the customer base so that the client can learn the most relevant variables that are correlated to a churned customer.
-2 - The client is interested in quicly determining ball bark estimates on design parameters quick design whether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+2 - The client is interested to be able to respond quickly to design specifications from customersxxxxx be able to determining ball bark estimates on airplane design parameters, e.g. Wing span, propulsion size and engine type based on specification parameters like performance paramteres like cruise speed, service celing and rate of climb  what ether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+
+
+2 - The client is interested to be able to respond quickly to customer specifications for new airplanes as well as to use be able to feed their design tools with good startvalues. design specifications from customersxxxxx be able to determining ball bark estimates on airplane design parameters, e.g. Wing span, propulsion size and engine type 
+
+2 - The client is interested to be able to respond quickly to customer specifications for new airplanes. design specifications from customersxxxxx be able to determining ball bark estimates on airplane design parameters, e.g. Wing span, propulsion size and engine type 
+
+In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+
+LEARN
+1 - The client is interested in understanding how the design features effect the performance target so that he can learn which features has the greatest impact on performance and what values the features should take on.
+
+In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+
+2 - The client is interested to learn what design features that have the greatest impact on performance target (Wing span, propulsion type etc.) need to take on in order to produce specified performance parameters (cruise speed, service ceiling, rate of climb etc.). In addition, the client is interested in learning if performance parameters cluster based on their engine types (jet, piston or turboprop). Based on that, the best propulsion configuration could be choosen for each specification.
+
+2 - The client is interested in determining whether or not a given performance specification can be reached or not and if so, what design features are having the greatest impact on the performance target and what the values these features should take on to meet the design specifications. In addition, the client is interested in learning from which cluster of airplane types this will belong too. Based on that, present combinations of design features that could fullfill the customer specificatiopn.
 
 
 
+2 - The client is interested to learn what values different design parameters (Wing span, propulsion type etc.) need to take on in order to produce specified performance parameters (cruise speed, service ceiling, rate of climb etc.). In addition, the client is interested in learning if performance parameters cluster based on their engine types (jet, piston or turboprop). Based on that, the best propulsion configuration could be choosen for each specification.
+
+design parameters (Wing span, propulsion type etc.) need to take on in order to produce specified performance parameters (cruise speed, service ceiling, rate of climb etc.). In addition, the client is interested in learning if performance parameters cluster based on their engine types (jet, piston or turboprop). Based on that, the best propulsion configuration could be choosen for each specification.
+
+2 - The client is interested in determining whether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
 
 
 
+1 - The client is interested in understanding how the design features effect the performance target so that he can learn which features has the greatest impact on performance and what values the features should take on.
+
+In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+2 - The client is interested in determining whether or not a given performance specification can be reached or not and if so, what design features are having the greatest impact on the performance target and what the values these features should take on to meet the design specifications. In addition, the client is interested in learning from which cluster of airplane types this will belong too. Based on that, present combinations of design features that could fullfill the customer specificatiopn.
 
 # BREAK
 # BREAK
@@ -201,27 +226,34 @@ Each row represents a customer, each column contains a customer attribute. The d
 
 | Variable         | Meaning                                                     | Units                                                                                |
 |------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| customerID       | Customer identification                                     | Number and Letters code that form a unique identifier for a customer                  |
-| gender           | Customer gender                                             | Female or Male                                                                       |
-| SeniorCitizen    | Customer is a senior citizen or not                         | 1 for Senior and 0 for not Senior                                                    |
-| Partner          | Customer has a partner or not                               | Yes or No                                                                            |
-| Dependents       | Customer has dependents or not                              | Yes or No                                                                            |
-| tenure           | Number of months the customer has stayed with the company   | 0 to 72                                                                              |
-| PhoneService     | Customer has a phone service or not                         | Yes or No                                                                            |
-| MultipleLines    | Customer has multiple lines or not                          | Yes, No, No phone service                                                            |
-| InternetService  | Customer has an internet service provider                   | DSL, Fiber optic, No                                                                 |
-| OnlineSecurity   | Customer has online security or not                         | Yes, No, No internet service                                                         |
-| OnlineBackup     | Customer has online backup or not                           | Yes, No, No internet service                                                         |
-| DeviceProtection | Customer has device protection or not                       | Yes, No, No internet service                                                         |
-| TechSupport      | Customer has tech support or not                            | Yes, No, No internet service                                                         |
-| StreamingTV      | Customer has streaming TV or not                            | Yes, No, No internet service                                                         |
-| StreamingMovies  | Customer has streaming movies or not                        | Yes, No, No internet service                                                         |
-| Contract         | Contract term of the customer                               | Month-to-month, One year, Two year                                                   |
-| PaperlessBilling | Customer has paperless billing or not                       | Yes, No                                                                              |
-| PaymentMethod    | Customer’s payment methods                                   | Electronic check, Mailed check, Bank transfer (automatic), Credit card   (automatic) |
-| MonthlyCharges   | Amount charged to the customer monthly                      | 18.3 - 119                                                                           |
-| TotalCharges     | Total amount charged as a customer of our company           | 18.8 - 8.68k                                                                         |
-| Churn            | Customer churned or not                                     | Yes or No                                                                            |
+| Model       | Customer identification                                     | Number and Letters code that form a unique identifier for a customer                  |
+| Company           | Customer gender                                             | Female or Male                                                                       |
+| Engine Type    | Customer is a senior citizen or not                         | 1 for Senior and 0 for not Senior    
+| Multi Engine    | Customer is a senior citizen or not                         | 1 for Senior and 0 for not Senior                                                    |
+| TP mods          | Customer has a partner or not                               | Yes or No 
+| THR          | Customer has a partner or not                               | Yes or No                                                                            |
+| SHP          | Customer has a partner or not                               | Yes or No   
+| Lenght          | Customer has a partner or not                               | Yes or No   
+| Height          | Customer has a partner or not                               | Yes or No   
+| Wingspan          | Customer has a partner or not                               | Yes or No   
+| Max Speed Knots       | Customer has dependents or not                              | Yes or No                                                                            |
+| Rcmnd cruise Knots           | Number of months the customer has stayed with the company   | 0 to 72                                                                              |
+| Stall Knots dirty     | Customer has a phone service or not                         | Yes or No                                                                            |
+| Fuel gal/lbs    | Customer has multiple lines or not                          | Yes, No, No phone service                                                            |
+| All eng service ceiling  | Customer has an internet service provider                   | DSL, Fiber optic, No                                                                 |
+| Eng out service ceiling   | Customer has online security or not                         | Yes, No, No internet service                                                         |
+| All eng rate of climb     | Customer has online backup or not                           | Yes, No, No internet service                                                         |
+| Eng out rate of climb | Customer has device protection or not                       | Yes, No, No internet service                                                         |
+| Takeoff over 50ft      | Customer has tech support or not                            | Yes, No, No internet service                                                         |
+| Takeoff ground run      | Customer has streaming TV or not                            | Yes, No, No internet service                                                         |
+| Takeoff over 50ft  | Customer has streaming movies or not                        | Yes, No, No internet service                                                         |
+| Takeoff ground run         | Contract term of the customer                               | Month-to-month, One year, Two year                                                   |
+| Gross weight lbs | Customer has paperless billing or not                       | Yes, No                                                                              |
+| Empty weight lbs    | Customer’s payment methods                                   | Electronic check, Mailed check, Bank transfer (automatic), Credit card   (automatic) |
+| Length ft/in   | Amount charged to the customer monthly                      | 18.3 - 119                                                                           |
+| Height ft/in     | Total amount charged as a customer of our company           | 18.8 - 8.68k                                                                         |
+| Wingspan ft/in     | Total amount charged as a customer of our company           | 18.8 - 8.68k    
+| Range N.M.             | Customer churned or not                                     | Yes or No                                                                            |
 
 
 ## Project Terms & Jargon
