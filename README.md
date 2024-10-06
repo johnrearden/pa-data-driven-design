@@ -175,10 +175,10 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 
 
 
-1 - The client is interested in understanding how the design features effect the performance target so that he can learn which features has the greatest impact on performance and what values the features should take on.
+1 - The client is interested in understanding how the design features affect the performance target so that he can learn which features have the greatest impact on performance and what values the features should take on to improve performance.
 
-In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
-2 - The client is interested in determining whether or not a given performance specification can be reached or not and if so, what design features are having the greatest impact on the performance target and what the values these features should take on to meet the design specifications. In addition, the client is interested in learning from which cluster of airplane types this will belong too. Based on that, present combinations of design features that could fullfill the customer specificatiopn.
+
+2 - The client is interested in determining whether a given performance specification can be reached or not and if so, what design features are having the greatest impact on the performance target and what the values these features should take on to meet the design specifications. In addition, the client is interested in learning from which cluster of propulsion types and number of engines this will belong too. Based on that, present values and combinations of design features that could fulfill the customer specification.
 
 # BREAK
 # BREAK
