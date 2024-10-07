@@ -193,13 +193,106 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 
 
 
-# Small Aircraft Design Predictor - A Predictive Classification Model for Exploring dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
+# GA Airplane Design-Performance Predictor - A Predictive Model for General Aviation 
+ Exploration and Prediction of dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
 
 SAD Predictor is a machine-learning (ML) project using a General Aviation Performance dataset to achieve two things:
 
 1. determine whether a ML pipeline could be built to predict the values that Design parameters need to take on to reach Specified Performance target. This was achieved by using a classification task, using the Vmax, ROC and Range attribute from the dataset as the targets and the remaining attributes as features.
 
 2. x
+
+## Table of Contents
+
+- [Dataset Content](## Dataset Content)
+- [Project Terms & Jargon](## Project Terms & Jargon)
+- [Hypothesis and how to validate?](## Hypothesis and how to validate?)
+- [The rationale to map the business requirements to the Data Visualizations and ML tasks](## The rationale to map the business requirements to the Data Visualizations and ML tasks)
+- [ML Business Case](## ML Business Case)
+- [Predict Churn](### Predict Churn)
+- [Classification Model](#### Classification Model)
+- [Predict Tenure](### Predict Tenure)
+- [Regression Model](#### Regression Model)
+- [Classification Model](#### Classification Model)
+- [Cluster Analysis](### Cluster Analysis)
+- [Clustering Model](#### Clustering Model)
+- [Dashboard Design (Streamlit App User Interface)](## Dashboard Design (Streamlit App User Interface))
+- [Page 1: Quick project summary](### Page 1: Quick project summary)
+- [Page 2: Customer Base Churn Study](### Page 2: Customer Base Churn Study)
+- [Page 3: Prospect Churnometer](### Page 3: Prospect Churnometer)
+- [Page 4: Project Hypothesis and Validation](### Page 4: Project Hypothesis and Validation)
+- [Page 5: Predict Churn](### Page 5: Predict Churn)
+- [Page 6: Predict Tenure](### Page 6: Predict Tenure)
+- [Page 7: Cluster Analysis](### Page 7: Cluster Analysis)
+
+
+
+## Table of Contents
+
+- [Dataset Content](# Dataset Content)
+- [Project Terms & Jargon](# Project Terms & Jargon)
+- [Hypothesis and how to validate?](# Hypothesis and how to validate?)
+- [The rationale to map the business requirements to the Data Visualizations and ML tasks](# The rationale to map the business requirements to the Data Visualizations and ML tasks)
+- [ML Business Case](# ML Business Case)
+- [Predict Churn](### Predict Churn)
+- [Classification Model](#### Classification Model)
+- [Predict Tenure](### Predict Tenure)
+- [Regression Model](#### Regression Model)
+- [Classification Model](#### Classification Model)
+- [Cluster Analysis](### Cluster Analysis)
+- [Clustering Model](#### Clustering Model)
+- [Dashboard Design (Streamlit App User Interface)](## Dashboard Design (Streamlit App User Interface))
+- [Page 1: Quick project summary](### Page 1: Quick project summary)
+- [Page 2: Customer Base Churn Study](### Page 2: Customer Base Churn Study)
+- [Page 3: Prospect Churnometer](### Page 3: Prospect Churnometer)
+- [Page 4: Project Hypothesis and Validation](### Page 4: Project Hypothesis and Validation)
+- [Page 5: Predict Churn](### Page 5: Predict Churn)
+- [Page 6: Predict Tenure](### Page 6: Predict Tenure)
+- [Page 7: Cluster Analysis](### Page 7: Cluster Analysis)
+
+
+
+
+## Table of Contents
+- [Dataset Content](#section-1)
+- [Project Terms & Jargon](#section-2)
+- [Hypothesis and how to validate?](#section-3)
+- [The rationale to map the business requirements to the Data Visualizations and ML tasks](#section-4)
+- [ML Business Case](#section-5)
+  - [Predict Churn](#subsection-51)
+    - [Classification Model](#subsection-511)
+  - [Predict Tenure](#subsection-52)
+    - [Regression Model](#subsection-521)
+    - [Classification Model](#subsection-522)
+  - [Cluster Analysis](#subsection-53)
+    - [Clustering Model](#subsection-531)
+- [Dashboard Design (Streamlit App User Interface)](#section-6)
+  - [Page 1: Quick project summary](#subsection-61)
+  - [Page 2: Customer Base Churn Study](#subsection-62)
+  - [Page 3: Prospect Churnometer](#subsection-63)
+  - [Page 4: Project Hypothesis and Validation](#subsection-64)
+  - [Page 5: Predict Churn](#subsection-65)
+  - [Page 6: Predict Tenure](#subsection-66)
+  - [Page 7: Cluster Analysis](#subsection-67)
+
+
+# Table of Contents
+- [Section 1](#section-1)
+  - [Subsection 1.1](#subsection-11)
+- [Section 2](#section-2)
+  - [Subsection 2.1](#subsection-21)
+
+# Title
+
+## Section 1
+
+### Subsection 1.1
+
+## Section 2
+
+### Subsection 2.1
+
+
 
 ## Dataset Content
 
@@ -257,10 +350,61 @@ Note also that I have used an already partly cleaned and imputed file which mean
 	- This customer has a tenure level, which is the number of months this person has used our product/service.
 
 ## Business Requirements
+The client (a company's Conceptual Design Department) wish to have an ML algorithm from a data practitioner that shows the patterns between design and performance features and is able to to predict performance based on design features as well as (the other way around) to predict what values design features need to take on to reach certain performance targets all based on the dataset provided. The aim is to maximise xxxxx.
+
+**Business Requirement 1** - The client is interested in understanding which Performance features affect the most by changes in the design parameters
+
+**Business Requirement 2** - The client is interested in predicting the necessary values that the Design parameters need to take on in order to reach certain performance targets.
+
+**Business Requirement 3** - The client is also interested in categorising airplanes based on engine type (jet, piston or propjet) (supervised learning)
+
+**Business Requirement 4** - The client is also interested to see if the airplanes cluster into distinct groups based their features (unsupervised learning)
+
+
+
+The client (a company's HR department) requested a ML algorithm from a data practitioner to predict attrition based on the dataset provided. The aim is to minimize attrition rates.
+
+Business Requirement 1 - The client is interested in understanding the main factors leading to attrition
+Business Requirement 2 - The client is interested in predicting whether a certain employee will decide to leave the company
+
+
+
+
+Cardiovascular diseases are the number 1 cause of death globally, accounting for 31% of all deaths worldwide. People with cardiovascular disease or who are at high risk of disease need early detection and management. A fictional organisation has requested a data practitioner to analyse a dataset of patients from a number of different hospitals in order to determine what factors can be attributed to a high risk of disease and whether patient data can accurately predict risk of heart disease.
+
+Business Requirement 1 - The client is interested in which attributes correlate most closely with heart disease, ie what are the most common risk factors?
+
+Business Requirement 2 - The client is interested in using patient data to predict whether or not a patient is at risk of heart disease.
+
+
+
+
+
 As a Data Analyst from Code Institute Consulting, you are requested by the Telco division to provide actionable insights and data-driven recommendations to a Telecom corporation. This client has a substantial customer base and is interested in managing churn levels and understanding how the sales team could better interact with prospects. The client has shared the data.
 
 - 1 - The client is interested in understanding the patterns from the customer base so that the client can learn the most relevant variables correlated to a churned customer.
 - 2 - The client is interested in determining whether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
+
+
+
+
+
+The primary objective of this project is to develop a machine learning model for the early detection of brain tumors from medical images. The model should assist medical professionals in making quicker and more accurate diagnoses, and the patients should benefit from the earlier detection and the tempestive and appropriate treatment planning.
+
+Key Stakeholders, therefore should be: - Medical professionals - Patients - Hospitals and healthcare facilities
+
+Requirements:
+
+Accuracy: The model should have a high accuracy rate in classifying brain images as either tumor (1) or non-tumor (0).
+Interpretability: The model should provide some insight into the prediction process and the relevant feature importance in that process, so the medical professionals could understand the relevant discoveries.
+Scalability: The solution should be scalable to handle a large volume of brain images from various sources.
+Speed: The model should be able to make predictions in real-time so that the reliable quick diagnosis could be make.
+Privacy: The meticulous attention should be given in the data collection in order to guarantee the patient's anonymity and consent for the data usage.
+In short, the project businsess objectives are as follows:
+
+The client is interested in having an analysis of the visual difference between the MRI brain scan of healthy and brain with tumor. The analysis should provide, among other things: the average image and variability per label in the data set.
+The client is interested in having a functional and reliable ML model that could predict the presence or absence of the tumor from the image of the MRI brain scan. For the realisation of this business objective, a deep learning pipeline should be developed with the binary classification of the MRI images. The said pipeline should be also deployed.
+The Streamlit Dashboard will be developed that will finally serve as a platform for the presentation of the results of first two business objectives, together with the interactive implementation of the prediction of the unseen MRI image.
 
 
 ## Hypothesis and how to validate?
