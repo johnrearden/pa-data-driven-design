@@ -193,69 +193,63 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 
 
 
-## How to use this repo
+# Small Aircraft Design Predictor - A Predictive Classification Model for Exploring dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
 
-1. Fork this repo and copy the https URL of your forked churnometer repo
+SAD Predictor is a machine-learning (ML) project using a General Aviation Performance dataset to achieve two things:
 
-1. Log into the cloud IDE with your GitHub account.
+1. determine whether a ML pipeline could be built to predict the values that Design parameters need to take on to reach Specified Performance target. This was achieved by using a classification task, using the Vmax, ROC and Range attribute from the dataset as the targets and the remaining attributes as features.
 
-1. On your Dashboard, click on the New Workspace button
-
-1. Paste in the URL you copied from GitHub earlier
-
-1. Click Create
-
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Click the kernel button and choose Python Environments.
-
-1. Choose the kernel Python 3.8.18 as it inherits from the workspace, so it will be Python-3.8.18 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
-
-Your workspace is now ready to use. When you want to return to this project, you can find it in your Cloud IDE Dashboard. You should only create 1 workspace per project.
+2. x
 
 ## Dataset Content
 
-The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/telecom-churn-dataset). We created then a fictitious user story where predictive analytics can be applied in a real project in the workplace.
-Each row represents a customer, each column contains a customer attribute. The data set includes information about:
-- Services that each customer has signed up for, like phone, multiple lines, internet, online security, online backup, device protection, tech support, streaming TV and movies
-- Customer information, like how long they've been a customer if they churned out, their contract type, payment method, paperless billing, monthly charges, and total charges
-- Customer profile, like gender, if they have partners and dependents
+This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.kaggle.com/datasets/heitornunes/aircraft-performance-dataset-aircraft-bluebook?select=Airplane_Complete_Imputation.csv), containing 860 General aviation and smaller airliners and buisness jets is sourced from Kaggle. Each row represents an airplane and each column contains an airplane attribute. 
 
 
-| Variable         | Meaning                                                     | Units                                                                                |
+- The dataset includes information about:
+	- Airplane Meta data such as make and model
+	- Airplane Design Attributes/Paramaters such as Engine type and Wingspan
+	- Airplane Performance Attributes/parameters such as the Airplane's gross weight, Vcruise, service ceiling, rate of climb and range
+
+The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
+
+Insert images!!!!!!!!!!!
+
+Important data disclaimer: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets. and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
+
+Note also that I have used an already partly cleaned and imputed file which means that some of the data entries might be an approximation using some common type of interpolation method or similar.
+
+| Variable/Attribute         | Meaning/Information/Quantity                                                     | Units                                                                                |
 |------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Model       | Customer identification                                     | Number and Letters code that form a unique identifier for a customer                  |
-| Company           | Customer gender                                             | Female or Male                                                                       |
-| Engine Type    | Customer is a senior citizen or not                         | 1 for Senior and 0 for not Senior    
-| Multi Engine    | Customer is a senior citizen or not                         | 1 for Senior and 0 for not Senior                                                    |
-| TP mods          | Customer has a partner or not                               | Yes or No 
-| THR          | Customer has a partner or not                               | Yes or No                                                                            |
-| SHP          | Customer has a partner or not                               | Yes or No   
-| Lenght          | Customer has a partner or not                               | Yes or No   
-| Height          | Customer has a partner or not                               | Yes or No   
-| Wingspan          | Customer has a partner or not                               | Yes or No   
-| Max Speed Knots       | Customer has dependents or not                              | Yes or No                                                                            |
-| Rcmnd cruise Knots           | Number of months the customer has stayed with the company   | 0 to 72                                                                              |
-| Stall Knots dirty     | Customer has a phone service or not                         | Yes or No                                                                            |
-| Fuel gal/lbs    | Customer has multiple lines or not                          | Yes, No, No phone service                                                            |
-| All eng service ceiling  | Customer has an internet service provider                   | DSL, Fiber optic, No                                                                 |
-| Eng out service ceiling   | Customer has online security or not                         | Yes, No, No internet service                                                         |
-| All eng rate of climb     | Customer has online backup or not                           | Yes, No, No internet service                                                         |
-| Eng out rate of climb | Customer has device protection or not                       | Yes, No, No internet service                                                         |
-| Takeoff over 50ft      | Customer has tech support or not                            | Yes, No, No internet service                                                         |
-| Takeoff ground run      | Customer has streaming TV or not                            | Yes, No, No internet service                                                         |
-| Takeoff over 50ft  | Customer has streaming movies or not                        | Yes, No, No internet service                                                         |
-| Takeoff ground run         | Contract term of the customer                               | Month-to-month, One year, Two year                                                   |
-| Gross weight lbs | Customer has paperless billing or not                       | Yes, No                                                                              |
-| Empty weight lbs    | Customer’s payment methods                                   | Electronic check, Mailed check, Bank transfer (automatic), Credit card   (automatic) |
-| Length ft/in   | Amount charged to the customer monthly                      | 18.3 - 119                                                                           |
-| Height ft/in     | Total amount charged as a customer of our company           | 18.8 - 8.68k                                                                         |
-| Wingspan ft/in     | Total amount charged as a customer of our company           | 18.8 - 8.68k    
-| Range N.M.             | Customer churned or not                                     | Yes or No                                                                            |
+| Model       | **Airplane's name**                                     | n/a                  |
+| Company           | **Manufacturer's name**                                             | n/a                                                                       |
+| Engine Type    | **Engine type**                        | categorical: jet, piston or propjet\*    
+| Multi Engine    | **Single or multiple engines**\**                         | categorical: single or multi engine                                                    |
+| TP mods          | Most likely refers to **Thrust Performance modifications**                               | True or False 
+| THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
+| SHP          | **Shaft Horse Power** for  ISA (International Standard Atmosphere)                               | HP   
+| Length          | **Airplane's length**                               | ft and in   
+| Height          | **Airplane's height**                           | ft and in   
+| Wing Span          | **Airplane's wingspan**                              | ft and in   
+| FW      | **fuel capacity/weight**                           | gal or lb                                                                            |
+| MEW           | **Empty weight** (a.k.a Manufacturer's Empty Weight )   | lb                                                                              |
+| AUW     | **Gross weight** (a.k.a All-Up Weight)                         | lb                                                                            |
+| Vmax    | **Maximum speed**                          | knot or Mach                                                            |
+| Vcruise  | **High cruise speed** (Rcmnd cruise)                   | knot                                                                 |
+| Vstall   | **Stall speed** on "dirty" configuration (flaps out, gear down, etc.)                         | knot                                                         |
+| Hmax     | **Maximum density-altitude** with all engines working                           | ft (as density-altitude)                                                         |
+| Hmax (One) | **Maximum density-altitude** with only one engine working.                       | ft (as density-altitude)                                                         |
+| ROC     | **Rate Of Climb** with all engines working                           | ft/min                                                         |
+| ROC (One)      | **Rate Of Climb** with only one engine working                            | ft/min                                                         |
+| Vlo  | **Climb speed** during normal take-off for a 50 ft obstacle                        | ft/min                                                         |
+| Slo         | **Takeoff ground run**                               | ft                                                   |
+| Vl | **Landing speed** during normal landing for a 50 ft obstacle                       | ft/min                                                                              |
+| Sl    | **Landing ground run**                                   | ft |
+| Range   | **Range**                      | N.m. (Nautical miles)                                                            
 
+\* Propjet is more commonly referred to as "turboprop"
 
+\*\* Multiple Engines is most likely refering to no more than two (twin) engines.
 ## Project Terms & Jargon
 	- A customer is a person who consumes your service or product.
 	- A prospect is a potential customer.
