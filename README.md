@@ -44,7 +44,7 @@ To log into the Heroku toolbelt CLI:
 You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
 
-## Dataset Content
+## Dataset Content xxxxxxxxxxxxxx
 * Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size and to have a shorter model training time. If you are doing an image recognition project, we suggest you consider using an image shape that is 100px × 100px or 50px × 50px, to ensure the model meets the performance requirement but is smaller than 100Mb for a smoother push to GitHub. A reasonably sized image set is ~5000 images, but you can choose ~10000 lines for numeric or textual data. 
 
 
@@ -60,7 +60,7 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 * List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
 
 
-## ML Business Case
+## ML Business Case xxxxxxxxxxxxxxxxx
 * In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
 
 
@@ -229,26 +229,26 @@ SAD Predictor is a machine-learning (ML) project using a General Aviation Perfor
 
 ## Table of Contents
 
-- [Dataset Content](# Dataset Content)
-- [Project Terms & Jargon](# Project Terms & Jargon)
-- [Hypothesis and how to validate?](# Hypothesis and how to validate?)
-- [The rationale to map the business requirements to the Data Visualizations and ML tasks](# The rationale to map the business requirements to the Data Visualizations and ML tasks)
-- [ML Business Case](# ML Business Case)
-- [Predict Churn](### Predict Churn)
-- [Classification Model](#### Classification Model)
-- [Predict Tenure](### Predict Tenure)
-- [Regression Model](#### Regression Model)
-- [Classification Model](#### Classification Model)
-- [Cluster Analysis](### Cluster Analysis)
-- [Clustering Model](#### Clustering Model)
-- [Dashboard Design (Streamlit App User Interface)](## Dashboard Design (Streamlit App User Interface))
-- [Page 1: Quick project summary](### Page 1: Quick project summary)
-- [Page 2: Customer Base Churn Study](### Page 2: Customer Base Churn Study)
-- [Page 3: Prospect Churnometer](### Page 3: Prospect Churnometer)
-- [Page 4: Project Hypothesis and Validation](### Page 4: Project Hypothesis and Validation)
-- [Page 5: Predict Churn](### Page 5: Predict Churn)
-- [Page 6: Predict Tenure](### Page 6: Predict Tenure)
-- [Page 7: Cluster Analysis](### Page 7: Cluster Analysis)
+- [Dataset Content](#dataset-content)
+- [Project Terms & Jargon](#project-terms-&-jargon)
+- [Hypothesis and how to validate?](#hypothesis-and-how-to-validate?)
+- [The rationale to map the business requirements to the Data Visualizations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+- [ML Business Case](#ml-business-case)
+- [Predict Churn](###predict-churn)
+- [Classification Model](####classification-model)
+- [Predict Tenure](###predict-tenure)
+- [Regression Model](####regression-model)
+- [Classification Model](####classification-model)
+- [Cluster Analysis](###cluster-analysis)
+- [Clustering Model](####clustering-model)
+- [Dashboard Design (Streamlit App User Interface)](##dashboard-design-(streamlit-app-user-interface))
+- [Page 1: Quick project summary](###page-1:-quick-project-summary)
+- [Page 2: Customer Base Churn Study](###page-2:-customer-base-churn-study)
+- [Page 3: Prospect Churnometer](###page-3:-prospect-churnometer)
+- [Page 4: Project Hypothesis and Validation](###page-4:-project-hypothesis-and-validation)
+- [Page 5: Predict Churn](###page-5:-predict-churn)
+- [Page 6: Predict Tenure](###page-6:-predict-tenure)
+- [Page 7: Cluster Analysis](###page-7:-cluster-analysis)
 
 
 
@@ -276,12 +276,6 @@ SAD Predictor is a machine-learning (ML) project using a General Aviation Perfor
   - [Page 7: Cluster Analysis](#subsection-67)
 
 
-# Table of Contents
-- [Section 1](#section-1)
-  - [Subsection 1.1](#subsection-11)
-- [Section 2](#section-2)
-  - [Subsection 2.1](#subsection-21)
-
 # Title
 
 ## Section 1
@@ -306,9 +300,10 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
 
-Insert images!!!!!!!!!!!
+<img src="image_readme/Aeronca_L-16_7BCM_140719a_dodge.jpg" alt="Example Image" width="300" />
+<figcaption>One of the smallest and oldest instances in the data set: Aeronca L-16 (left)</figcaption>
 
-Important data disclaimer: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets. and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
+**Important disclaimer**: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets. and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
 
 Note also that I have used an already partly cleaned and imputed file which means that some of the data entries might be an approximation using some common type of interpolation method or similar.
 
@@ -318,7 +313,7 @@ Note also that I have used an already partly cleaned and imputed file which mean
 | Company           | **Manufacturer's name**                                             | n/a                                                                       |
 | Engine Type    | **Engine type**                        | categorical: jet, piston or propjet\*    
 | Multi Engine    | **Single or multiple engines**\**                         | categorical: single or multi engine                                                    |
-| TP mods          | Most likely refers to **Thrust Performance modifications**                               | True or False 
+| TP mods          | Refers most likely to **Thrust Performance modifications**                               | True or False 
 | THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
 | SHP          | **Shaft Horse Power** for  ISA (International Standard Atmosphere)                               | HP   
 | Length          | **Airplane's length**                               | ft and in   
