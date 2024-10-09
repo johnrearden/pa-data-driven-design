@@ -345,7 +345,13 @@ Note also that I have used an already partly cleaned and imputed file which mean
 	- This customer has a tenure level, which is the number of months this person has used our product/service.
 
 ## Business Requirements
-The client (a company's Conceptual Design Department) wish to have an ML algorithm from a data practitioner that shows the patterns between design and performance features and is able to to predict performance based on design features as well as (the other way around) to predict what values design features need to take on to reach certain performance targets all based on the dataset provided. The aim is to maximise xxxxx.
+The ficticous company *Data Driven Design* consist of data practitioners with the combined skillset of Vehicle Design and Machine Learning.
+
+<img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=/>
+
+The fictitious client is the Conceptual Design Department of a new fledgling airplane manufacturer who wish to build design tools to quickly asses the feasibility of customer inquires (specifications) for new airplane performance as well as generate start values for the conceptual design process.
+
+ come up with ball park estimates on conceptual airplane design for specifications submitted by their customers. an ML algorithm from a data practitioner shows the patterns between design and performance features and is able to to predict performance based on design features as well as (the other way around) to predict what values design features need to take on to reach certain performance targets all based on the dataset provided. The aim is to maximise xxxxx.
 
 **Business Requirement 1** - The client is interested in understanding which Performance features affect the most by changes in the design parameters
 
