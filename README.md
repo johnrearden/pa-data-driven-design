@@ -300,8 +300,10 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
 
-<img src="image_readme/Aeronca_L-16_7BCM_140719a_dodge.jpg" alt="Example Image of Aeronca_L-16" width="300" />
-<img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Aeronca_L-16" width="300" />
+<div style="display: flex; justify-content: space-around;">
+  <img src="image_readme/Aeronca_L-16_7BCM_140719a_dodge.jpg" alt="Example Image of Aeronca_L-16" height="250"/>
+  <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="250"/>
+</div>
 <figcaption>Aeronca L-16 (left) representing one end of the data set and the  (right) representing the other</figcaption>
 
 **Important disclaimer**: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
