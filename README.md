@@ -418,6 +418,21 @@ The Streamlit Dashboard will be developed that will finally serve as a platform 
 	- A Correlation study can help in this investigation
 
 
+Business Requirements
+•	Nature of Aircraft design (maybe not do this as a bulleted item):
+o	My company
+o	Company doing what
+o	Trying to reverse engineer what the design is required in order to achieve a certain performance specification rather than the other way around
+•	Business Requirement 1 – The client is interested to gain an overall insight into what the relations are between different design parameters (wing span, weights etc.) and different performance parameters (Max velocity, max rate of climb etc.) and which of these relationships are the strongest
+•	Business Requirement 2 – The client is interested to have a tool that can predict the feasibility (and of course generated ballpark design values that can be used as start-values in the design process) for different customer performance specifications using aircraft design/performance data. The caveat is that the answer would be representative based on the conventional aircraft design that is represented by the used airplane data.
+•	Business Requirement 3 – The client is also interested in categorising airplanes/data based on their Engine types (jet piston or turboprop*) to learn the pattern from what the sets the jets, piston powered and turboprops apart from each other. Here both design and performance data will be used in the categorisation.
+•	Business Requirement 4 – The client is also interested to see if any “invisible” airplane groups are hiding in the data.
+•	Business Requirement 5 – Although not requested by the client, Data Driven Design has decided to include a bonus analysis to encourage a continuation of assignments from our client.
+o	Cessna vs. Piper – a comparison on whose airplanes fair the best in different for different performance features.
+o	An performance overvues over time to se if, and if so, by how much the performance has improved up to today
+
+
+
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 - **Business Requirement 1:** Data Visualization and Correlation study
 	- We will inspect the data related to the customer base.
