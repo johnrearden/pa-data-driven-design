@@ -199,7 +199,7 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 
 <br><br>
 
-# GA Airplane Design-Performance Predictor - A Predictive Model for General Aviation
+# General Aviation Design-Performance Predictor and analysis- A Predictive Model for General Aviation
  
 <br><br>
 
@@ -310,10 +310,13 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
 
 <div style="display: flex; justify-content: space-around;">
-  <img src="image_readme/Aeronca_L-16_7BCM_140719a_dodge.jpg" alt="Example Image of Aeronca_L-16" height="250"/>
+  <img src="/workspace/data-driven-design/image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="250"/>
+  <img src="/workspace/data-driven-design/image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="250"/>
   <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="250"/>
 </div>
-<figcaption>Aeronca L-16 (left) representing one end of the data set and the  (right) representing the other</figcaption>
+<figcaption>Aeronca L-16 (left) representing one end of the data set and the Bombardier Global-7500 (right) representing the other and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)</figcaption>
+
+<br>
 
 **Important disclaimer**: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
 
@@ -348,8 +351,15 @@ Note also that I have used an already partly cleaned and imputed file which mean
 | Range   | **Range**                      | N.m. (Nautical miles)                                                            
 
 \* Propjet is more commonly referred to as "turboprop"
-
 \*\* Multiple Engines is most likely refering to no more than two (twin) engines.
+
+Note that we can glean valuable insight on how the features are distributed already when retrieving the data on the Kaggle website
+<img src="image_readme/kaggle_data_head_1.png" alt="Head of data from Kaggle site " width=1200/>
+<img src="image_readme/kaggle_data_head_2.png" alt="Head of data from Kaggle site " width=1200/>
+<img src="image_readme/kaggle_data_head_3.png" alt="Head of data from Kaggle site " width=1200/>
+<img src="image_readme/kaggle_data_head_4.png" alt="Head of data from Kaggle site " width=1200/>
+<img src="image_readme/kaggle_data_head_5.png" alt="Head of data from Kaggle site " width=1200/>
+
 ## Project Terms & Jargon
 	- A customer is a person who consumes your service or product.
 	- A prospect is a potential customer.
@@ -359,7 +369,9 @@ Note also that I have used an already partly cleaned and imputed file which mean
 ## Business Requirements
 The ficticous company *Data Driven Design* consist of data practitioners with the combined skillset of Vehicle Design and Machine Learning.
 
-<img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=/>
+<img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>
+
+<br>
 
 The fictitious client is the Conceptual Design Department of a new fledgling airplane manufacturer who wish to build design tools to quickly asses the feasibility of customer inquires (specifications) for new airplane performance as well as generate start values for the conceptual design process.
 
