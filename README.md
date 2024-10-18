@@ -636,6 +636,7 @@ jet, piston or propjet
 
 ### Units of data set features
 **Page Engine Type**
+Note that a conversion to SI units has not been made in the data set analysis.
 
 | Quantity | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
 |----------|------------------------------|---------------------------------------------|----------|
