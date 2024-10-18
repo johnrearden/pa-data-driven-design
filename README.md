@@ -189,11 +189,20 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 
 
 
+<br><br>
 
+<img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=/>
 
+<br><br>
 
+<img src="/workspace/data-driven-design/image_readme/general-aviation-performance-data-analysis-cover-image.jpg" alt="Cover Image for the General Aviation Performance Data Analysis" width="1600"/>
 
-# GA Airplane Design-Performance Predictor - A Predictive Model for General Aviation 
+<br><br>
+
+# GA Airplane Design-Performance Predictor - A Predictive Model for General Aviation
+ 
+<br><br>
+
  Exploration and Prediction of dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
 
 SAD Predictor is a machine-learning (ML) project using a General Aviation Performance dataset to achieve two things:
