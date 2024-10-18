@@ -558,4 +558,67 @@ Business Requirements
 - Cluster Profile
 
 
+## OUTLOOK
+### Impute more features to the data
 
+The **'year of first flight'** is an easily retrievable feature that would allow predictive accuracy/feasibility to be increased since old airplanes then could be filtered out when wanting to predict data for a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. Furthermore having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last 80 years!
+
+**Wing Area** Is one of the, for aircraft Design, most important and fundamental parameters, much more important than Wing Span that currently populates the data. Imputing Wing Area would also together with the existing data allow other important features to be calculated:
+* Wing area together with wing span allow the following to be calculated:
+  * **Mean chord** by dividing Wing Span with Wing Area (Which in turn allow the Wing Reynolds number to be calculated tother with a velocity of your choice from the data set and some constants
+  * **Wing Aspect Ratio** by squaring Wing Area and divide by Wing Span
+  The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
+
+## APPENDIX
+### Domain specific comments and equations on output features
+**Page Engine Type**
+jet, piston or propjet
+
+
+
+
+| Variable/Attribute         | Meaning/Information/Quantity                                                     | Units                                                                                |
+|------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| Model       | **Airplane's name**                                     | n/a                  |
+| Company           | **Manufacturer's name**                                             | n/a                                                                       |
+| Engine Type    | **Engine type**                        | categorical: jet, piston or propjet\*    
+| Multi Engine    | **Single or multiple engines**\**                         | categorical: single or multi engine                                                    |
+| TP mods          | Refers most likely to **Thrust Performance modifications**                               | True or False 
+| THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
+| SHP          | **Shaft Horse Power** for  ISA (International Standard Atmosphere)                               | HP   
+| Length          | **Airplane's length**                               | ft and in   
+| Height          | **Airplane's height**                           | ft and in   
+| Wing Span          | **Airplane's wingspan**                              | ft and in   
+| FW      | **fuel capacity/weight**                           | gal or lb                                                                            |
+| MEW           | **Empty weight** (a.k.a Manufacturer's Empty Weight )   | lb                                                                              |
+| AUW     | **Gross weight** (a.k.a All-Up Weight)                         | lb                                                                            |
+| Vmax    | **Maximum speed**                          | knot or Mach                                                            |
+| Vcruise  | **High cruise speed** (Rcmnd cruise)                   | knot                                                                 |
+| Vstall   | **Stall speed** on "dirty" configuration (flaps out, gear down, etc.)                         | knot                                                         |
+| Hmax     | **Maximum density-altitude** with all engines working                           | ft (as density-altitude)                                                         |
+| Hmax (One) | **Maximum density-altitude** with only one engine working.                       | ft (as density-altitude)                                                         |
+| ROC     | **Rate Of Climb** with all engines working                           | ft/min                                                         |
+| ROC (One)      | **Rate Of Climb** with only one engine working                            | ft/min                                                         |
+| Vlo  | **Climb speed** during normal take-off for a 50 ft obstacle                        | ft/min                                                         |
+| Slo         | **Takeoff ground run**                               | ft                                                   |
+| Vl | **Landing speed** during normal landing for a 50 ft obstacle                       | ft/min                                                                              |
+| Sl    | **Landing ground run**                                   | ft |
+| Range   | **Range**                      | N.m. (Nautical miles)                                                            
+
+\* Propjet is more commonly referred to as "turboprop"
+
+\*\* Multiple Engines is most likely refering to no more than two (twin) engines.
+
+
+
+
+
+### Units of data set features
+**Page Engine Type**
+
+| Quantity | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
+|----------|------------------------------|---------------------------------------------|----------|
+| "Propulsion size" | **Airplane's name** | n/a |          | Atmosphere)                               | HP    | 
+| Length/distance          | **Airplane's length**                               | ft and in  |    
+| Weight         | **Airplane's height**                           | ft and in    | 
+| Velocity          | **Airplane's wingspan**                              | ft and in  |    
