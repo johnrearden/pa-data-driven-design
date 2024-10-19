@@ -582,7 +582,13 @@ Business Requirements
 ## OUTLOOK
 ### Impute more features to the data
 
-The **'year of first flight'** is an easily retrievable feature that would allow predictive accuracy/feasibility to be increased since old airplanes then could be filtered out when wanting to predict data for a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. Furthermore having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last 80 years!
+The **'year of first flight'** is an easily retrievable feature that would be valuable for two reasons:
+* It would allow predictive accuracy/feasibility to be increased since old airplanes could be filtered out when predicting a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. 
+* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last 80 years!
+
+Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and Fabric", "All-Metal", "Metal and Composites" and "All-Composites" would, like "year of first flight", add value in two ways:
+* It would allow predictions to be based only on relevant types of airplanes. 
+* It would allow an interesting assessment on the benefit of construction type/material on actual performance.
 
 **Wing Area** Is one of the, for aircraft Design, most important and fundamental parameters, much more important than Wing Span that currently populates the data. Imputing Wing Area would also together with the existing data allow other important features to be calculated:
 * Wing area together with wing span allow the following to be calculated:
