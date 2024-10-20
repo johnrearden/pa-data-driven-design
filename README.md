@@ -186,24 +186,25 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 # BREAK
 # BREAK
 # BREAK
+<br><br><br><br>
 
 
 
-<br><br>
 
-<img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=/>
-
-<br><br>
+# General Aviation Design/Performance Predictor and analysis
 
 <img src="/workspace/data-driven-design/image_readme/general-aviation-performance-data-analysis-cover-image.jpg" alt="Cover Image for the General Aviation Performance Data Analysis" width="1600"/>
 
-<br><br>
+<div style="text-align: right;">
+<img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
 
-# General Aviation Design-Performance Predictor and analysis- A Predictive Model for General Aviation
+<br><br>
  
 <br><br>
+This is a A Predictive Model for General Aviation.
 
- Exploration and Prediction of dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
+Exploration and Prediction of dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
 
 SAD Predictor is a machine-learning (ML) project using a General Aviation Performance dataset to achieve two things:
 
@@ -596,57 +597,153 @@ Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and
   * **Wing Aspect Ratio** by squaring Wing Area and divide by Wing Span
   The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
 
-## APPENDIX
-### Domain specific comments and equations on output features
-**Page Engine Type**
-jet, piston or propjet
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# APPENDIX
+<br>
+
+## Domain specific comments and equations on output features
+Below are dependencies outlined between the features (as well as features mentioned in the Outlook) relevant for making Hypothesis.
+
+### Engine Type (categories: Jet, Piston and propjet)
+Jet generally offers faster speeds, higher ceilings and better range (thanks to faster speed and better fuel efficiency). Propjet generally falls somewhere between these two engine types.
+
+### Multi Engine (categories: Single Engine and Multi Engine)
+Multiple Engines generally offer better Speed, Range and Climb.
+
+### TP mods (categories: Modification or not)
+This feature most likely refer to **Thrust Performance modifications** on Turbo Prop Engines (referred to as propjet in the data set) and is relevant only for the category propjet in the "Engine Type"-feature.  
+### THR
+Both jet and piston engines experience reduced performance at higher **altitudes** due to decreased air density, but generally jet engines perform better at higher altitudes than piston engines. The same goes for **speed** where piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One ofthe reasons for this limit is that the propeller tips reaches the speed of sound with dramatic penalties. 
+Speed: Both types of engines face increased challenges as speed rises, including increased drag and potential loss of efficiency. Jet engines are designed to handle higher speeds more effectively than piston engines.
+### SHP
+The decrease 
+
+where piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One of the reasons for this limit is that the propeller tips reaches the speed of sound with dramatic penalties. 
+Speed: Both types of engines face increased challenges as speed rises, including increased drag and potential loss of efficiency. Jet engines are designed to handle higher speeds more effectively than piston engines.
+The SHP could also be calculated by a similar formula using the the engine speed in RPM instead of the velocity of the aircraft.
+
+### Length
+This feature is of little value from a design/performance perspective albeit it could be possible to use for corelation. The part of the length between the wings and tail planes quarter chords would be of a greater interest since it dictates static and dynamic stability. 
+### Height
+In a similar way to the Length this feature is of only little value.
+
+### Wing Span
+Wing Span is the one single dimensional feature of real value in the dataset however even here the Wing Area would be an even more useful feature to have. It does not directly relate to Lift (via the classic Lift equation) however for similar wing aspect ratios the span is proportional to the Wing Area and therefor 
+
+<br>
+<img src="image_readme/equations/eq_lift.png" alt="Equation for" style="width: 70%;"/>
+<br>
+
+### FW (Fuel Weight)
+Fuel weight (together with "AUW") naturally have strong correlation with **Range** Since the more fuel you carry in relationship to the weight of the airplane, the further you can fly (please see the equation for Range).
+
+Note also that the FW can be used in the Range Equation.
+
+### MEW (Empty weight, a.k.a Manufacturer's Empty Weight )
+The Empty weight would be interesting to plot against **Year of first flight** and **Aircraft Structure** (see Outlook-chapter)
+<br>
+<img src="image_readme/equations/eq_mew.png" alt="Equation for" style="width: 50%;"/>
+<br>
+
+### AUW (Gross weight, a.k.a All-Up Weight)
+The All-up Weight have a strong correlation with **Wing area** since the Lifting force that the wing produces need to counteract the weight and Wing Area is part of the lift equation (see Outlook-chapter) but also Wing Span (albeit Aspect ratios vary)
+
+Note also that the AUW can be used in the Range Equation.
+
+<br>
+<img src="image_readme/equations/eq_auw.png" alt="Equation for SHP " style="width: 50%;"/>
+<br>
+
+### Vmax (Max speed)
+
+<br>
+<img src="image_readme/equations/eq_v_max.png" alt="Equation for SHP " style="width: 50%;"/>
+<br>
+
+### Vcruise (Cruise speed)
+<br>
+<img src="image_readme/equations/eq_v_cruise.png" alt="Equation for SHP" style="width: 45%;"/>
+<br>
+
+### Vstall (Stall speed)
+
+<br>
+<img src="image_readme/equations/eq_v_stall.png" alt="Equation for SHP" style="width: 35%;"/>
+<br>
+
+### Hmax (Max altitude)
+FW and AUW and Albeit not explicit in the below equation Hmax is strongly related to ROC since Hmax has been reached when the ROC reaches zero.
+
+Directly:
+* FW and AUW
+
+Indirectly:
+* ROC
+
+<br>
+<img src="image_readme/equations/eq_h_max.png" alt="Equation for SHP" style="width: 40%;"/>
+<br>
+
+### Hmax (One) (Max altitude with only one Engine)
 
 
+### ROC (Rate of Climb)
+THR, Vmax and AUW
+<br>
+<img src="image_readme/equations/eq_roc.png" alt="Equation for SHP" style="width: 45%;"/>
+<br>
+
+### ROC (One) (Rate of Climb with only one Engine)
 
 
-| Variable/Attribute         | Meaning/Information/Quantity                                                     | Units                                                                                |
-|------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Model       | **Airplane's name**                                     | n/a                  |
-| Company           | **Manufacturer's name**                                             | n/a                                                                       |
-| Engine Type    | **Engine type**                        | categorical: jet, piston or propjet\*    
-| Multi Engine    | **Single or multiple engines**\**                         | categorical: single or multi engine                                                    |
-| TP mods          | Refers most likely to **Thrust Performance modifications** on Turbo Prop Engines (propjet)                               | True or False 
-| THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
-| SHP          | **Shaft Horse Power** for  ISA (International Standard Atmosphere)                               | HP   
-| Length          | **Airplane's length**                               | ft and in   
-| Height          | **Airplane's height**                           | ft and in   
-| Wing Span          | **Airplane's wingspan**                              | ft and in   
-| FW      | **fuel capacity/weight**                           | gal or lb                                                                            |
-| MEW           | **Empty weight** (a.k.a Manufacturer's Empty Weight )   | lb                                                                              |
-| AUW     | **Gross weight** (a.k.a All-Up Weight)                         | lb                                                                            |
-| Vmax    | **Maximum speed**                          | knot or Mach                                                            |
-| Vcruise  | **High cruise speed** (Rcmnd cruise)                   | knot                                                                 |
-| Vstall   | **Stall speed** on "dirty" configuration (flaps out, gear down, etc.)                         | knot                                                         |
-| Hmax     | **Maximum density-altitude** with all engines working                           | ft (as density-altitude)                                                         |
-| Hmax (One) | **Maximum density-altitude** with only one engine working.                       | ft (as density-altitude)                                                         |
-| ROC     | **Rate Of Climb** with all engines working                           | ft/min                                                         |
-| ROC (One)      | **Rate Of Climb** with only one engine working                            | ft/min                                                         |
-| Vlo  | **Climb speed** during normal take-off for a 50 ft obstacle                        | ft/min                                                         |
-| Slo         | **Takeoff ground run**                               | ft                                                   |
-| Vl | **Landing speed** during normal landing for a 50 ft obstacle                       | ft/min                                                                              |
-| Sl    | **Landing ground run**                                   | ft |
-| Range   | **Range**                      | N.m. (Nautical miles)                                                            
+### VLo (Climb speed during normal take-off for a 50 ft obstacle)
+AUW and Span, indirectly, via Wing Area since Span and wing Area is somewhat related to each other.
+<br>
+<img src="image_readme/equations/eq_v_lo.png" alt="Equation for SHP"  style="width: 35%;/">
+<br>
 
-\* Propjet is more commonly referred to as "turboprop"
+### SLo (Takeoff ground run)
+The takeoff ground run has a THR and AUW
+<br>
+<img src="image_readme/equations/eq_s_lo.png" alt="Equation for SHP" style="width: 40%;/">
+<br>
 
-\*\* Multiple Engines is most likely refering to no more than two (twin) engines.
+### Vl (Landing speed during normal landing for a 50 ft obstacle)
+The Vl has a strong collelation to Vstall as well as the FW and AUW.
+<br>
+<img src="image_readme/equations/eq_vl.png" alt="Equation for SHP" style="width: 50%;/">
+<br>
 
+### Sl (Takeoff ground run)
+Sl will only weakly correlate to the data set features. 
+<br>
+<img src="image_readme/equations/eq_sl.png" alt="Equation for SHP" style="width: 50%;/">
+<br>
 
+### Range
+The classic Range equation (The Breguet Range equation) shows the direct relationship on the relationship between the fuel and also, indirectly, Wing Span via Lift (see the lift equation under Wing Span).
 
+Please note that the AUW can be used as the initial weight in the Range Equation and that AUW - FW can be used as the final weight (After the fuel is consumed).
 
+<br>
+<img src="image_readme/equations/eq_range.png" alt="Equation for SHP" style="width: 40%;/">
+<br>
+<br>
 
-### Units of data set features
+## Units of data set features
 **Page Engine Type**
 Note that a conversion to SI units has not been made in the data set analysis.
 
-| Quantity | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
-|----------|------------------------------|---------------------------------------------|----------|
-| "Propulsion size" | **Airplane's name** | n/a |          | Atmosphere)                               | HP    | 
-| Length/distance          | **Airplane's length**                               | ft and in  |    
-| Weight         | **Airplane's height**                           | ft and in    | 
-| Velocity          | **Airplane's wingspan**                              | ft and in  |    
+|      Quantity     | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
+|-------------------|------------------------------|---------------------------------------------|----------|
+| "Propulsion size" | x            | lbf and HP                                  | N and W  |   
+| Length            | x            | ft and in                                   |    m     |  
+| Distance          | x                        | N.m. (Nautical miles)                       |   km     |  
+| Weight            | x            | lb                                          | kg or N  |
+| Velocity          | x          | knot or Mach and in                         |   m/s    |   
+| Vertical velocity | x          | ft/min                                      |   m/s    |
