@@ -610,7 +610,7 @@ jet, piston or propjet
 | Company           | **Manufacturer's name**                                             | n/a                                                                       |
 | Engine Type    | **Engine type**                        | categorical: jet, piston or propjet\*    
 | Multi Engine    | **Single or multiple engines**\**                         | categorical: single or multi engine                                                    |
-| TP mods          | Refers most likely to **Thrust Performance modifications**                               | True or False 
+| TP mods          | Refers most likely to **Thrust Performance modifications** on Turbo Prop Engines (propjet)                               | True or False 
 | THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
 | SHP          | **Shaft Horse Power** for  ISA (International Standard Atmosphere)                               | HP   
 | Length          | **Airplane's length**                               | ft and in   
