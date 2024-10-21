@@ -311,8 +311,8 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
 
 <div style="display: flex; justify-content: space-around;">
-  <img src="/workspace/data-driven-design/image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="250"/>
-  <img src="/workspace/data-driven-design/image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="250"/>
+  <img src="/workspace/data-driven-design/image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="250"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="/workspace/data-driven-design/image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="250"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="250"/>
 </div>
 <figcaption>Aeronca L-16 (left) representing one end of the data set and the Bombardier Global-7500 (right) representing the other and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)</figcaption>
@@ -327,7 +327,7 @@ Note also that I have used an already partly cleaned and imputed file which mean
 |------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Model       | **Airplane's name**                                     | n/a                  |
 | Company           | **Manufacturer's name**                                             | n/a                                                                       |
-| Engine Type    | **Engine type**                        | categorical: jet, piston or propjet\*    
+| Engine Type    | **Engine type**                        | categorical: piston, propjet or jet\*    
 | Multi Engine    | **Single or multiple engines**\**                         | categorical: single or multi engine                                                    |
 | TP mods          | Refers most likely to **Thrust Performance modifications**                               | True or False 
 | THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
@@ -609,7 +609,7 @@ Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and
 ## Domain specific comments on relationships between the features in the data set
 Outlined below are the dependencies between the features in the data set (and features mentioned in the Outlook) relevant for making hypotheses. Other dataset features are encircled in red as they appear in the equations. Underlined features indicate that they are indirectly related to other features in the dataset however the selection of which features to underline is rather ambiguous.
 
-### Engine Type (categories: Jet, Piston and propjet)
+### Engine Type (categories: Piston and propjet, jet)
 Jet generally offers higher **speed** and **ceilings** as well as better **range**. Propjet generally falls somewhere between these two engine types.  Piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One reasons for this "barrier" is because the large diameter propeller tips reach the speed of sound. Both jet and piston engines experience reduced performance at higher **altitudes** due to decreased air density, but generally jet engines perform better at higher altitudes than piston engines. The better Range is due to higher speed and fuel efficiency
 
 ### Multi Engine (categories: Single Engine and Multi Engine)
