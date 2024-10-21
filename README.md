@@ -606,34 +606,44 @@ Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and
 # APPENDIX
 <br>
 
-## Domain specific comments and equations on output features
-Below are dependencies outlined between the features (as well as features mentioned in the Outlook) relevant for making Hypothesis.
+## Domain specific comments on relationships between the features in the data set
+Outlined below are the dependencies between the features in the data set (and features mentioned in the Outlook) relevant for making hypotheses. Other dataset features are encircled in red as they appear in the equations. Underlined features indicate that they are indirectly related to other features in the dataset however the selection of which features to underline is rather ambiguous.
 
 ### Engine Type (categories: Jet, Piston and propjet)
-Jet generally offers faster speeds, higher ceilings and better range (thanks to faster speed and better fuel efficiency). Propjet generally falls somewhere between these two engine types.
+Jet generally offers higher **speed** and **ceilings** as well as better **range**. Propjet generally falls somewhere between these two engine types.  Piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One reasons for this "barrier" is because the large diameter propeller tips reach the speed of sound. Both jet and piston engines experience reduced performance at higher **altitudes** due to decreased air density, but generally jet engines perform better at higher altitudes than piston engines. The better Range is due to higher speed and fuel efficiency
 
 ### Multi Engine (categories: Single Engine and Multi Engine)
-Multiple Engines generally offer better Speed, Range and Climb.
+Multiple Engines generally offer better **Speed**, **Range** and **Climb** performance.
 
 ### TP mods (categories: Modification or not)
 This feature most likely refer to **Thrust Performance modifications** on Turbo Prop Engines (referred to as propjet in the data set) and is relevant only for the category propjet in the "Engine Type"-feature.  
-### THR
-Both jet and piston engines experience reduced performance at higher **altitudes** due to decreased air density, but generally jet engines perform better at higher altitudes than piston engines. The same goes for **speed** where piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One ofthe reasons for this limit is that the propeller tips reaches the speed of sound with dramatic penalties. 
-Speed: Both types of engines face increased challenges as speed rises, including increased drag and potential loss of efficiency. Jet engines are designed to handle higher speeds more effectively than piston engines.
-### SHP
-The decrease 
 
-where piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One of the reasons for this limit is that the propeller tips reaches the speed of sound with dramatic penalties. 
-Speed: Both types of engines face increased challenges as speed rises, including increased drag and potential loss of efficiency. Jet engines are designed to handle higher speeds more effectively than piston engines.
+### THR
+
+<br>
+<img src="image_readme/equations/eq_thr.png" alt="Equation for" style="width: 40%;"/>
+<br>
+
+### SHP
+
+<br>
+<img src="image_readme/equations/eq_shp_tn.png" alt="Equation for" style="width: 30%;"/>
+<br>
+
+<br>
+<img src="image_readme/equations/eq_shp_p.png" alt="Equation for" style="width: 30%;"/>
+<br>
+
 The SHP could also be calculated by a similar formula using the the engine speed in RPM instead of the velocity of the aircraft.
 
 ### Length
-This feature is of little value from a design/performance perspective albeit it could be possible to use for corelation. The part of the length between the wings and tail planes quarter chords would be of a greater interest since it dictates static and dynamic stability. 
+This feature is of little value from a design/performance perspective albeit it could be used for corelation. The part of the length between the wings and tail planes quarter chords would be of a greater interest since it dictates static and dynamic stability.
+
 ### Height
-In a similar way to the Length this feature is of only little value.
+This feature is of an even smaller value than Length.
 
 ### Wing Span
-Wing Span is the one single dimensional feature of real value in the dataset however even here the Wing Area would be an even more useful feature to have. It does not directly relate to Lift (via the classic Lift equation) however for similar wing aspect ratios the span is proportional to the Wing Area and therefor 
+Wing Span is the one single dimensional feature of real value in the dataset however even here the Wing Area would be an even more useful feature to have. Wing Span does not directly relate to Lift (via the classic Lift equation) however since the wingspan is quadratically proportional to wing area (assuming constant aspect ratio/mean chord) a correlation with Wing Span should be seen whenever there is a correlation with Wing Area.
 
 <br>
 <img src="image_readme/equations/eq_lift.png" alt="Equation for" style="width: 70%;"/>
@@ -645,13 +655,14 @@ Fuel weight (together with "AUW") naturally have strong correlation with **Range
 Note also that the FW can be used in the Range Equation.
 
 ### MEW (Empty weight, a.k.a Manufacturer's Empty Weight )
-The Empty weight would be interesting to plot against **Year of first flight** and **Aircraft Structure** (see Outlook-chapter)
+The Empty weight would be interesting to plot against **Year of first flight** and **Aircraft Structure** (see Outlook-chapter) to see if, with new modern material and buildung techniques" the airplanes have become lighter. For this such a study it is important to use MEW rather than AUW.
+
 <br>
 <img src="image_readme/equations/eq_mew.png" alt="Equation for" style="width: 50%;"/>
 <br>
 
 ### AUW (Gross weight, a.k.a All-Up Weight)
-The All-up Weight have a strong correlation with **Wing area** since the Lifting force that the wing produces need to counteract the weight and Wing Area is part of the lift equation (see Outlook-chapter) but also Wing Span (albeit Aspect ratios vary)
+The All-up Weight have a strong correlation with **Wing area** (as do MEW of course however AUW is the more appropriate feature here) since the Lifting force that the wing produces need to counteract the weight and Wing Area is part of the lift equation (see Outlook-chapter) but also Wing Span (albeit Aspect ratios vary)
 
 Note also that the AUW can be used in the Range Equation.
 
@@ -660,37 +671,34 @@ Note also that the AUW can be used in the Range Equation.
 <br>
 
 ### Vmax (Max speed)
+Max Speed should have a strong correlation to both Propulsion type and Multi Engine (and probably TP mods).
 
 <br>
 <img src="image_readme/equations/eq_v_max.png" alt="Equation for SHP " style="width: 50%;"/>
 <br>
 
 ### Vcruise (Cruise speed)
+Cruise Speed should have a strong correlation to both Propulsion type and Multi Engine (and probably TP mods).
+
 <br>
 <img src="image_readme/equations/eq_v_cruise.png" alt="Equation for SHP" style="width: 45%;"/>
 <br>
 
 ### Vstall (Stall speed)
-
+Stall speed should have a strong correlation to AUW and the relationship with Wing Span (and even more Wing Area) and AUW
 <br>
 <img src="image_readme/equations/eq_v_stall.png" alt="Equation for SHP" style="width: 35%;"/>
 <br>
 
 ### Hmax (Max altitude)
-FW and AUW and Albeit not explicit in the below equation Hmax is strongly related to ROC since Hmax has been reached when the ROC reaches zero.
-
-Directly:
-* FW and AUW
-
-Indirectly:
-* ROC
+**Velocity** is trongly correlated and Albeit not explicit in the below equation Hmax is strongly related to **ROC** since Hmax has been reached when the ROC reaches zero. Wing Span (more than Wing area) should also have a strong correlation. FW and AUW 
 
 <br>
 <img src="image_readme/equations/eq_h_max.png" alt="Equation for SHP" style="width: 40%;"/>
 <br>
 
 ### Hmax (One) (Max altitude with only one Engine)
-
+See Hmax.
 
 ### ROC (Rate of Climb)
 THR, Vmax and AUW
@@ -699,7 +707,7 @@ THR, Vmax and AUW
 <br>
 
 ### ROC (One) (Rate of Climb with only one Engine)
-
+See ROC.
 
 ### VLo (Climb speed during normal take-off for a 50 ft obstacle)
 AUW and Span, indirectly, via Wing Area since Span and wing Area is somewhat related to each other.
@@ -741,9 +749,9 @@ Note that a conversion to SI units has not been made in the data set analysis.
 
 |      Quantity     | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
 |-------------------|------------------------------|---------------------------------------------|----------|
-| "Propulsion size" | x            | lbf and HP                                  | N and W  |   
-| Length            | x            | ft and in                                   |    m     |  
-| Distance          | x                        | N.m. (Nautical miles)                       |   km     |  
-| Weight            | x            | lb                                          | kg or N  |
-| Velocity          | x          | knot or Mach and in                         |   m/s    |   
-| Vertical velocity | x          | ft/min                                      |   m/s    |
+| "Propulsion size" | THR, SHP            | lbf and HP                                  | N and W  |   
+| Length            | Wing Span, Lenght, Height, Slo and Sl           | ft and in                                   |    m     |  
+| Distance          | Range                        | N.m. (Nautical miles)                       |   km     |  
+| Weight            | FW, AUW and MEW            | lb                                          | kg or N  |
+| Velocity          | Vmax, Vcruise, Vstall,          | knot or Mach and in                         |   m/s    |   
+| Vertical velocity | ROC, Vlo and Vl          | ft/min                                      |   m/s    |
