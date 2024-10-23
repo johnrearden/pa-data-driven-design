@@ -16,7 +16,7 @@ def page_overview_data_points_images_body():
     )
     st.write("---")
     
-    display_airplane_features()
+    # display_airplane_features() Probably remove this, cant remember from where it comes from
 
 
 # Streamlit app
