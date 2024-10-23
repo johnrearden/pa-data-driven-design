@@ -2,9 +2,6 @@ FEATURE,MIN_model,MIN_company,MIN_value,MEAN_model,MEAN_company,MEAN_value,MAX_m
 Wing_Span,182S ('97 & up),Cessna Aircraft Company,16.0,TBM 850,EADS Socata Aircraft,41.3558148580319,Global 7500,Bombardier Aerospace Business Aircraft,104.0
 Length,M18 Mite,Mooney Aircraft,17.583333333333332,PA-31P-350 Mojave,Piper Aircraft,34.482117764408216,Lineage 1000,Embraer Aircraft - Empresa Brasileira,118.91666666666669
 Height,A-2,Aircoupe-Alon,5.083333333333333,421 - A & B,Cessna Aircraft Company,11.347784284183781,Lineage 1000,Embraer Aircraft - Empresa Brasileira,33.75
-Multi_Engine,15 AC Sedan,Aeronca,False,15 AC Sedan,Aeronca,0.47724620770128356,PA-60-700P Aerostar (preliminary),Aerostar Aircraft Corporation,True
-TP_mods,15 AC Sedan,Aeronca,False,15 AC Sedan,Aeronca,0.06884480746791131,Superstar II (600 series Aerostar),Machen Inc.,True
-Engine_Type,15 AC Sedan,Aeronca,0,15 AC Sedan,Aeronca,0.4690781796966161,Beechjet 400 (400A has increased weights),Beechcraft (Hawker Beechcraft),2
 THR,Acclaim Ultra (M20V),Mooney Aircraft,280.0,Hawker 750,Hawker Beechcraft,5458.318181818182,Global 7500,Bombardier Aerospace Business Aircraft,18920.0
 SHP,7ACA,American Champion Aircraft Corporation,60.0,58 P Baron-press.('77 hgt=9/6) (range based on 190 gal fuel),Beechcraft (Hawker Beechcraft),314.8357041251778,GI (G-159) ceiling quoted w/APU,Gulfstream Aerospace,1950.0
 AUW,M18 Mite,Mooney Aircraft,850.0,Merlin II A,Fairchild M7 Aerospace,9754.535589264877,Lineage 1000,Embraer Aircraft - Empresa Brasileira,120152.0
