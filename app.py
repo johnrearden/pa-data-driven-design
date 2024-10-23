@@ -4,7 +4,7 @@ from app_pages.multipage import MultiPage
 # load pages scripts
 # from app_pages.page_summary import page_summary_body
 from app_pages.page_overview_data_points import page_overview_data_points_body
-from app_pages.page_overview_data_points import page_overview_data_points_images_body
+from app_pages.page_overview_data_points_images import page_overview_data_points_images_body
 # from app_pages.page_churned_customer_study import page_churned_customer_study_body
 # from app_pages.page_prospect import page_prospect_body
 # from app_pages.page_project_hypothesis import page_project_hypothesis_body
@@ -16,7 +16,6 @@ app = MultiPage(app_name= "General Aviation Analysis and Predictor tool") # Crea
 
 # Add your app pages here using .add_page()
 # app.add_page("Quick Project Summary", page_summary_body)
-/workspace/data-driven-design/app_pages/page_overview_data_points_images.py
 app.add_page("Overview of data points", page_overview_data_points_body)
 app.add_page("Overview of data points with images", page_overview_data_points_images_body)
 # app.add_page("Customer Base Churn Study", page_churned_customer_study_body)
