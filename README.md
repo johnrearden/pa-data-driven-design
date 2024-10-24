@@ -538,80 +538,66 @@ Business Requirements
 	- Describe Project Dataset
 	- State Business Requirements
 
-### Page 2: Overview of data points
-- Before the analysis, we knew we wanted this page to answer business requirement 1, but we couldn't know in advance which plots would need to be displayed.
-- After data analysis, we agreed with stakeholders that the page will: 
-	- State business requirement 1
-	- Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
-	- Display the most correlated variables to churn and the conclusions
-	- Checkbox: Individual plots showing the churn levels for each correlated variable 
-	- Checkbox: Parallel plot using Churn and correlated variables 
+### Page 2: Airplane Feature Visualizer
+- Concretize the data set for by display images of the airplanes in the "middle" and "Edges" of the data set:
+	- Image: One image of the airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
 
-### Page 3: Airplane Feature Visualizer
-- Before the analysis, we knew we wanted this page to answer business requirement 1, but we couldn't know in advance which plots would need to be displayed.
-- After data analysis, we agreed with stakeholders that the page will: 
-	- State business requirement 1
-	- Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
-	- Display the most correlated variables to churn and the conclusions
-	- Checkbox: Individual plots showing the churn levels for each correlated variable 
-	- Checkbox: Parallel plot using Churn and correlated variables 
-
-### Page 4: Domain Specific Analysis
+### Page 3: Domain Specific Analysis
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 5: Piper vs. Cessna
+### Page 4: Piper vs. Cessna
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 6: Engine Type Airplane Study
+### Page 5: Engine Type Airplane Study
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 7: Predict Engine Type
+### Page 6: Predict Engine Type
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 8: Multi Engine Airplane Study
+### Page 7: Multi Engine Airplane Study
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 9: Predict Multi Engine
+### Page 8: Predict Multi Engine
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 10: Project Hypothesis and Validation
+### Page 9: Project Hypothesis and Validation
 - Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
 - 1 - We suspect customers are churning with low tenure levels
 	- Correct. The correlation study at Churned Customer Study supports that.
 - 2 -  A customer survey showed our customers appreciate Fibre Optic.
 	- A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
 
-### Page 11: Predict Engine Type
+### Page 10: Predict Engine Type
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline performance
 
-### Page 12: Predict Multi Engine
+### Page 11: Predict Multi Engine
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline performance
 
-### Page 13: Predict Wing Span
+### Page 12: Predict Wing Span
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline performance
 
-### Page 14: Cluster Analysis
+### Page 13: Cluster Analysis
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Silhouette plot
