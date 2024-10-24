@@ -18,7 +18,16 @@ class MultiPage:
         self.pages.append({"title": title, "function": func })
 
     def run(self):
+        # Display the DDD logo
+        st.sidebar.write("")
+        st.sidebar.write("")
+        st.sidebar.image("image_readme/data_driven_design_logo_5.png", width=250)
+        st.sidebar.write("")
+        st.sidebar.write("")
+
         st.title(self.app_name)
         page = st.sidebar.radio('Menu', self.pages, format_func=lambda page: page['title'])
-        page['function']() 
+        page['function']()
+
+
 
