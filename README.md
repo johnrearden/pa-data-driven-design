@@ -191,7 +191,8 @@ design parameters (Wing span, propulsion type etc.) need to take on in order to 
 
 
 
-# General Aviation Design/Performance Predictor and analysis
+
+# General Aviation Performance Analysis and Predictor tool
 
 <img src="/workspace/data-driven-design/image_readme/general-aviation-performance-data-analysis-cover-image.jpg" alt="Cover Image for the General Aviation Performance Data Analysis" width="1600"/>
 
