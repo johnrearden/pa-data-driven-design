@@ -24,13 +24,13 @@ def page_airplane_feature_visualizer_body():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.image(min_image_path, caption=f"{row['MIN_model']} ({row['MIN_company']})\nMIN: {row['MIN_value']}")
+        st.image(min_image_path, caption=f"{row['MIN_model']} ({row['MIN_company']})\nMIN: {row['MIN_value']} {row['units']}")
     
     with col2:
-        st.image(mean_image_path, caption=f"{row['MEAN_model']} ({row['MEAN_company']})\nMEAN: {row['MEAN_value']}")
+        st.image(mean_image_path, caption=f"{row['MEAN_model']} ({row['MEAN_company']})\nMEAN: {row['MEAN_value']} {row['units']}")
 
     with col3:
-        st.image(max_image_path, caption=f"{row['MAX_model']} ({row['MAX_company']})\nMAX: {row['MAX_value']}")
+        st.image(max_image_path, caption=f"{row['MAX_model']} ({row['MAX_company']})\nMAX: {row['MAX_value']} {row['units']}")
 
     # inspect data
     if st.checkbox("Inspect Airplane data"):

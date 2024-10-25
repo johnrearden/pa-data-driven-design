@@ -19,9 +19,8 @@ class MultiPage:
 
     def run(self):
         # Display the DDD logo
+        st.sidebar.image("images_dashboard/data_driven_design_logo_300.png", width=250)
         st.sidebar.write("")
-        st.sidebar.write("")
-        st.sidebar.image("image_readme/data_driven_design_logo_5.png", width=250)
         st.sidebar.write("")
         st.sidebar.write("")
 
