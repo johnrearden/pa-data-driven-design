@@ -369,69 +369,34 @@ Note that we can glean valuable insight on how the features are distributed alre
 	- This customer has a tenure level, which is the number of months this person has used our product/service.
 
 ## Business Requirements
-The ficticous company *Data Driven Design* consist of data practitioners with the combined skillset of Vehicle Design and Machine Learning.
+The ficticous company *Data Driven Design* (DDD) consist of data practitioners with the combined skillset of Vehicle Design and Machine Learning.
 
 <img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>
 
 <br>
 
-The fictitious client is the Conceptual Design Department of a new fledgling airplane manufacturer who wish to build design tools to quickly asses the feasibility of customer inquires (specifications) for new airplane performance as well as generate start values for the conceptual design process.
+The fictitious client is the Conceptual Design Department of a new fledgling airplane manufacturer who wish to build design tools to:
+* Quickly asses the feasability of performance specifications submitted by customers.
+* To generate start values for conceptual design processes.
+* To compare their designs agaisnt the competion.
 
- come up with ball park estimates on conceptual airplane design for specifications submitted by their customers. an ML algorithm from a data practitioner shows the patterns between design and performance features and is able to to predict performance based on design features as well as (the other way around) to predict what values design features need to take on to reach certain performance targets all based on the dataset provided. The aim is to maximise xxxxx.
+**Business Requirement 1** - The client is interested in understanding the relationships between the Design and Performance features in general and which of these relationships have the greatest influence on each other.
 
-**Business Requirement 1** - The client is interested in understanding which Performance features affect the most by changes in the design parameters
+**Business Requirement 2** - The client is interested in categorizing the airplanes based on engine type (jet, piston or propjet) using supervised learning.
 
-**Business Requirement 2** - The client is interested in predicting the necessary values that the Design parameters need to take on in order to reach certain performance targets.
+**Business Requirement 3** - The client is interested in predicting the necessary values that Wing Span (Design feature) need to take on in order to reach certain performance targets. 
 
-**Business Requirement 3** - The client is also interested in categorising airplanes based on engine type (jet, piston or propjet) (supervised learning)
+**Business Requirement 4** - The client is interested to see if the airplanes can be clustered into distinct groups based on their features (both design and performance features) using unsupervised learning.
 
-**Business Requirement 4** - The client is also interested to see if the airplanes cluster into distinct groups based their features (unsupervised learning)
+This customer request is only an initial assesement of what ML can do for their company. Theire is a potential for a long term cooperation if the customer is satisfied with the analysis. For this reason DDD has added a bonus-sample with a comparison between the competion, piching, the two largest Airplane manufacturers in the data set, Piper and Cessna against each other.
 
+**Accuracy:** Naturally the goal is always to maximise accuracy however the nature of Conceptual design is that ballpark figures goes a long way and the understanding of the background from where the data comes is more important. The accuracy is not a safety concern.
 
+**Scalability:** The solution should be scalable in the sense that new features as well as new data points (Airplanes) could be added to the data set.
 
-The client (a company's HR department) requested a ML algorithm from a data practitioner to predict attrition based on the dataset provided. The aim is to minimize attrition rates.
-
-Business Requirement 1 - The client is interested in understanding the main factors leading to attrition
-Business Requirement 2 - The client is interested in predicting whether a certain employee will decide to leave the company
-
-
-
-
-Cardiovascular diseases are the number 1 cause of death globally, accounting for 31% of all deaths worldwide. People with cardiovascular disease or who are at high risk of disease need early detection and management. A fictional organisation has requested a data practitioner to analyse a dataset of patients from a number of different hospitals in order to determine what factors can be attributed to a high risk of disease and whether patient data can accurately predict risk of heart disease.
-
-Business Requirement 1 - The client is interested in which attributes correlate most closely with heart disease, ie what are the most common risk factors?
-
-Business Requirement 2 - The client is interested in using patient data to predict whether or not a patient is at risk of heart disease.
+**Speed:** The model should be able to make predictions in real-time (more or less).
 
 
-
-
-
-As a Data Analyst from Code Institute Consulting, you are requested by the Telco division to provide actionable insights and data-driven recommendations to a Telecom corporation. This client has a substantial customer base and is interested in managing churn levels and understanding how the sales team could better interact with prospects. The client has shared the data.
-
-- 1 - The client is interested in understanding the patterns from the customer base so that the client can learn the most relevant variables correlated to a churned customer.
-- 2 - The client is interested in determining whether or not a given prospect will churn. If so, the client is interested to know when. In addition, the client is interested in learning from which cluster this prospect will belong in the customer base. Based on that, present potential factors that could maintain and/or bring the prospect to a non-churnable cluster.
-
-
-
-
-
-The primary objective of this project is to develop a machine learning model for the early detection of brain tumors from medical images. The model should assist medical professionals in making quicker and more accurate diagnoses, and the patients should benefit from the earlier detection and the tempestive and appropriate treatment planning.
-
-Key Stakeholders, therefore should be: - Medical professionals - Patients - Hospitals and healthcare facilities
-
-Requirements:
-
-Accuracy: The model should have a high accuracy rate in classifying brain images as either tumor (1) or non-tumor (0).
-Interpretability: The model should provide some insight into the prediction process and the relevant feature importance in that process, so the medical professionals could understand the relevant discoveries.
-Scalability: The solution should be scalable to handle a large volume of brain images from various sources.
-Speed: The model should be able to make predictions in real-time so that the reliable quick diagnosis could be make.
-Privacy: The meticulous attention should be given in the data collection in order to guarantee the patient's anonymity and consent for the data usage.
-In short, the project businsess objectives are as follows:
-
-The client is interested in having an analysis of the visual difference between the MRI brain scan of healthy and brain with tumor. The analysis should provide, among other things: the average image and variability per label in the data set.
-The client is interested in having a functional and reliable ML model that could predict the presence or absence of the tumor from the image of the MRI brain scan. For the realisation of this business objective, a deep learning pipeline should be developed with the binary classification of the MRI images. The said pipeline should be also deployed.
-The Streamlit Dashboard will be developed that will finally serve as a platform for the presentation of the results of first two business objectives, together with the interactive implementation of the prediction of the unseen MRI image.
 
 
 ## Hypothesis and how to validate?

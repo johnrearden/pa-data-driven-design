@@ -28,14 +28,20 @@ def page_summary_body():
     
 
     # copied from README file - "Business Requirements" section
+
     st.success(
-        f"The project has 2 business requirements:\n"
-        f"* 1 - The client is interested in understanding the patterns from the customer base "
-        f"so that the client can learn the most relevant variables that are correlated to a "
-        f"churned customer.\n"
-        f"* 2 - The client is interested in determining whether or not a given prospect will churn. "
-        f"If so, the client is interested to know when. In addition, the client is "
-        f"interested in learning from which cluster this prospect will belong in the customer base. "
-        f"Based on that, present potential factors that could maintain and/or bring  "
-        f"the prospect to a non-churnable cluster."
-        )
+        f"The project has 4 business requirements:\n"
+
+        f"* 1 - The client is interested in understanding the relationships"
+        f" between the Design and Performance features in general and which of these relationships "
+        f"have the greatest influence on each other.\n"
+
+        f"* 2 - The client is interested in categorizing the airplanes based"
+        f" on engine type (jet, piston or propjet) using supervised learning.\n"
+
+        f"* 3 - The client is interested in predicting the necessary values"
+        f" that Wing Span (Design feature) need to take on in order to reach certain performance targets.\n"
+
+        f"* 4 - The client is interested to see if the airplanes can be"
+        f" clustered into distinct groups based on their features (both design and performance features)"
+        f" using unsupervised learning.")

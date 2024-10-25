@@ -19,6 +19,7 @@ class MultiPage:
 
     def run(self):
         # Display the DDD logo
+        st.sidebar.markdown("&nbsp;" * 2)  # This does not appear to take effect!
         st.sidebar.image("images_dashboard/data_driven_design_logo_300.png", width=250)
         st.sidebar.write("")
         st.sidebar.write("")
