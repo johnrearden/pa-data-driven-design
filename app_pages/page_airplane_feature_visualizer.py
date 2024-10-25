@@ -6,6 +6,7 @@ df_summary_stats = pd.read_csv('outputs/datasets/collection/df_summary_stats.csv
 def page_airplane_feature_visualizer_body():
 
     st.write("### Airplane Feature Visualizer")
+
     # load data
     df = load_airplane_data()
     # Dropdown menu for selecting a feature
@@ -27,7 +28,7 @@ def page_airplane_feature_visualizer_body():
     
     with col2:
         st.image(mean_image_path, caption=f"{row['MEAN_model']} ({row['MEAN_company']})\nMEAN: {row['MEAN_value']}")
-    
+
     with col3:
         st.image(max_image_path, caption=f"{row['MAX_model']} ({row['MAX_company']})\nMAX: {row['MAX_value']}")
 
