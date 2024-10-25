@@ -28,7 +28,6 @@ def page_summary_body():
     
 
     # copied from README file - "Business Requirements" section
-
     st.success(
         f"The project has 4 business requirements:\n"
 
@@ -37,11 +36,12 @@ def page_summary_body():
         f"have the greatest influence on each other.\n"
 
         f"* 2 - The client is interested in categorizing the airplanes based"
-        f" on engine type (jet, piston or propjet) using supervised learning.\n"
+        f" on engine type (jet, piston or propjet) using all features"
+        f" and using supervised learning.\n"
 
         f"* 3 - The client is interested in predicting the necessary values"
         f" that Wing Span (Design feature) need to take on in order to reach certain performance targets.\n"
 
-        f"* 4 - The client is interested to see if the airplanes can be"
-        f" clustered into distinct groups based on their features (both design and performance features)"
-        f" using unsupervised learning.")
+        f"* 4 - The client is interested to see if any “invisible” yet"
+        f" distinct airplane clusters (based on features) are hiding"
+        f" in the data using unsupervised learning.")

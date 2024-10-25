@@ -310,11 +310,11 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 	- Airplane Performance Attributes/parameters such as the Airplane's gross weight, Vcruise, service ceiling, rate of climb and range
 
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
-
+<br>
 <div style="display: flex; justify-content: space-around;">
-  <img src="/workspace/data-driven-design/image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="250"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="/workspace/data-driven-design/image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="250"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="250"/>
+  <img src="/workspace/data-driven-design/image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="/workspace/data-driven-design/image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="200"/>
 </div>
 <figcaption>Aeronca L-16 (left) representing one end of the data set and the Bombardier Global-7500 (right) representing the other and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)</figcaption>
 
@@ -356,17 +356,17 @@ Note also that I have used an already partly cleaned and imputed file which mean
 \*\* Multiple Engines is most likely refering to no more than two (twin) engines.
 
 Note that we can glean valuable insight on how the features are distributed already when retrieving the data on the Kaggle website
-<img src="image_readme/kaggle_data_head_1.png" alt="Head of data from Kaggle site " width=1200/>
-<img src="image_readme/kaggle_data_head_2.png" alt="Head of data from Kaggle site " width=1200/>
-<img src="image_readme/kaggle_data_head_3.png" alt="Head of data from Kaggle site " width=1200/>
-<img src="image_readme/kaggle_data_head_4.png" alt="Head of data from Kaggle site " width=1200/>
-<img src="image_readme/kaggle_data_head_5.png" alt="Head of data from Kaggle site " width=1200/>
+<img src="image_readme/kaggle_data_head_1.png" alt="Head of data from Kaggle site " width=1000/>
+<img src="image_readme/kaggle_data_head_2.png" alt="Head of data from Kaggle site " width=1000/>
+<img src="image_readme/kaggle_data_head_3.png" alt="Head of data from Kaggle site " width=1000/>
+<img src="image_readme/kaggle_data_head_4.png" alt="Head of data from Kaggle site " width=1000/>
+<img src="image_readme/kaggle_data_head_5.png" alt="Head of data from Kaggle site " width=1000/>
 
 ## Project Terms & Jargon
-	- A customer is a person who consumes your service or product.
-	- A prospect is a potential customer.
-	- A churned customer is a user who has stopped using your product or service.
-	- This customer has a tenure level, which is the number of months this person has used our product/service.
+    - "General Aviation" is civil aviation other than large-scale passenger or freight operations.
+    - A "Categorical value" is a value that falls into distinct categories or groups. For example, the Engine Type can be classified as piston, propjet, or jet.
+    - A "Continuous numeric value" is a value that can take any real number (whole numbers and decimals). For example, the Cruise Speed can be 237,5 knots.
+
 
 ## Business Requirements
 The ficticous company *Data Driven Design* (DDD) consist of data practitioners with the combined skillset of Vehicle Design and Machine Learning.
@@ -375,29 +375,21 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 <br>
 
-The fictitious client is the Conceptual Design Department of a new fledgling airplane manufacturer who wish to build design tools to:
-* Quickly asses the feasability of performance specifications submitted by customers.
-* To generate start values for conceptual design processes.
-* To compare their designs agaisnt the competion.
-
 **Business Requirement 1** - The client is interested in understanding the relationships between the Design and Performance features in general and which of these relationships have the greatest influence on each other.
 
-**Business Requirement 2** - The client is interested in categorizing the airplanes based on engine type (jet, piston or propjet) using supervised learning.
+**Business Requirement 2** - The client is interested in categorizing the airplanes based on engine type (jet, piston or propjet) using all features and using supervised learning.
 
 **Business Requirement 3** - The client is interested in predicting the necessary values that Wing Span (Design feature) need to take on in order to reach certain performance targets. 
 
-**Business Requirement 4** - The client is interested to see if the airplanes can be clustered into distinct groups based on their features (both design and performance features) using unsupervised learning.
+**Business Requirement 4** - The client is interested to see if any “invisible” yet distinct airplane clusters (based on features) are hiding in the data using unsupervised learning.
 
-This customer request is only an initial assesement of what ML can do for their company. Theire is a potential for a long term cooperation if the customer is satisfied with the analysis. For this reason DDD has added a bonus-sample with a comparison between the competion, piching, the two largest Airplane manufacturers in the data set, Piper and Cessna against each other.
+**Bonus Study** - Although not requested by the client, Data Driven Design has decided to include a bonus study with the goal that the client should retain the service of DDD. The bonus study consist of pitching the two largest contributors to the data set, Cessna (24%) and Piper (13%) and see who fairs the best for different performance features. It is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
 
-**Accuracy:** Naturally the goal is always to maximise accuracy however the nature of Conceptual design is that ballpark figures goes a long way and the understanding of the background from where the data comes is more important. The accuracy is not a safety concern.
+**Accuracy:** Naturally the goal is always to maximise accuracy however the nature of Conceptual design is that ballpark figures goes a long way and the understanding of the background from where the data comes is more important. The accuracy is not a safety concern. The year of first flight, construction type and material varies greatly within the data set thus a further categorization is desirable for increased prediction accuracy. Please see the Outlook-chapter for a further discussion.
 
 **Scalability:** The solution should be scalable in the sense that new features as well as new data points (Airplanes) could be added to the data set.
 
 **Speed:** The model should be able to make predictions in real-time (more or less).
-
-
-
 
 ## Hypothesis and how to validate?
 - 1 - We suspect customers are churning with low tenure levels.
@@ -406,18 +398,7 @@ This customer request is only an initial assesement of what ML can do for their 
 	- A Correlation study can help in this investigation
 
 
-Business Requirements
-* Nature of Aircraft design (maybe not do this as a bulleted item):
-  * My company
-  * Company doing what
-  * Trying to reverse engineer what the design is required in order to achieve a certain performance specification rather than the other way around
-* Business Requirement 1 – The client is interested to gain an overall insight into what the relations are between different design parameters (wing span, weights etc.) and different performance parameters (Max velocity, max rate of climb etc.) and which of these relationships are the strongest
-* Business Requirement 2 – The client is interested to have a tool that can predict the feasibility (and generated ballpark design values that can be used as start-values in the design process) for different customer performance specifications using aircraft design/performance data. What to keep in mind is that the predictions would reflect the data which are representative albeit relatively conventional aircraft designs and that many designs are around 70 - 80 years old (for this reason an analysis on performance improvement over time is desirable however regrettably the data does not include year of first flight).
-* Business Requirement 3 – The client is also interested in categorizing airplanes/data based on their Engine types (jet piston or turboprop*) to learn the pattern from what the sets the jets, piston powered and turboprops apart from each other. Here both design and performance data will be used in the categorization.
-* Business Requirement 4 – The client is also interested to see if any “invisible” airplane groups are hiding in the data.
-* Business Requirement 5 – Although not requested by the client, Data Driven Design has decided to include some bonus analysis with the goal that the client should retain the service of DDD.
-  * Cessna vs. Piper – a comparison on whose airplanes fair the best in different for different performance features.
-  * An performance overview over time to see if, and if so, by how much the performance has improved up to today
+
 
 
 
@@ -577,7 +558,7 @@ Business Requirements
 
 The **'year of first flight'** is an easily retrievable feature that would be valuable for two reasons:
 * It would allow predictive accuracy/feasibility to be increased since old airplanes could be filtered out when predicting a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. 
-* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last 80 years!
+* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last ca 80 years!
 
 Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and Fabric", "All-Metal", "Metal and Composites" and "All-Composites" would, like "year of first flight", add value in two ways:
 * It would allow predictions to be based only on relevant types of airplanes. 
