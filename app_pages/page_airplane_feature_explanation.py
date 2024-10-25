@@ -1,47 +1,162 @@
 import streamlit as st
+from src.data_management import load_airplane_data, load_pkl_file
 
 def page_airplane_feature_explanation_body():
 
-    st.write("### Quick Project Summary")
+    st.write("### Explanation of Features")
+
+    # load data
+    df = load_airplane_data()
 
     # text based on README file - "Dataset Content" section
     st.info(
-        f"**Terms & Jargon**\n"
-        f"* **General Aviation** is civil aviation other than large-scale passenger or freight operations.\n"
-        f"* A **Categorical value** is a value that falls into distinct categories or groups. For example," 
-        f" the Engine Type can be classified as piston, propjet, or jet.\n"
-        f"* A **Continuous numeric value** is a value that can take any real number\n"
-        f" (whole numbers and decimals). For example, the Cruise Speed can be 237,5 knots.\n\n"
+        f"**Features**\n"
 
-        f"**Dataset**\n"
+        f" **Engine Type** (categorical value) Piston, Propjet or Jet type of engine"
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Multi Engine** (categorical value) Single or multiple engines"
+        f" "
+        f" "
+        f" "
+        f" \n"
 
-        f"* The dataset represents **857 Airplanes** in the category of **General Aviation** from"
-        f" [Kaggle](https://www.kaggle.com/datasets/heitornunes/aircraft-performance-dataset-aircraft-bluebook?select=Airplane_Complete_Imputation.csv) "
-        f"containing Meta data, 8 Design features, e.g. Dimensions and Weights "
-        f"and 17 Performance features, e.g. Cruise Speed, Range and Rate of Climb. "
-        f"Apart from three Categorical Design features the data set consists of continuous integers.")
+        f" **TP mods** (categorical value) Most likely: Thrust Performance modifications "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **THR** Thrust for ISA (International Standard Atmosphere)"
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **SHP** Shaft Horse Power for ISA (International Standard Atmosphere)"
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Length** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Height** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Wing Span** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **FW** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **MEW** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **AUW** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Vmax** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Vcruise** "
+        f" "
+        f" "
+        f" "
+        f" \n"
 
-    # Link to README file, so the users can have access to full project documentation
-    st.write(
-        f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/GustafEnebog/data-driven-design).")
-    
+        f" **Vstall** "
+        f" "
+        f" "
+        f" "
+        f" \n"        
+        
+        f" **Hmax** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Hmax (One)** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **ROC** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **ROC (One)** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Vlo** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Slo** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Vl** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Sl** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
+        f" **Range** "
+        f" "
+        f" "
+        f" "
+        f" \n"
+        
 
-    # copied from README file - "Business Requirements" section
+        )
 
-    st.success(
-        f"The project has 4 business requirements:\n"
+    # inspect data
+    if st.checkbox("Inspect Airplane data"):
+        st.write(
+            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
+            f"find below the first 10 rows.")
 
-        f"* 1 - The client is interested in understanding the relationships"
-        f" between the Design and Performance features in general and which of these relationships "
-        f"have the greatest influence on each other.\n"
-
-        f"* 2 - The client is interested in categorizing the airplanes based"
-        f" on engine type (jet, piston or propjet) using supervised learning.\n"
-
-        f"* 3 - The client is interested in predicting the necessary values"
-        f" that Wing Span (Design feature) need to take on in order to reach certain performance targets.\n"
-
-        f"* 4 - The client is interested to see if the airplanes can be"
-        f" clustered into distinct groups based on their features (both design and performance features)"
-        f" using unsupervised learning.")
+        st.write(df.head(10))

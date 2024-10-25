@@ -9,6 +9,7 @@ def page_airplane_feature_visualizer_body():
 
     # load data
     df = load_airplane_data()
+    
     # Dropdown menu for selecting a feature
     feature = st.selectbox("Select a Feature", df_summary_stats['FEATURE'].unique())
 
