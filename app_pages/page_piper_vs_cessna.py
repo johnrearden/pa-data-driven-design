@@ -1,117 +1,156 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import plotly.graph_objs as go
+from sklearn.linear_model import LinearRegression
 
+def airplane_performance_study():
+    path = '/workspace/data-driven-design/outputs/datasets/collection/airplane_performance_study.csv'
+    df = pd.read_csv(path)
+    df.columns = df.columns.str.strip()  # Strip whitespace from column names
+    return df
 
 def page_piper_vs_cessna_body():
-
     st.write("### Piper vs. Cessna")
-    st.info(
-        f"* The client is interested in determining whether or not a given prospect will churn. "
-        f"If so, the client is interested to know when. In addition, the client is "
-        f"interested in learning from which cluster this prospect will belong in the customer base. "
-        f"Based on that, present potential factors that could maintain and/or bring  "
-        f"the prospect to a non-churnable cluster."
-    )
+    st.info("* We have pitched Piper against Cessna ...")
     st.write("---")
 
-    # Generate Live Data
-    # check_variables_for_UI(tenure_features, churn_features, cluster_features)
     X_live = DrawInputsWidgets()
 
-    # predict on live data
-    if st.button("Run Predictive Analysis"):
-        churn_prediction = predict_churn(
-            X_live, churn_features, churn_pipe_dc_fe, churn_pipe_model)
+    if st.button("Create Regression Plot"):
+        dependent_feature = X_live["Dependent feature"].values[0]
+        independent_feature_1 = X_live["Independent feature 1"].values[0]
+        independent_feature_2 = X_live["Independent feature 2"].values[0]
+        filter_option = X_live["Filter Option"].values[0]
 
-        if churn_prediction == 1:
-            predict_tenure(X_live, tenure_features,
-                           tenure_pipe, tenure_labels_map)
+        df = airplane_performance_study()  # Load the DataFrame
 
-        predict_cluster(X_live, cluster_features,
-                        cluster_pipe, cluster_profile)
+        if filter_option == "Piper vs. Cessna":
+            df = df[df['Company'].isin(['Piper Aircraft', 'Cessna Aircraft Company'])]
 
-
-def check_variables_for_UI(tenure_features, churn_features, cluster_features):
-    import itertools
-
-    # The widgets inputs are the features used in all pipelines (tenure, churn, cluster)
-    # We combine them only with unique values
-    combined_features = set(
-        list(
-            itertools.chain(tenure_features, churn_features, cluster_features)
-        )
-    )
-    st.write(
-        f"* There are {len(combined_features)} features for the UI: \n\n {combined_features}")
-
+        graph_type = X_live["Type of graph"].values[0]
+        if graph_type == "2D Regression":
+            plot_2d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option)
+        elif graph_type == "3D Regression":
+            plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option)
+        else:
+            st.error("Please select valid features.")
 
 def DrawInputsWidgets():
+    df = airplane_performance_study()
+    excluded_features = ["Multi_Engine", "TP_mods", "Engine_Type", "Model", "Company"]  # Exclude 'Company' for feature selection
+    available_features = [col for col in df.columns if col not in excluded_features]
 
-    # load dataset
-    df = load_telco_data()
-    percentageMin, percentageMax = 0.4, 2.0
-
-# we create input widgets only for 6 features
-    col1, col2, col3, col4 = st.beta_columns(4)
-    col5, col6, col7, col8 = st.beta_columns(4)
-
-    # We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
-
-    # create an empty DataFrame, which will be the live data
+    col1, col2, col3 = st.columns(3)
     X_live = pd.DataFrame([], index=[0])
 
-    # from here on we draw the widget based on the variable type (numerical or categorical)
-    # and set initial values
     with col1:
-        feature = "Contract"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
+        feature = "Dependent feature"
+        st_widget = st.selectbox(label=feature, options=available_features, index=available_features.index("Vmax"))
     X_live[feature] = st_widget
 
     with col2:
-        feature = "InternetService"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
+        feature = "Independent feature 1"
+        st_widget = st.selectbox(label=feature, options=available_features, index=available_features.index("Wing_Span"))
     X_live[feature] = st_widget
 
     with col3:
-        feature = "MonthlyCharges"
-        st_widget = st.number_input(
-            label=feature,
-            min_value=df[feature].min()*percentageMin,
-            max_value=df[feature].max()*percentageMax,
-            value=df[feature].median()
-        )
+        feature = "Independent feature 2"
+        st_widget = st.selectbox(label=feature, options=available_features, index=available_features.index("AUW"))
     X_live[feature] = st_widget
 
+    col4, col5 = st.columns([1, 1])
     with col4:
-        feature = "PaymentMethod"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
+        feature = "Filter Option"
+        st_widget = st.selectbox(label=feature, options=["All Airplanes", "Piper vs. Cessna"])
     X_live[feature] = st_widget
 
     with col5:
-        feature = "OnlineBackup"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
+        feature = "Type of graph"
+        st_widget = st.selectbox(label=feature, options=["2D Regression", "3D Regression"])
     X_live[feature] = st_widget
-
-    with col6:
-        feature = "PhoneService"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    # st.write(X_live)
 
     return X_live
+
+def plot_2d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option):
+    filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
+
+    plt.figure(figsize=(10, 5))
+    if filter_option == "Piper vs. Cessna":
+        for company in ['Piper Aircraft', 'Cessna Aircraft Company']:
+            company_df = filtered_df[filtered_df['Company'] == company]
+            sns.regplot(data=company_df, x=independent_feature_1, y=dependent_feature, label=company)
+        plt.legend()  # Show legend for Piper vs. Cessna
+    else:
+        sns.regplot(data=filtered_df, x=independent_feature_1, y=dependent_feature)
+
+    plt.title(f'{dependent_feature} vs. {independent_feature_1}')
+    plt.xlabel(independent_feature_1)
+    plt.ylabel(dependent_feature)
+    plt.grid()
+    st.pyplot(plt)
+
+    plt.figure(figsize=(10, 5))
+    if filter_option == "Piper vs. Cessna":
+        for company in ['Piper Aircraft', 'Cessna Aircraft Company']:
+            company_df = filtered_df[filtered_df['Company'] == company]
+            sns.regplot(data=company_df, x=independent_feature_2, y=dependent_feature, label=company)
+        plt.legend()  # Show legend for Piper vs. Cessna
+    else:
+        sns.regplot(data=filtered_df, x=independent_feature_2, y=dependent_feature)
+
+    plt.title(f'{dependent_feature} vs. {independent_feature_2}')
+    plt.xlabel(independent_feature_2)
+    plt.ylabel(dependent_feature)
+    plt.grid()
+    st.pyplot(plt)
+
+def plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option):
+    filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
+
+    fig = go.Figure()
+    if filter_option == "Piper vs. Cessna":
+        for company in ['Piper Aircraft', 'Cessna Aircraft Company']:
+            company_df = filtered_df[filtered_df['Company'] == company]
+            X = company_df[[independent_feature_1, independent_feature_2]]
+            y = company_df[dependent_feature]
+
+            model = LinearRegression()
+            model.fit(X, y)
+
+            x_range = np.linspace(X[independent_feature_1].min(), X[independent_feature_1].max(), 100)
+            y_range = np.linspace(X[independent_feature_2].min(), X[independent_feature_2].max(), 100)
+            x_grid, y_grid = np.meshgrid(x_range, y_range)
+            Z = model.predict(np.c_[x_grid.ravel(), y_grid.ravel()]).reshape(x_grid.shape)
+
+            fig.add_trace(go.Surface(z=Z, x=x_grid, y=y_grid, colorscale='Viridis', opacity=0.5, name=f'{company} Regression Plane'))
+            fig.add_trace(go.Scatter3d(x=X[independent_feature_1], y=X[independent_feature_2], z=y, mode='markers',
+                                         marker=dict(size=5, opacity=0.8), name=f'{company} Data Points'))
+    else:
+        X = filtered_df[[independent_feature_1, independent_feature_2]]
+        y = filtered_df[dependent_feature]
+
+        model = LinearRegression()
+        model.fit(X, y)
+
+        x_range = np.linspace(X[independent_feature_1].min(), X[independent_feature_1].max(), 100)
+        y_range = np.linspace(X[independent_feature_2].min(), X[independent_feature_2].max(), 100)
+        x_grid, y_grid = np.meshgrid(x_range, y_range)
+        Z = model.predict(np.c_[x_grid.ravel(), y_grid.ravel()]).reshape(x_grid.shape)
+
+        fig.add_trace(go.Surface(z=Z, x=x_grid, y=y_grid, colorscale='Viridis', opacity=0.5, name='All Airplanes Regression Plane'))
+        fig.add_trace(go.Scatter3d(x=X[independent_feature_1], y=X[independent_feature_2], z=y, mode='markers',
+                                     marker=dict(size=5, opacity=0.8), name='All Airplanes Data Points'))
+
+    fig.update_layout(title='3D Regression Plane with Scatter Plot',
+                      scene=dict(xaxis_title=independent_feature_1,
+                                 yaxis_title=independent_feature_2,
+                                 zaxis_title=dependent_feature),
+                      autosize=True)
+
+    st.plotly_chart(fig)
+
+if __name__ == "__main__":
+    page_piper_vs_cessna_body()
