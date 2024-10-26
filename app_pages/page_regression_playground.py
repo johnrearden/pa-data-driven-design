@@ -12,7 +12,7 @@ def airplane_performance_study():
     df.columns = df.columns.str.strip()  # Strip whitespace from column names
     return df
 
-def page_piper_vs_cessna_body():
+def page_regression_playground_body():
     st.write("### Piper vs. Cessna")
     st.info("* We have pitched Piper against Cessna ...")
     st.write("---")
