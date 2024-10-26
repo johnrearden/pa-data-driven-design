@@ -12,9 +12,16 @@ def airplane_performance_study():
     df.columns = df.columns.str.strip()  # Strip whitespace from column names
     return df
 
+
 def page_regression_playground_body():
-    st.write("### Piper vs. Cessna")
-    st.info("* We have pitched Piper against Cessna ...")
+    st.write("### Regression Playground")
+    st.info("* All the continuous numeric features in the menu below are available for plotting at your own disgression."
+            f" You choose the features and type of graph you want for your scatter plot with regression line/surface.\n"
+            f" For fun we have pitched Piper and Cessna airplanes head to head against each other to see who's"
+            f" regression lines/surfaces comes out on top in the different disciplines!"
+            f" Note however that the true merit of an airplane is not captured with a comparison of such a limited number of features.\n")
+
+
     st.write("---")
 
     X_live = DrawInputsWidgets()

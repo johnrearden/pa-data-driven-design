@@ -3,9 +3,9 @@ import pandas as pd
 from src.data_management import load_airplane_data, load_pkl_file
 df_summary_stats = pd.read_csv('outputs/datasets/collection/df_summary_stats.csv')  # Load the DataFrame from CSV
 
-def page_airplane_feature_visualizer_body():
+def page_get_to_know_the_dataset_body():
 
-    st.write("### Airplane Feature Visualizer")
+    st.write("### Get to know the dataset")
 
     # load data
     df = load_airplane_data()
