@@ -11,8 +11,14 @@ def page_summary_body():
         f"* A **Categorical value** is a value that falls into distinct categories or groups. For example," 
         f" the Engine Type can be classified as piston, propjet, or jet.\n"
         f"* A **Continuous numeric value** is a value that can take any real number\n"
-        f" (whole numbers and decimals). For example, the Cruise Speed can be 237,5 knots.\n\n"
+        f" (whole numbers and decimals). For example, the Cruise Speed can be 237,5 knots.\n\n")
 
+    # Link to README file, so the users can have access to full project documentation
+    st.write(
+        f"* For additional information, please visit and **read** the "
+        f"[Project README file](https://github.com/GustafEnebog/data-driven-design).")
+    
+    st.info(
         f"**Dataset**\n"
 
         f"* The dataset represents **857 Airplanes** in the category of **General Aviation** from"

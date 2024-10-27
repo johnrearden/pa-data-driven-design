@@ -7,9 +7,9 @@ SHP,HP,7ACA,American Champion Aircraft Corporation,60.0,58 P Baron-press.('77 hg
 AUW,lb,M18 Mite,Mooney Aircraft,850.0,Merlin II A,Fairchild M7 Aerospace,9754.5,Lineage 1000,Embraer Aircraft - Empresa Brasileira,120152.0
 MEW,lb,M18 Mite,Mooney Aircraft,575.0,"MU-2B,-2D (-2D=9,350 gross weight)",Mitsubishi Diamond,5724.6,Lineage 1000,Embraer Aircraft - Empresa Brasileira,70841.0
 FW,lb,J-3 Cub,Piper Aircraft,60.3,EMB-110P1A Bandeirante (specs=110P1/41),Embraer Aircraft - Empresa Brasileira,2905.5,Lineage 1000,Embraer Aircraft - Empresa Brasileira,48217.0
-Vmax,knot,J-3 Cub,Piper Aircraft,76.0,T 310 Q turbocharged,Cessna Aircraft Company,238.1,Global 7500,Bombardier Aerospace Business Aircraft,617.0
-Vcruise,knot,DW-1 (ag plane),Eagle,57.0,"C 90,C90-1 (-1 has increased speed)",Beechcraft (Hawker Beechcraft),216.7,Global 7500,Bombardier Aerospace Business Aircraft,566.9
-Vstall,knot,Sport Cub,"Cubcrafters, Inc.",27.0,"GA-7 Cougar (twin) '77 svc. ceils=18,300 &4,900",American General Aircraft,63.4,G500,Gulfstream Aerospace,127.9
+Vmax,knots,J-3 Cub,Piper Aircraft,76.0,T 310 Q turbocharged,Cessna Aircraft Company,238.1,Global 7500,Bombardier Aerospace Business Aircraft,617.0
+Vcruise,knots,DW-1 (ag plane),Eagle,57.0,"C 90,C90-1 (-1 has increased speed)",Beechcraft (Hawker Beechcraft),216.7,Global 7500,Bombardier Aerospace Business Aircraft,566.9
+Vstall,knots,Sport Cub,"Cubcrafters, Inc.",27.0,"GA-7 Cougar (twin) '77 svc. ceils=18,300 &4,900",American General Aircraft,63.4,G500,Gulfstream Aerospace,127.9
 Range,N.m.,G164A-275 AG CAT,Ag Cat Corp,117.0,414 pressurized-turbocharged,Cessna Aircraft Company,1088.9,Global 7500,Bombardier Aerospace Business Aircraft,7700.0
 Hmax,ft,108-3,Stinson,850.0,PA-60-700P Aerostar (preliminary),Aerostar Aircraft Corporation,25012.5,Global 7500,Bombardier Aerospace Business Aircraft,51000.0
 Hmax_(One),ft,108-3,Stinson,1400.0,Katana DA20-C1,Diamond Aircraft,17581.6,Jetstar II,Lockheed Martin Aircraft,38866.4
