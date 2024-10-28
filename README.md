@@ -158,7 +158,7 @@ Note also that I have used an already partly cleaned and imputed file which mean
 | Slo         | **Takeoff ground run**                               | ft                                                   |
 | Vl | **Landing speed** during normal landing for a 50 ft obstacle                       | ft/min                                                                              |
 | Sl    | **Landing ground run**                                   | ft |
-| Range   | **Range**                      | N.m. (Nautical miles)                                                            
+| Range   | **Range** The distance the airplane can fly without refueling | N.m. (Nautical miles)                                                            
 
 \* Propjet is more commonly referred to as "turboprop"
 \*\* Multiple Engines is most likely refering to no more than two (twin) engines.
