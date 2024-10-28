@@ -5,12 +5,15 @@ def page_project_hypothesis_body():
 
     st.write("### Project Hypothesis and Validation")
 
-    # conclusions taken from "02 - Churned Customer Study" notebook
+    # Conclusions taken from "3A_airplane_engine_type_study" notebook
     st.success(
-        f"* We suspect customers are churning with low tenure levels: Correct. "
-        f"The correlation study at Churned Customer Study supports that. \n\n"
-
-        f"* A customer survey showed our customers appreciate fibre Optic. "
-        f"A churned user typically has Fibre Optic, as demonstrated by a Churned Customer Study. "
-        f"This insight will be used by the survey team for further discussions and investigations."
+        "We suspect airplanes with multiple engines are 'Higher, Further, Faster': Correct! The correlation study in the 'Multi Engine Airplane Study' supports this hypothesis.\n\n"
+        "The study of the airplane data showed a general performance increase for Multi Engine Airplanes in:\n"
+        "- Service Ceiling (Hmax)\n"
+        "- Range\n"
+        "- Cruise and Max Speed\n\n"
+        "But also an increase in:\n"
+        "- Landing Speed (Vl)\n"
+        "- Stall Speed (Vstall).\n\n"
+        "This insight will enter into or clients conceptual design prediction tools."
     )

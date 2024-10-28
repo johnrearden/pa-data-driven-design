@@ -1,16 +1,56 @@
 import streamlit as st
 import pandas as pd
-# xxxxxxxxxxxxxxxxxxxxxxxxxfrom src.data_management import load_telco_data, load_pkl_file
-# xxxxxxxxxxxxxxxxxxxxxxxxxfrom src.machine_learning.predictive_analysis_ui import (
-# xxxxxxxxxxxxxxxxxxxxxxxxx    predict_churn,
-# xxxxxxxxxxxxxxxxxxxxxxxxx    predict_tenure,
-# xxxxxxxxxxxxxxxxxxxxxxxxx    predict_cluster)
+# from src.data_management import load_telco_data, load_pkl_file
+from src.data_management import load_airplane_data
+#from src.machine_learning.predictive_analysis_ui import (
+#    predict_churn,
+#    predict_tenure,
+#    predict_cluster)
 
 
 def page_predict_multi_engine_body():
 
-    # Removed a lot of stuff here!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    #)
+    # load predict churn files
+    version = 'v1'
+    churn_pipe_dc_fe = load_pkl_file(
+        f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
+    churn_pipe_model = load_pkl_file(
+        f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
+    churn_features = (pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_train.csv")
+                      .columns
+                      .to_list()
+                      )
+
+    # load predict tenure files
+    version = 'v1'
+    tenure_pipe = load_pkl_file(
+        f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
+    tenure_labels_map = load_pkl_file(
+        f"outputs/ml_pipeline/predict_tenure/{version}/label_map.pkl")
+    tenure_features = (pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
+                       .columns
+                       .to_list()
+                       )
+
+    # load cluster analysis files
+    version = 'v1'
+    cluster_pipe = load_pkl_file(
+        f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
+    cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
+                        .columns
+                        .to_list()
+                        )
+    cluster_profile = pd.read_csv(
+        f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
+
+    st.write("### Prospect Churnometer Interface")
+    st.info(
+        f"* The client is interested in determining whether or not a given prospect will churn. "
+        f"If so, the client is interested to know when. In addition, the client is "
+        f"interested in learning from which cluster this prospect will belong in the customer base. "
+        f"Based on that, present potential factors that could maintain and/or bring  "
+        f"the prospect to a non-churnable cluster."
+    )
     st.write("---")
 
     # Generate Live Data
