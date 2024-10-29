@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -16,10 +16,10 @@ def airplane_performance_study():
 def page_regression_playground_body():
     st.write("### Regression Playground")
     st.info("* All the continuous numeric features in the menu below are available for plotting at your own discretion."
-            f" You choose the features and type of graph you want for your scatter plot with regression line/surface.\n"
-            f" For fun we have pitched Piper and Cessna airplanes head to head against each other to see who's"
-            f" regression lines/surfaces come out on top in the different disciplines! "
-            f" Note however that the true merit of an airplane is not captured with a comparison of such a limited number of features.\n")
+            " You choose the features and type of graph you want for your scatter plot with regression line/surface.\n"
+            " For fun we have pitched Piper and Cessna airplanes head to head against each other to see who's"
+            " regression lines/surfaces come out on top in the different disciplines! "
+            " Note however that the true merit of an airplane is not captured with a comparison of such a limited number of features.\n")
 
     st.write("---")
 
@@ -37,6 +37,11 @@ def page_regression_playground_body():
         if filter_option == "Piper vs. Cessna":
             df = df[df['Company'].isin(['Piper Aircraft', 'Cessna Aircraft Company'])]
 
+        # Check for empty DataFrame
+        if df.empty:
+            st.error("No data available after filtering. Please adjust your filters.")
+            return
+
         graph_type = X_live["Type of graph"].values[0]
         if graph_type == "2D Regression":
             plot_2d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type)
@@ -44,7 +49,6 @@ def page_regression_playground_body():
             plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type)
         else:
             st.error("Please select valid features.")
-
 
 def DrawInputsWidgets():
     df = airplane_performance_study()
@@ -56,18 +60,24 @@ def DrawInputsWidgets():
 
     with col1:
         feature = "Dependent feature"
-        st_widget = st.selectbox(label=feature, options=available_features, index=available_features.index("Vmax"))
-    X_live[feature] = st_widget
+        st.session_state.dependent_feature = st.selectbox(label=feature, options=available_features, index=0)
+    X_live[feature] = st.session_state.dependent_feature
 
     with col2:
         feature = "Independent feature 1"
-        st_widget = st.selectbox(label=feature, options=available_features, index=available_features.index("Wing_Span"))
-    X_live[feature] = st_widget
+        st.session_state.independent_feature_1 = st.selectbox(label=feature, options=available_features, index=1)
+    X_live[feature] = st.session_state.independent_feature_1
 
     with col3:
         feature = "Independent feature 2"
-        st_widget = st.selectbox(label=feature, options=available_features, index=available_features.index("AUW"))
-    X_live[feature] = st_widget
+        st.session_state.independent_feature_2 = st.selectbox(label=feature, options=available_features, index=2)
+    X_live[feature] = st.session_state.independent_feature_2
+
+    # Check for duplicate selections
+    if (st.session_state.independent_feature_1 == st.session_state.dependent_feature or
+        st.session_state.independent_feature_2 == st.session_state.dependent_feature or
+        st.session_state.independent_feature_1 == st.session_state.independent_feature_2):
+        st.warning("Ensure that all selected features are different.")
 
     # New row for Filter Option, Regression Type, and Type of Graph
     col4, col5, col6 = st.columns(3)
@@ -88,9 +98,12 @@ def DrawInputsWidgets():
 
     return X_live
 
-
 def plot_2d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type):
     filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
+
+    if filtered_df.empty:
+        st.error("No data available for the selected features.")
+        return
 
     plt.figure(figsize=(10, 5))
     if filter_option == "Piper vs. Cessna":
@@ -99,8 +112,8 @@ def plot_2d_regression(df, dependent_feature, independent_feature_1, independent
             if regression_type == "Linear":
                 sns.regplot(data=company_df, x=independent_feature_1, y=dependent_feature, label=company)
             elif regression_type == "Quadratic":
-                sns.regplot(data=company_df, x=independent_feature_1, y=dependent_feature, label=company, order=2)  # Order 2 for quadratic regression
-        plt.legend()  # Show legend for Piper vs. Cessna
+                sns.regplot(data=company_df, x=independent_feature_1, y=dependent_feature, label=company, order=2)
+        plt.legend()
     else:
         if regression_type == "Linear":
             sns.regplot(data=filtered_df, x=independent_feature_1, y=dependent_feature)
@@ -120,8 +133,8 @@ def plot_2d_regression(df, dependent_feature, independent_feature_1, independent
             if regression_type == "Linear":
                 sns.regplot(data=company_df, x=independent_feature_2, y=dependent_feature, label=company)
             elif regression_type == "Quadratic":
-                sns.regplot(data=company_df, x=independent_feature_2, y=dependent_feature, label=company, order=2)  # Order 2 for quadratic regression
-        plt.legend()  # Show legend for Piper vs. Cessna
+                sns.regplot(data=company_df, x=independent_feature_2, y=dependent_feature, label=company, order=2)
+        plt.legend()
     else:
         if regression_type == "Linear":
             sns.regplot(data=filtered_df, x=independent_feature_2, y=dependent_feature)
@@ -138,10 +151,21 @@ def plot_2d_regression(df, dependent_feature, independent_feature_1, independent
 def plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type):
     filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
 
+    # Check if there is data available after filtering
+    if filtered_df.empty or filtered_df.shape[0] < 2:
+        st.error("Not enough data available for the selected features to perform regression.")
+        return
+
     fig = go.Figure()
     if filter_option == "Piper vs. Cessna":
         for company in ['Piper Aircraft', 'Cessna Aircraft Company']:
             company_df = filtered_df[filtered_df['Company'] == company]
+            
+            # Ensure there's enough data for fitting the model
+            if company_df.shape[0] < 2:
+                st.warning(f"Not enough data for {company}. Skipping this company.")
+                continue
+
             X = company_df[[independent_feature_1, independent_feature_2]]
             y = company_df[dependent_feature]
 
@@ -164,12 +188,18 @@ def plot_3d_regression(df, dependent_feature, independent_feature_1, independent
                 X_grid = poly.transform(np.c_[x_grid.ravel(), y_grid.ravel()])
                 Z = model.predict(X_grid).reshape(x_grid.shape)
 
+            # Add the surface and scatter plots to the figure
             fig.add_trace(go.Surface(z=Z, x=x_grid, y=y_grid, colorscale='Viridis', opacity=0.5, name=f'{company} Regression Plane'))
             fig.add_trace(go.Scatter3d(x=X[independent_feature_1], y=X[independent_feature_2], z=y, mode='markers',
                                          marker=dict(size=5, opacity=0.8), name=f'{company} Data Points'))
     else:
         X = filtered_df[[independent_feature_1, independent_feature_2]]
         y = filtered_df[dependent_feature]
+
+        # Ensure there's enough data for fitting the model
+        if X.shape[0] < 2:
+            st.error("Not enough data available for the selected features to perform regression.")
+            return
 
         if regression_type == "Linear":
             model = LinearRegression()
