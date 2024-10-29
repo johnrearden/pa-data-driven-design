@@ -379,7 +379,7 @@ Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and
   The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+* In the Regression Playground the values on the Color Scale sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate Color Bars side by side, one for Piper and one for Cessna however failed to made it work.
 
 ## Deployment
 ### Heroku
