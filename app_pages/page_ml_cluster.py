@@ -2,29 +2,30 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
-# from src.data_management import load_telco_data, load_pkl_file
+from src.data_management import load_airplane_data, load_pkl_file
 
 
 def page_ml_cluster_body():
 
     # load cluster analysis files and pipeline
-    #version = 'v1'
-    #cluster_pipe = load_pkl_file(
-    #    f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
-    #cluster_silhouette = plt.imread(
-    #    f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_silhouette.png")
-    #features_to_cluster = plt.imread(
-    #    f"outputs/ml_pipeline/cluster_analysis/{version}/features_define_cluster.png")
-    #cluster_profile = pd.read_csv(
-    #    f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
-    #cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
-    #                    .columns
-    #                    .to_list()
-    #                    )
+    version = 'v1'
+    cluster_pipe = load_pkl_file(
+        f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
+    cluster_silhouette = plt.imread(
+        f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_silhouette.png")
+    features_to_cluster = plt.imread(
+        f"outputs/ml_pipeline/cluster_analysis/{version}/features_define_cluster.png")
+    cluster_profile = pd.read_csv(
+        f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
+    cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
+                        .columns
+                        .to_list()
+                        )
 
     # dataframe for cluster_distribution_per_variable()
-    df_churn_vs_clusters = load_telco_data().filter(['Churn'], axis=1)
-    df_churn_vs_clusters['Clusters'] = cluster_pipe['model'].labels_
+    df_multi_engine_vs_clusters = load_airplane_data().filter(['Multi_Engine'], axis=1)
+    print(df_multi_engine_vs_clusters)
+    df_multi_engine_vs_clusters['Clusters'] = cluster_pipe['model'].labels_
 
     st.write("### ML Pipeline: Cluster Analysis")
     # display pipeline training summary conclusions
@@ -44,7 +45,7 @@ def page_ml_cluster_body():
     st.write("#### Clusters Silhouette Plot")
     st.image(cluster_silhouette)
 
-    cluster_distribution_per_variable(df=df_churn_vs_clusters, target='Churn')
+    cluster_distribution_per_variable(df=df_multi_engine_vs_clusters, target='Multi_Engine')
 
     st.write("#### Most important features to define a cluster")
     st.image(features_to_cluster)
