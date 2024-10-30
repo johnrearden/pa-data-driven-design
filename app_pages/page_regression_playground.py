@@ -1,5 +1,4 @@
-
-import streamlit as st 
+import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -7,6 +6,7 @@ import numpy as np
 import plotly.graph_objs as go
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
+
 
 def airplane_performance_study():
     """
@@ -21,16 +21,19 @@ def airplane_performance_study():
     df.columns = df.columns.str.strip()  # Strip whitespace from column names
     return df
 
+
 def page_regression_playground_body():
     """
     Display the main body of the Regression Playground page in Streamlit.
 
-    This function sets up the user interface for selecting features, 
+    This function sets up the user interface for selecting features,
     filters, and regression types, and calls the appropriate plotting
     functions based on user input.
     """
     st.write("### Regression Playground")
     st.info("* All the continuous numeric features are available for you to explore in the menu below!"
+            " The shaded background around the regression line shows variance (narrow variance"
+            " indicate higher predictive reliability."
             " For fun we have pitched Piper and Cessna head to head against each other to see who's"
             " regression lines/surfaces come out on top in the different disciplines! "
             " Note that the true merit of an airplane is not captured by only comparing a limited number of features.\n")
@@ -38,13 +41,6 @@ def page_regression_playground_body():
     st.write("---")
 
     X_live = DrawInputsWidgets()
-    """
-    Create input widgets for selecting features and options for regression analysis.
-
-    Returns:
-        pd.DataFrame: A DataFrame containing the selected features and options
-        from the user input.
-    """
     if st.button("Create Regression Plot"):
         dependent_feature = X_live["Dependent feature"].values[0]
         independent_feature_1 = X_live["Independent feature 1"].values[0]
@@ -69,6 +65,7 @@ def page_regression_playground_body():
             plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type)
         else:
             st.error("Please select valid features.")
+
 
 def DrawInputsWidgets():
     """
@@ -99,7 +96,7 @@ def DrawInputsWidgets():
         feature = "Independent feature 2"
         st.session_state.independent_feature_2 = st.selectbox(label=feature, options=available_features, index=11)  # Set Range as default
     X_live[feature] = st.session_state.independent_feature_2
- 
+
     # Check for duplicate selections (in the top row of selection dropdowns)
     if (st.session_state.independent_feature_1 == st.session_state.dependent_feature or
         st.session_state.independent_feature_2 == st.session_state.dependent_feature or
@@ -124,6 +121,7 @@ def DrawInputsWidgets():
     X_live[feature] = st_widget
 
     return X_live
+
 
 def plot_2d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type):
     """
@@ -209,7 +207,7 @@ def plot_3d_regression(df, dependent_feature, independent_feature_1, independent
     if filter_option == "Piper vs. Cessna":
         for company in ['Piper Aircraft', 'Cessna Aircraft Company']:
             company_df = filtered_df[filtered_df['Company'] == company]
-            
+
             # Ensure there's enough data for fitting the model
             if company_df.shape[0] < 2:
                 st.warning(f"Not enough data for {company}. Skipping this company.")
@@ -240,7 +238,7 @@ def plot_3d_regression(df, dependent_feature, independent_feature_1, independent
             # Add the surface and scatter plots to the figure
             fig.add_trace(go.Surface(z=Z, x=x_grid, y=y_grid, colorscale='Viridis', opacity=0.5, name=f'{company} Regression Plane'))
             fig.add_trace(go.Scatter3d(x=X[independent_feature_1], y=X[independent_feature_2], z=y, mode='markers',
-                                         marker=dict(size=5, opacity=0.8), name=f'{company} Data Points'))
+                                       marker=dict(size=5, opacity=0.8), name=f'{company} Data Points'))
     else:
         X = filtered_df[[independent_feature_1, independent_feature_2]]
         y = filtered_df[dependent_feature]
@@ -271,7 +269,7 @@ def plot_3d_regression(df, dependent_feature, independent_feature_1, independent
 
         fig.add_trace(go.Surface(z=Z, x=x_grid, y=y_grid, colorscale='Viridis', opacity=0.5, name='All Airplanes Regression Plane'))
         fig.add_trace(go.Scatter3d(x=X[independent_feature_1], y=X[independent_feature_2], z=y, mode='markers',
-                                     marker=dict(size=5, opacity=0.8), name='All Airplanes Data Points'))
+                                   marker=dict(size=5, opacity=0.8), name='All Airplanes Data Points'))
 
     fig.update_layout(title='3D Regression Plane with Scatter Plot',
                       scene=dict(xaxis_title=independent_feature_1,

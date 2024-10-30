@@ -359,7 +359,7 @@ Saving the csv-file in Excel is done the normal way however it is important to s
 Manual testing have been carried out of the Dashboard to ensure that the interface can handle all combinations of input.
 
 ### Validation
-All code in the app_pages and src directories have been validated as conforming to PEP8 standards using CodeInstitute's PEP8 Linter.
+All code in the app_pages and src directories have been validated as conforming to PEP8 standards using [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/). The only remaining errors are of the type: E501 line too long (86 > 79 characters) which I have not fixed.
 
 ### Automated Unit Tests
 No automated unit tests have been carried out.

@@ -2,7 +2,6 @@ import streamlit as st
 
 
 def page_project_hypothesis_body():
-
     st.write("### Project Hypothesis and Validation")
 
     # Conclusions taken from "3A_airplane_engine_type_study" notebook
