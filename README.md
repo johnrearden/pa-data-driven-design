@@ -48,19 +48,24 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 	- Airplane Performance Attributes/parameters such as the Airplane's gross weight, Vcruise, service ceiling, rate of climb and range
 
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
+
 <br>
+
 <div style="display: flex; justify-content: space-around;">
-  <img src="image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="200"/>
+  <img src="image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="150"/>
 </div>
-<figcaption>Aeronca L-16 (left) representing one end of the data set and the Bombardier Global-7500 (right) representing the other and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)</figcaption>
+
+<figcaption style="color: grey;">
+    Aeronca L-16 (left) representing the "lower" end of the data set and the Bombardier Global-7500 (right) representing the "upper" end and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)
+</figcaption>
 
 <br>
 
 **Important disclaimer**: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
 
-Note also that I have used an already partly cleaned and imputed file which means that some of the data entries might be an approximation using some common type of interpolation method or similar.
+Note also that I have used an already partly cleaned and imputed file which means that some of the data entries might be an approximation using some common type of interpolation method or similar. The information, on the dataset site on Kaggle, in regards to units are ambigous often giving to units. In the table below the units I presume are correct are underlined.
 
 | Variable/Attribute         | Meaning/Information/Quantity                                                     | Units                                                                                |
 |------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -71,13 +76,13 @@ Note also that I have used an already partly cleaned and imputed file which mean
 | TP mods          | Refers most likely to **Thrust Performance modifications**                               | True or False 
 | THR          | **Thrust** for ISA (International Standard Atmosphere)                               | lbf                                                                            |
 | SHP          | **Shaft Horse Power** for  ISA (International Standard Atmosphere)                               | HP   
-| Length          | **Airplane's length**                               | ft and in   
-| Height          | **Airplane's height**                           | ft and in   
-| Wing Span          | **Airplane's wingspan**                              | ft and in   
-| FW      | **fuel capacity/weight**                           | gal or lb                                                                            |
+| Length          | **Airplane's length**                               | <u>ft</u> and in   
+| Height          | **Airplane's height**                           | <u>ft</u> and in   
+| Wing Span          | **Airplane's wingspan**                              | <u>ft</u> and in   
+| FW      | **fuel capacity/weight**                           | gal or <u>lb</u>                                                                            |
 | MEW           | **Empty weight** (a.k.a Manufacturer's Empty Weight )   | lb                                                                              |
 | AUW     | **Gross weight** (a.k.a All-Up Weight)                         | lb                                                                            |
-| Vmax    | **Maximum speed**                          | knot or Mach                                                            |
+| Vmax    | **Maximum speed**                          | <u>knot</u> or Mach                                                            |
 | Vcruise  | **High cruise speed** (Rcmnd cruise)                   | knot                                                                 |
 | Vstall   | **Stall speed** on "dirty" configuration (flaps out, gear down, etc.)                         | knot                                                         |
 | Hmax     | **Maximum density-altitude** with all engines working                           | ft (as density-altitude)                                                         |
@@ -94,6 +99,7 @@ Note also that I have used an already partly cleaned and imputed file which mean
 \*\* Multiple Engines is most likely refering to no more than two (twin) engines.
 
 Note that we can glean valuable insight on how the features are distributed already when retrieving the data on the Kaggle website
+
 <img src="image_readme/kaggle_data_head_1.png" alt="Head of data from Kaggle site " width=1000/>
 <img src="image_readme/kaggle_data_head_2.png" alt="Head of data from Kaggle site " width=1000/>
 <img src="image_readme/kaggle_data_head_3.png" alt="Head of data from Kaggle site " width=1000/>
@@ -416,8 +422,6 @@ web: sh setup.sh && streamlit run app.py
 14. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
 15. If the build fails, check the build log carefully to troubleshoot what went wrong.
 
-[Back to top](#table-of-contents)
-
 ## Forking and Cloning 
 If you wish to fork or clone this repository, please follow the instructions below:
 
@@ -446,7 +450,9 @@ In order to ensure all the correct dependencies are installed in your local envi
 
 ## Credits 
 
-### Content 
+### Content
+
+[k-means: The simplest (but most used) partitioning clustering method](https://www.youtube.com/watch?v=u1EUrxobvk8) was used to understand K-means and Sillhoouette-scoore.
 
 #### Equations
 - Equations was taken mainly from Anderson, John D. Aircraft Performance and Design. McGraw-Hill, 1999.
