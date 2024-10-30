@@ -9,9 +9,9 @@
 </div>
 
 
-[Airplane Performance Predictor](!!!!!!!!!!!!GIVE ADRESS HERE!!!!!!!!!!!!) is a Machine-learning (ML) project using a dataset with Airplanes Design and Performance parameters has a goal to achieve two things:
+[Airplane Performance Predictor](https://airplane-performance-predictor-852b7eac4d10.herokuapp.com/) is a Machine-learning (ML) project using a dataset with Airplanes Design and Performance parameters with the goal to achieve two things:
    - Visualize and Analyze the data general to gain insight that can help in the Conceptual Design Process of new airplanes.
-   - Fit ML pipelines that can predict (Regression) and categorize (Classification) values necessary for reaching specific Performance targets as well as to look for hidden patterns (clustering) in the data.
+   - Create a predictor tool by fitting ML pipelines that can predict (Regression) and categorize (Classification) values necessary for reaching specific Performance targets as well as to look for hidden patterns (clustering) in the data.
 
 <br>
 <br>
@@ -421,6 +421,7 @@ web: sh setup.sh && streamlit run app.py
 13. Click the **Deploy Branch** button to begin deployment.
 14. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
 15. If the build fails, check the build log carefully to troubleshoot what went wrong.
+16. Select Automatic deploys so that Heroku always uses your latest commited GitHub-version.
 
 ## Forking and Cloning 
 If you wish to fork or clone this repository, please follow the instructions below:

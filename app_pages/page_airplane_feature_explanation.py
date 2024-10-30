@@ -12,19 +12,19 @@ def page_airplane_feature_explanation_body():
     st.info(
         f"**Features**\n"
 
-        f" **Engine Type** [categorical: Piston, Propjet or Jet type of engine]"
+        f" **Engine Type** [categorical] Piston, Propjet or Jet type of engine"
         f" "
         f" "
         f" "
         f" \n"
         
-        f" **Multi Engine** [categorical: Single or multiple engine]"
+        f" **Multi Engine** [categorical] Single or multiple engine"
         f" "
         f" "
         f" "
         f" \n"
 
-        f" **TP mods** [categorical: True or False] - Most likely: Thrust Performance modifications "
+        f" **TP mods** [categorical] True or False - Most likely: Thrust Performance modifications "
         f" "
         f" "
         f" "
@@ -42,25 +42,25 @@ def page_airplane_feature_explanation_body():
         f" "
         f" \n"
         
-        f" **Length** [ft and in] - Airplane's Length"
+        f" **Length** [ft] - Airplane's Length"
         f" "
         f" "
         f" "
         f" \n"
         
-        f" **Height** [ft and in] - Airplane's Height"
+        f" **Height** [ft] - Airplane's Height"
         f" "
         f" "
         f" "
         f" \n"
         
-        f" **Wing Span** [ft and in] - Airplane's Wing Span"
+        f" **Wing Span** [ft] - Airplane's Wing Span"
         f" "
         f" "
         f" "
         f" \n"
         
-        f" **FW** [gal or lb] - Fuel capacity/weight"
+        f" **FW** [lb] - Fuel capacity/weight"
         f" "
         f" "
         f" "
@@ -78,7 +78,7 @@ def page_airplane_feature_explanation_body():
         f" "
         f" \n"
         
-        f" **Vmax** [knot or Mach] - Maximum speed"
+        f" **Vmax** [knot] - Maximum speed"
         f" "
         f" "
         f" "
@@ -120,7 +120,7 @@ def page_airplane_feature_explanation_body():
         f" "
         f" \n"
         
-        f" **Vlo** [ft/min] - Climb speed during normal take-off for a 50 ft obstacle"
+        f" **Vlo** [ft/min] - Climb speed during normal take-off clearing a 50 ft obstacle"
         f" "
         f" "
         f" "
@@ -132,7 +132,7 @@ def page_airplane_feature_explanation_body():
         f" "
         f" \n"
         
-        f" **Vl** [ft/min] - Landing speed during normal landing for a 50 ft obstacle"
+        f" **Vl** [ft/min] - Landing speed during normal landing clearing a 50 ft obstacle"
         f" "
         f" "
         f" "

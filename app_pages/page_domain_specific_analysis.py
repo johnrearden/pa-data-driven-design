@@ -11,7 +11,8 @@ sns.set_style("whitegrid")
 
 def page_domain_specific_analysis_body():
     # Load data
-    df = pd.read_csv('/workspace/data-driven-design/outputs/datasets/collection/airplane_performance_study.csv')
+    df = pd.read_csv('outputs/datasets/collection/airplane_performance_study.csv')
+
     print(df)
 
     st.write("### Domain Specific Studies")

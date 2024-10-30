@@ -17,7 +17,7 @@ from app_pages.page_ml_predict_multi_engine import page_ml_predict_multi_engine_
 from app_pages.page_ml_predict_wing_span import page_ml_predict_wing_span_body
 from app_pages.page_ml_cluster import page_ml_cluster_body
 
-app = MultiPage(app_name= "General Aviation Performance Analysis and Predictor tool") # Create an instance of the app 
+app = MultiPage(app_name= "Airplane Performance Predictor") # Create an instance of the app 
 
 # Add your app pages here using .add_page()
 app.add_page("Quick Project Summary", page_summary_body)
