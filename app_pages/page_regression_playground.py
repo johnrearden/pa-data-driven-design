@@ -37,7 +37,7 @@ def page_regression_playground_body():
         if filter_option == "Piper vs. Cessna":
             df = df[df['Company'].isin(['Piper Aircraft', 'Cessna Aircraft Company'])]
 
-        # Check for empty DataFrame
+        # Error handling when dataFrame is empty (mainly case for Piper vs. Cessna)
         if df.empty:
             st.error("No data available after filtering. Please adjust your filters.")
             return
@@ -72,8 +72,8 @@ def DrawInputsWidgets():
         feature = "Independent feature 2"
         st.session_state.independent_feature_2 = st.selectbox(label=feature, options=available_features, index=2)
     X_live[feature] = st.session_state.independent_feature_2
-
-    # Check for duplicate selections
+ 
+    # Check for duplicate selections (in the top row of selection dropdowns)
     if (st.session_state.independent_feature_1 == st.session_state.dependent_feature or
         st.session_state.independent_feature_2 == st.session_state.dependent_feature or
         st.session_state.independent_feature_1 == st.session_state.independent_feature_2):
@@ -151,7 +151,7 @@ def plot_2d_regression(df, dependent_feature, independent_feature_1, independent
 def plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type):
     filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
 
-    # Check if there is data available after filtering
+    # Check if there is data available after filtering (part of teh error handling)
     if filtered_df.empty or filtered_df.shape[0] < 2:
         st.error("Not enough data available for the selected features to perform regression.")
         return

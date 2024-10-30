@@ -1,26 +1,20 @@
 <br>
 
-# General Aviation Performance Analysis and Predictor tool
+# Airplane Performance Analysis and Predictor tool
 
-<img src="/workspace/data-driven-design/image_readme/general-aviation-performance-data-analysis-cover-image.jpg" alt="Cover Image for the General Aviation Performance Data Analysis" width="1600"/>
+<img src="image_readme/general-aviation-performance-data-analysis-cover-image.jpg" alt="Cover Image for the General Aviation Performance Data Analysis" width="1600"/>
 
 <div style="text-align: right;">
 <img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
-<br><br>
- 
-<br><br>
-This is a A Predictive Model for General Aviation.
 
-Exploration and Prediction of dependency between Design and Performance parameters and Determining Propulsion and Wing Span to meet Performance specificationss
+[Airplane Performance Predictor](!!!!!!!!!!!!GIVE ADRESS HERE!!!!!!!!!!!!) is a Machine-learning (ML) project using a dataset with Airplanes Design and Performance parameters has a goal to achieve two things:
+   - Visualize and Analyze the data general to gain insight that can help in the Conceptual Design Process of new airplanes.
+   - Fit ML pipelines that can predict (Regression) and categorize (Classification) values necessary for reaching specific Performance targets as well as to look for hidden patterns (clustering) in the data.
 
-SAD Predictor is a machine-learning (ML) project using a General Aviation Performance dataset to achieve two things:
-
-1. determine whether a ML pipeline could be built to predict the values that Design parameters need to take on to reach Specified Performance target. This was achieved by using a classification task, using the Vmax, ROC and Range attribute from the dataset as the targets and the remaining attributes as features.
-
-2. x
-
+<br>
+<br>
 
 ## Table of Contents
 
@@ -31,9 +25,10 @@ SAD Predictor is a machine-learning (ML) project using a General Aviation Perfor
 - [Mapping Business Requirements to Data Visualisation and ML Tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
 - [Dashboard Design](#dashboard-design)
-- [Technologies Used](#technologies-used)
-- [Testing](#testing)
 - [Outlook](#outlook)
+- [Technologies Used](#technologies-used)
+- [Working with CSV-files in excel](#working-with-csv-files-in-excel)
+- [Testing](#testing)
 - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment)
 - [Forking and Cloning](#forking-and-cloning)
@@ -55,8 +50,8 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
 <br>
 <div style="display: flex; justify-content: space-around;">
-  <img src="/workspace/data-driven-design/image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="/workspace/data-driven-design/image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="200"/>
 </div>
 <figcaption>Aeronca L-16 (left) representing one end of the data set and the Bombardier Global-7500 (right) representing the other and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)</figcaption>
@@ -295,6 +290,26 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - The most important features to define a cluster
 - Cluster Profile
 
+## Outlook 
+
+### Dashboard
+Add the categorical values (Multi Engine, Engine Type and TP_mods) to the menu in the Regression Playground.
+
+### Impute more features to the data
+
+The **'year of first flight'** is an easily retrievable feature that would be valuable for two reasons:
+* It would allow predictive accuracy/feasibility to be increased since old airplanes could be filtered out when predicting a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. 
+* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last ca 80 years!
+
+Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and Fabric", "All-Metal", "Metal and Composites" and "All-Composites" would, like "year of first flight", add value in two ways:
+* It would allow predictions to be based only on relevant types of airplanes. 
+* It would allow an interesting assessment on the benefit of construction type/material on actual performance.
+
+**Wing Area** Is one of the, for aircraft Design, most important and fundamental parameters, much more important than Wing Span that currently populates the data. Imputing Wing Area would also together with the existing data allow other important features to be calculated:
+* Wing area together with wing span allow the following to be calculated:
+  * **Mean chord** by dividing Wing Span with Wing Area (Which in turn allow the Wing Reynolds number to be calculated tother with a velocity of your choice from the data set and some constants
+  * **Wing Aspect Ratio** by squaring Wing Area and divide by Wing Span
+  The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
 
 ## Technologies Used 
 
@@ -333,6 +348,20 @@ The technologies used throughout the development are listed below:
 * [GitHub](https://github.com/) - Code repository
 * [Heroku](https://heroku.com) - For application deployment
 
+## Working with CSV-files in Excel
+Opening the data in Microsoft Excel can be a good idea, especially in the beginning of the project, if you want to view, scroll and access the data-set for inspection and test things out. If the data set is a comma separated file (csv) you can not open the file in the normal manner, instead you need to import the file to Excel:
+1.Open excel and a new blank worksheet
+2. click "From text/CSV"-icon in the "data"-tab in the "ribbon"-menu.
+3. Follow the instructions.
+
+<img src="image_readme/csv_in_excel_open.png" alt="Screenshot showing how to open a CSV-file in Excel" width="500"/>
+
+<br>
+
+Saving the csv-file in Excel is done the normal way however it is important to save it using the correct file-format: CSV UTF-8 (Comma delimited)(*.csv) and remember to give it a new file name unless you want to overwrite the original file.
+
+<img src="image_readme/csv_in_excel_save.png" alt="Screenshot showing how to save a CSV-file in Excel" width="500"/>
+
 ## Testing 
 ### Manual Testing
 Manual testing have been carried out of the Dashboard to ensure that the interface can handle all combinations of input.
@@ -343,26 +372,6 @@ All code in the app_pages and src directories have been validated as conforming 
 ### Automated Unit Tests
 No automated unit tests have been carried out.
 
-## Outlook
-
-### Dashboard
-Add the categorical values (Multi Engine, Engine Type and TP_mods) to the menu in the Regression Playground.
-
-### Impute more features to the data
-
-The **'year of first flight'** is an easily retrievable feature that would be valuable for two reasons:
-* It would allow predictive accuracy/feasibility to be increased since old airplanes could be filtered out when predicting a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. 
-* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last ca 80 years!
-
-Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and Fabric", "All-Metal", "Metal and Composites" and "All-Composites" would, like "year of first flight", add value in two ways:
-* It would allow predictions to be based only on relevant types of airplanes. 
-* It would allow an interesting assessment on the benefit of construction type/material on actual performance.
-
-**Wing Area** Is one of the, for aircraft Design, most important and fundamental parameters, much more important than Wing Span that currently populates the data. Imputing Wing Area would also together with the existing data allow other important features to be calculated:
-* Wing area together with wing span allow the following to be calculated:
-  * **Mean chord** by dividing Wing Span with Wing Area (Which in turn allow the Wing Reynolds number to be calculated tother with a velocity of your choice from the data set and some constants
-  * **Wing Aspect Ratio** by squaring Wing Area and divide by Wing Span
-  The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
 
 ## Unfixed Bugs 
 * In the Regression Playground the values on the color value bar sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate color value bars side by side, one for Piper and one for Cessna, however failed to make it work.
