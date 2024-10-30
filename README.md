@@ -367,11 +367,12 @@ No automated unit tests have been carried out.
 
 ## Unfixed Bugs 
 * In the Regression Playground the values on the color value bar sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate color value bars side by side, one for Piper and one for Cessna, however failed to make it work.
+* The scale in the Parallel plot feels "Upside down" in the context of the features that it represents, i.e. zero velocity or zero altitude are at the top of the "vertical axis" and the maximum values at the bottom! This is not exactly a bug however it feels very unintuitive and is for this reason desirable to change.
 
 ## Deployment 
 ### Heroku
 
-* The App live link is: [Airplane Performance Predictor](!!!!!!!!!!!!! FILL IN URL HERE !!!!!!!!!!!!!!!!!!!!!!!!)
+* The App live link is: [Airplane Performance Predictor](https://airplane-performance-predictor-852b7eac4d10.herokuapp.com/)
 
 The project was deployed to Heroku using the following steps:
 

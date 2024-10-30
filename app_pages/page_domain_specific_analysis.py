@@ -24,18 +24,25 @@ def page_domain_specific_analysis_body():
     st.write("---")
 
     st.info(
-        f"The late Prof. Peter Lissaman, who developed the solar-powered High Altitude Airplane Helios"
-        f" (Aerovironment/NASA), found that Hmax was strongly dependent on wing span:"
-        f" as wing span increases, Hmax also increases."
-        f" However this relationship is not immediately obvious from the equations, and the airplanes in the"
-        f" dataset differ vastly from the data set:"
-        f" Helios was ultra-light, propeller-driven with 14 electric engines and it operated"
-        f" in a completely different speed and altitude regime."
-        f" Despite this, we can see this relationship for the Piston (propeller-driven) Engine Type.\n"
+        """
+        The late Prof. Peter Lissaman, who developed the solar-powered High Altitude Airplane Helios
+        (Aerovironment/NASA), found that Hmax was strongly dependent on wing span:
+        as wing span increases, Hmax does to.
+
+        However this relationship is not immediately obvious from the equations, and in addition the airplanes in the
+        dataset differ vastly from that of Helios.
+        Helios was ultra-light, propeller-driven with 14 electric engines operating
+        in a extremely thin air at an extremely slow air speed regime.
+        Despite this, The steep gradient of the Piston Engine Type regression line as well as the less steep yet
+        still clearly positive Jet Engine Type indeed fits Prof. Lissamans observation.
+
+        If it is the same phenomena behind the trend for Helios as with the airplanes in our dataset we do not know,
+        we can just make a statistical observation, and indeed the gradient for the propjet does NOT fit Helios!
+        """
     )
 
     # Individual plots per variable
-    if st.checkbox("View Effect of Wing Span on Hmax by Engine Type plot"):
+    if st.checkbox("View Effect of Wing Span on Hmax by Engine Type"):
         ceiling_as_function_of_wingspan(df)
 
     st.write("---")
@@ -48,38 +55,23 @@ def page_domain_specific_analysis_body():
         the distance an airplane can fly is directly related to how much of its weight consists of fuel.
 
         The data with its steep sloped positive regression line gives Breguet credit; however,
-        the data also hint that the relationship is only close to linear yet not completely linear!
-        More analysis would be needed.
+        the data also hint that the relationship is close to, yet not completely linear!
 
         **Breguet Range Equation:**
         R = (η_pr / c) × (L/D) × (W₀ / W₁)
 
         Where:
-        R = range (distance the aircraft can travel)
-        η_pr = propulsive efficiency
-        c = specific fuel consumption
-        L/D = lift-to-drag ratio
-        W₀ = initial weight of the aircraft (including fuel)
-        W₁ = final weight of the aircraft (after fuel is burned)
+        R = range (distance the aircraft can travel)  
+        η_pr = propulsive efficiency  
+        c = specific fuel consumption  
+        L/D = lift-to-drag ratio  
+        W₀ = initial weight of the aircraft (including fuel)  
+        W₁ = final weight of the aircraft (after fuel is burned)  
         """
     )
 
-    # st.markdown(r"""
-    # ## Breguet Range Equation
-    # $$
-    # R = \frac{\eta_{pr}}{c} \times \frac{L}{D} \times \frac{W_0}{W_1}
-    # $$
-    # Where:
-    # - \( R \) = range (distance the aircraft can travel)
-    # - \( \eta_{pr} \) = propulsive efficiency
-    # - \( c \) = specific fuel consumption
-    # - \( \frac{L}{D} \) = lift-to-drag ratio
-    # - \( W_0 \) = initial weight of the aircraft (including fuel)
-    # - \( W_1 \) = final weight of the aircraft (after fuel is burned)
-    # """)
-
     # Plot: range_as_function_of_weight_ratio
-    if st.checkbox("View Effect of Wi/Wf on Range plot"):
+    if st.checkbox("View Effect of Wi/Wf on Range"):
         range_as_function_of_weight_ratio(df)
 
 
