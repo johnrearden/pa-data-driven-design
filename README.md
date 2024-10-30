@@ -21,93 +21,28 @@ SAD Predictor is a machine-learning (ML) project using a General Aviation Perfor
 
 2. x
 
-## Table of Contents
-
-- [Dataset Content](## Dataset Content)
-- [Project Terms & Jargon](## Project Terms & Jargon)
-- [Hypothesis and how to validate?](## Hypothesis and how to validate?)
-- [The rationale to map the business requirements to the Data Visualizations and ML tasks](## The rationale to map the business requirements to the Data Visualizations and ML tasks)
-- [ML Business Case](## ML Business Case)
-- [Predict Churn](### Predict Churn)
-- [Classification Model](#### Classification Model)
-- [Predict Tenure](### Predict Tenure)
-- [Regression Model](#### Regression Model)
-- [Classification Model](#### Classification Model)
-- [Cluster Analysis](### Cluster Analysis)
-- [Clustering Model](#### Clustering Model)
-- [Dashboard Design (Streamlit App User Interface)](## Dashboard Design (Streamlit App User Interface))
-- [Page 1: Quick project summary](### Page 1: Quick project summary)
-- [Page 2: Customer Base Churn Study](### Page 2: Customer Base Churn Study)
-- [Page 3: Prospect Churnometer](### Page 3: Prospect Churnometer)
-- [Page 4: Project Hypothesis and Validation](### Page 4: Project Hypothesis and Validation)
-- [Page 5: Predict Churn](### Page 5: Predict Churn)
-- [Page 6: Predict Tenure](### Page 6: Predict Tenure)
-- [Page 7: Cluster Analysis](### Page 7: Cluster Analysis)
-
-
 
 ## Table of Contents
 
 - [Dataset Content](#dataset-content)
-- [Project Terms & Jargon](#project-terms-&-jargon)
-- [Hypothesis and how to validate?](#hypothesis-and-how-to-validate?)
-- [The rationale to map the business requirements to the Data Visualizations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+- [Project terms & Jargon](#project-terms-and-jargon)
+- [Business Requirements](#business-requirements)
+- [Hypothesis](#hypothesis-and-how-to-validate)
+- [Mapping Business Requirements to Data Visualisation and ML Tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
-- [Predict Churn](###predict-churn)
-- [Classification Model](####classification-model)
-- [Predict Tenure](###predict-tenure)
-- [Regression Model](####regression-model)
-- [Classification Model](####classification-model)
-- [Cluster Analysis](###cluster-analysis)
-- [Clustering Model](####clustering-model)
-- [Dashboard Design (Streamlit App User Interface)](##dashboard-design-(streamlit-app-user-interface))
-- [Page 1: Quick project summary](###page-1:-quick-project-summary)
-- [Page 2: Customer Base Churn Study](###page-2:-customer-base-churn-study)
-- [Page 3: Prospect Churnometer](###page-3:-prospect-churnometer)
-- [Page 4: Project Hypothesis and Validation](###page-4:-project-hypothesis-and-validation)
-- [Page 5: Predict Churn](###page-5:-predict-churn)
-- [Page 6: Predict Tenure](###page-6:-predict-tenure)
-- [Page 7: Cluster Analysis](###page-7:-cluster-analysis)
+- [Dashboard Design](#dashboard-design)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Outlook](#outlook)
+- [Unfixed Bugs](#unfixed-bugs)
+- [Deployment](#deployment)
+- [Forking and Cloning](#forking-and-cloning)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
+- [APPENDIX](#appendix)
 
 
-
-
-## Table of Contents
-- [Dataset Content](#section-1)
-- [Project Terms & Jargon](#section-2)
-- [Hypothesis and how to validate?](#section-3)
-- [The rationale to map the business requirements to the Data Visualizations and ML tasks](#section-4)
-- [ML Business Case](#section-5)
-  - [Predict Churn](#subsection-51)
-    - [Classification Model](#subsection-511)
-  - [Predict Tenure](#subsection-52)
-    - [Regression Model](#subsection-521)
-    - [Classification Model](#subsection-522)
-  - [Cluster Analysis](#subsection-53)
-    - [Clustering Model](#subsection-531)
-- [Dashboard Design (Streamlit App User Interface)](#section-6)
-  - [Page 1: Quick project summary](#subsection-61)
-  - [Page 2: Customer Base Churn Study](#subsection-62)
-  - [Page 3: Prospect Churnometer](#subsection-63)
-  - [Page 4: Project Hypothesis and Validation](#subsection-64)
-  - [Page 5: Predict Churn](#subsection-65)
-  - [Page 6: Predict Tenure](#subsection-66)
-  - [Page 7: Cluster Analysis](#subsection-67)
-
-
-# Title
-
-## Section 1
-
-### Subsection 1.1
-
-## Section 2
-
-### Subsection 2.1
-
-
-
-## Dataset Content
+## Dataset Content 
 
 This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.kaggle.com/datasets/heitornunes/aircraft-performance-dataset-aircraft-bluebook?select=Airplane_Complete_Imputation.csv), containing 860 General aviation and smaller airliners and buisness jets is sourced from Kaggle. Each row represents an airplane and each column contains an airplane attribute. 
 
@@ -170,13 +105,13 @@ Note that we can glean valuable insight on how the features are distributed alre
 <img src="image_readme/kaggle_data_head_4.png" alt="Head of data from Kaggle site " width=1000/>
 <img src="image_readme/kaggle_data_head_5.png" alt="Head of data from Kaggle site " width=1000/>
 
-## Project Terms & Jargon
+## Project Terms and Jargon 
     - "General Aviation" is civil aviation other than large-scale passenger or freight operations.
     - A "Categorical value" is a value that falls into distinct categories or groups. For example, the Engine Type can be classified as piston, propjet, or jet.
     - A "Continuous numeric value" is a value that can take any real number (whole numbers and decimals). For example, the Cruise Speed can be 237,5 knots.
 
 
-## Business Requirements
+## Business Requirements 
 The ficticous company *Data Driven Design* (DDD) consist of data practitioners with the combined skillset of Vehicle Design and Machine Learning.
 
 <img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>
@@ -199,7 +134,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 **Speed:** The model should be able to make predictions in real-time (more or less).
 
-## Hypothesis and how to validate?
+## Hypothesis and how to validate? 
 - 1 - We suspect customers are churning with low tenure levels.
 	- A Correlation study can help in this investigation
 - 2 - A customer survey showed our customers appreciate Fibre Optic.
@@ -210,7 +145,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 
 
-## The rationale to map the business requirements to the Data Visualizations and ML tasks
+## The rationale to map the business requirements to the Data Visualizations and ML tasks 
 - **Business Requirement 1:** Data Visualization and Correlation study
 	- We will inspect the data related to the customer base.
 	- We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Churn.
@@ -225,7 +160,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 
 
-## ML Business Case
+## ML Business Case 
 
 ### Predict Churn
 #### Classification Model
@@ -284,7 +219,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 	- Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure 
 
 
-## Dashboard Design (Streamlit App User Interface)
+## Dashboard Design
 
 ### Page 1: Quick project Summary
 - Quick project summary
@@ -361,7 +296,58 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - Cluster Profile
 
 
-## OUTLOOK
+## Technologies Used 
+
+The technologies used throughout the development are listed below:
+
+### Languages
+
+* [Python](https://www.python.org/)
+
+### Python Packages
+
+* [plotly](https://plotly.com/) - Open-source graphing library for interactive visualizations.
+* [yellowbrick](https://www.scikit-yb.org/en/latest/) - Open-source visualization library for ML.
+* [Jinja2](https://jinja.palletsprojects.com/en/stable/) - Open-source templating engine for Python.
+* [MarkupSafe](https://pypi.org/project/MarkupSafe/) - Open-source library for escaping strings in web applications..
+* [protobuf](https://protobuf.dev/) - Language-neutral, platform-neutral extensible mechanisms for serializing structured data.
+* [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/) - Interactive browser controls for Jupyter notebooks.
+* [altair](https://altair.com/machine-learning) - Open-source declarative visualization library for Python with interactive statistical graphics.
+* [streamlit](https://streamlit.io/) - open-source framework for scientific interactive web apps.
+* [Pandas](https://pandas.pydata.org/docs/index.html) - Open source library for data manipulation and analysis.
+* [Numpy](https://numpy.org/doc/stable/index.html) - Adds support for large, multi-dimensional arrays and matrices, and high-level mathematical functions.
+* [Matplotlib](https://matplotlib.org/) - Comprehensive library for creating static, animated and interactive visualisations.
+* [Seaborn](https://seaborn.pydata.org/) - Another data visualisation library for drawing attractive and informative statistical graphics.
+* [Feature-engine](https://feature-engine.trainindata.com/en/latest/) - Library with multiple transformers to engineer and select features for machine learning models.
+* [scikit-learn](https://scikit-learn.org/stable/) - Open source machine learning library that features various algorithms for training a ML model.
+* [SciPy](https://scipy.org/) - Library used for scientific computing and technical computing.
+* [XGBoost](https://xgboost.readthedocs.io/en/stable/) - Optimised distributed gradient boosting library.
+* [Imbalanced-learn](https://imbalanced-learn.org/stable/) - Provides tools for dealing with classification problems with imbalanced classes.
+* [Joblib](https://joblib.readthedocs.io/en/stable/) - Provides tools for lightweight pipelining, e.g. caching output values.
+
+### Other Technologies
+
+* [Microsoft Excel](https://en.wikipedia.org/wiki/Microsoft_Excel) - For manual inspection and processing of data set
+* [Git](https://git-scm.com/) - For version control
+* [GitPod](https://www.gitpod.io/) - Cloudbased IDE used for development
+* [GitHub](https://github.com/) - Code repository
+* [Heroku](https://heroku.com) - For application deployment
+
+## Testing 
+### Manual Testing
+Manual testing have been carried out of the Dashboard to ensure that the interface can handle all combinations of input.
+
+### Validation
+All code in the app_pages and src directories have been validated as conforming to PEP8 standards using CodeInstitute's PEP8 Linter.
+
+### Automated Unit Tests
+No automated unit tests have been carried out.
+
+## Outlook
+
+### Dashboard
+Add the categorical values (Multi Engine, Engine Type and TP_mods) to the menu in the Regression Playground.
+
 ### Impute more features to the data
 
 The **'year of first flight'** is an easily retrievable feature that would be valuable for two reasons:
@@ -378,47 +364,97 @@ Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and
   * **Wing Aspect Ratio** by squaring Wing Area and divide by Wing Span
   The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
 
-## Unfixed Bugs
-* In the Regression Playground the values on the Color Scale sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate Color Bars side by side, one for Piper and one for Cessna however failed to made it work.
+## Unfixed Bugs 
+* In the Regression Playground the values on the color value bar sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate color value bars side by side, one for Piper and one for Cessna, however failed to make it work.
 
-## Deployment
+## Deployment 
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+* The App live link is: [Airplane Performance Predictor](!!!!!!!!!!!!! FILL IN URL HERE !!!!!!!!!!!!!!!!!!!!!!!!)
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+The project was deployed to Heroku using the following steps:
 
+1. Within your working directory, ensure there is a setup.sh file containing the following:
+```
+mkdir -p ~/.streamlit/
+echo "\
+[server]\n\
+headless = true\n\
+port = $PORT\n\
+enableCORS = false\n\
+\n\
+" > ~/.streamlit/config.toml
+```
 
-## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+2. Within your working directory, ensure there is a runtime.txt file containing a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack supported version of Python.
+```
+python-3.10
+```
+3. Within your working directory, ensure there is a Procfile file containing the following:
+```
+web: sh setup.sh && streamlit run app.py
+```
+4. Ensure your requirements.txt file contains all the packages necessary to run the streamlit dashboard.
+5. Update your .gitignore and .slugignore files with any files/directories that you do not want uploading to GitHub or are unnecessary for deployment.
+6. Log in to [Heroku](https://id.heroku.com/login) or create an account if you do not already have one.
+7. Click the **New** button on the dashboard and from the dropdown menu select "Create new app".
+8. Enter a suitable app name and select your region, then click the **Create app** button.
+9. Once the app has been created, navigate to the Deploy tab.
+10. At the Deploy tab, in the Deployment method section select **GitHub**.
+11. Enter your repository name and click **Search**. Once it is found, click **Connect**.
+12. Navigate to the bottom of the Deploy page to the Manual deploy section and select main from the branch dropdown menu.
+13. Click the **Deploy Branch** button to begin deployment.
+14. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
+15. If the build fails, check the build log carefully to troubleshoot what went wrong.
+
+[Back to top](#table-of-contents)
+
+## Forking and Cloning 
+If you wish to fork or clone this repository, please follow the instructions below:
+
+### Forking
+1. In the top right of the main repository page, click the **Fork** button.
+2. Under **Owner**, select the desired owner from the dropdown menu.
+3. **OPTIONAL:** Change the default name of the repository in order to distinguish it.
+4. **OPTIONAL:** In the **Description** field, enter a description for the forked repository.
+5. Ensure the 'Copy the main branch only' checkbox is selected.
+6. Click the **Create fork** button.
+
+### Cloning
+1. On the main repository page, click the **Code** button.
+2. Copy the HTTPS URL from the resulting dropdown menu.
+3. In your IDE terminal, navigate to the directory you want the cloned repository to be created.
+4. In your IDE terminal, type ```git clone``` and paste the copied URL.
+5. Hit Enter to create the cloned repository.
+
+### Installing Requirements
+**WARNING:** The packages listed in the requirements.txt file are limited to those necessary for the deployment of the dashboard to Heroku, due to the limit on the slug size.
+
+In order to ensure all the correct dependencies are installed in your local environment, run the following command in the terminal:
+
+    pip install -r full-requirements.txt
 
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
-
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
+#### Equations
+- Equations was taken mainly from Anderson, John D. Aircraft Performance and Design. McGraw-Hill, 1999.
+
+#### Exploratory Data Analysis Notebook
+* Much of the code have been taken from the Code Institute "Churnometer" walkthrough project and adapted to this project. This code appears In particular in:
+  - 03 - DataCleaning has been used for: 4_data_cleaning
+  - 04 - FeatureEngineering has been used for: 5_feature_engineering
+  - 05 - Modeling and Evaluation - Predict Churn has been used for: 6A_modeling_and_evaluation-predict_engine_type
+  - (06 - Modeling and Evaluation - Predict Tenure has been used for: 7_modeling_and_evaluation_predict_wing_span)
+  - 07 - Modeling and Evaluation - Cluster Sklearn has been used for: 8_modeling_and_evaluation_cluster_sklearn
 
 ### Media
+- The Photos of Airplanes was taken from various Open-Source sites.
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
-
-
-
-## Acknowledgements (optional)
-Thanks to my mentor Mo Shami, for support and cool manners during the project.
+## Acknowledgements 
+Thanks to my mentor Mo Shami, for support and friendly manners during the project.
 
 
 
@@ -428,7 +464,7 @@ Thanks to my mentor Mo Shami, for support and cool manners during the project.
 <br>
 <br>
 
-# APPENDIX
+# APPENDIX 
 <br>
 
 ## Domain specific comments on relationships between the features in the data set

@@ -16,11 +16,10 @@ def airplane_performance_study():
 
 def page_regression_playground_body():
     st.write("### Regression Playground")
-    st.info("* All the continuous numeric features in the menu below are available for plotting at your own discretion."
-            " You choose the features and type of graph you want for your scatter plot with regression line/surface.\n"
-            " For fun we have pitched Piper and Cessna airplanes head to head against each other to see who's"
+    st.info("* All the continuous numeric features are available for you to explore in the menu below!"
+            " For fun we have pitched Piper and Cessna head to head against each other to see who's"
             " regression lines/surfaces come out on top in the different disciplines! "
-            " Note however that the true merit of an airplane is not captured with a comparison of such a limited number of features.\n")
+            " Note that the true merit of an airplane is not captured by only comparing a limited number of features.\n")
 
     st.write("---")
 
