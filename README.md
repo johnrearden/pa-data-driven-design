@@ -129,22 +129,17 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 **Bonus Study** - Although not requested by the client, Data Driven Design has decided to include a bonus study with the goal that the client should retain the service of DDD. The bonus study consist of pitching the two largest contributors to the data set, Cessna (24%) and Piper (13%) and see who fairs the best for different performance features. It is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
 
-**Accuracy:** Naturally the goal is always to maximise accuracy however the nature of Conceptual design is that ballpark figures goes a long way and the understanding of the background from where the data comes is more important. The accuracy is not a safety concern. The year of first flight, construction type and material varies greatly within the data set thus a further categorization is desirable for increased prediction accuracy. Please see the Outlook-chapter for a further discussion.
+**Accuracy:** Naturally the goal is always to maximize accuracy however the nature of Conceptual design is that ballpark figures goes a long way as long as it is paired with a good sense of judgment and understanding of where the data comes from. Since the predictions are intended to be used only in the early Airplane Design Phase inaccuracies does not put human life at risk. The only thing at risk is money since a wrong decision here, i.e. to select a multi Engined instead of a single Engined configuration, can have disastrous consequences if a wrong decision in the early design stages needs to be redesigned in the later stages or alternatively design that fail to address the customer wishes and have a sub-optimal performance.
 
 **Scalability:** The solution should be scalable in the sense that new features as well as new data points (Airplanes) could be added to the data set.
 
 **Speed:** The model should be able to make predictions in real-time (more or less).
 
 ## Hypothesis and how to validate? 
-- 1 - We suspect customers are churning with low tenure levels.
+- 1 - We suspect that airplanes with Multiple Engines can fly 'Higher, Further, Faster' as the slogan goes 
 	- A Correlation study can help in this investigation
-- 2 - A customer survey showed our customers appreciate Fibre Optic.
+- 2 - We suspect that airplanes with jet Engines can fly 'Higher, Further, Faster' as the slogan goes 
 	- A Correlation study can help in this investigation
-
-
-
-
-
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks 
 - **Business Requirement 1:** Data Visualization and Correlation study
@@ -159,65 +154,47 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 	- We want to understand a cluster profile to present potential options to maintain or bring the prospect to a non-churnable cluster.
 
 
-
-
 ## ML Business Case 
 
-### Predict Churn
+### Predict Multi Engine
 #### Classification Model
-- We want an ML model to predict if a prospect will churn based on historical data from the customer base, which doesn't include tenure and total charges since these values are zero for a prospect. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no churn), 1 (yes churn)
-- Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
+- We want an ML model to predict if an Airplane have a Multi Engine or single Engine on historical General Aviation Airplane data. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no Multi Engine), 1 (yes Multi Engine).
+- Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
-	- at least 80% Recall for Churn, on train and test set 
+	- at least 80%"""""""""""""""""""" Recall for Multi Engine, on train and test set 
 	- The ML model is considered a failure if:
-		- after 3 months of usage, more than 30% of newly onboarded customers churn (it is an indication that the offers are not working or the model is not detecting potential churners)
-		- Precision for no Churn is lower than 80% on train and test set. (We don't want to offer a free discount to many non-churnable prospects)
-- The model output is defined as a flag, indicating if a prospect will churn or not and the associated probability of churning. If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-- Heuristics: Currently, there is no approach to predict churn on prospects
-- The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-	- Train data - target: Churn; features: all other variables, but tenure, total charges and customerID
+		- !!!!!!!!!!!!!!!!
+		- Precision for no Multi Engine is lower than 80% on train and test set. (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the misstake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
+- The model output is defined as a flag, indicating if an Airplane have Multi or Single Engines.
+- Heuristics: Currently, there are many predictor tools similar to this however most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as if an airplane is more suited to have Single or Multi Engines.
+- The training data to fit the model comes from the Kaggle data set.
+	- Train data - features: all variables, but: Model, Company, THR, SHP.
 
-### Predict Tenure
+### Predict Wing Span
 #### Regression Model
-- We want an ML model to predict tenure levels, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a **regression model**, which is supervised and uni-dimensional.
-- Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
+- We want an ML model to predict Wing Span, ft. The target variable is numerical continous. We consider a **regression model**, which is supervised and multidimensional.
+- Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
-	- At least 0.7 for R2 score, on train and test set
+	- At least 0.7!!!!!!!????????? for R2 score, on train and test set
 	- The ML model is considered a failure if:
-		- after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
-- The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-- Heuristics: Currently, there is no approach to predict the tenure levels for a prospect.
-- The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-	- Train data - filter data where Churn == 1, then drop the Churn variable. Target: tenure; features: all other variables, but total charges and customerID
-
-
-#### Classification Model
-- Before the analysis, we visualized a Regressor pipeline to predict Churn; however, the performance didn’t meet the requirement (at least 0.7 for R2 score, on train and test set)
-- We used a technique to convert the ML task from Regression to Classification. We discretized the target into 3 ranges: <4 months, 4-20 months and +20 months. 
-- The classification pipeline can detect a prospect that would likely churn in less than four months and a prospect that would likely churn in more than 20 months.
-- A target variable is categorical and contains 3 classes. We consider a **classification model**, which is supervised and uni-dimensional.
-- Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-- The model success metrics are
-	- At least 0.8 Recall for <4 months, on train and test set
-	- The ML model is considered a failure if:
-		- after 3 months of usage, more than 30% of customers that were expected to churn in <4 months do not churn
-- The output is defined as a class, which maps to a range of tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-- Heuristics: Currently, there is no approach to predict the tenure levels for a prospect.
-- The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-	- Train data - filter data where Churn == 1, then drop the Churn variable. Target: tenure; features: all other variables, but total charges and customerID
+		- !!!!!!!!!!!!!!!!
+- The output is defined as a continuous value for Wing Span in ft.
+- Heuristics: Currently, there are many such predictor tools but most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as Wing Span for different customer specifications.
+- The training data to fit the model comes from the Kaggle data set.
+    - Train data - Target: Wing Span; features: all other variables, but Model, Company, THR, SHP, Engine_Type, Multi_Engine, TP_mods, Hmax_(One), ROC_(One)
 
 
 ### Cluster Analysis
 #### Clustering Model
-- We want an ML model to cluster similar customer behaviour. It is an unsupervised model.
-- Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
+- We want an ML model to cluster airplanes with similare Performance or Design characteristics. It is an unsupervised model.
+- Our ideal outcome is to provide our client with reliable insight into a key differences between airplanes and what these differences consist of in terms of Design and Performance Parameters and how these are linked.
 - The model success metrics are
-	- at least 0.45 for the average silhouette score
-	- The ML model is considered a failure if the model suggests from more than 15 clusters (might become too difficult to interpret in practical terms)
+	- at least 0.45!!!!!!!!!!!!!!!!!! for the average silhouette score
+	- The ML model is considered a failure if the model suggests either to many clusters (>10) or to few clusters (<3) unless these clusters are really distinct and are not trivial considering the data, e.g. belong to a single categorical value that would alter many other features in an equal amount, e.g. TP mods which is a performance enhancing modification to the Engine.
 - The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable represented by numbers starting at 0.
-- Heuristics: Currently, there is no approach to grouping similar customers
-- The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-	- Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure 
+- Heuristics: Clustering or aircraft data has been done before on other data however our client wishes to have their own tool on their own data.
+- The training data to fit the model comes from the Kaggle data set.
+	- Train data - features: all variables, but Model', 'Company', 'Multi_Engine', 'THR', 'SHP', 'Hmax_(One)', and 'ROC_(One)'
 
 
 ## Dashboard Design
@@ -228,66 +205,75 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 	- Describe Project Dataset
 	- State Business Requirements
 
-### Page 2: Airplane Feature Visualizer
+### Page 2: Get to know the dataset
 - Concretize the data set for by display images of the airplanes in the "middle" and "Edges" of the data set:
-	- Image: One image of the airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
+	- Image: One image of each airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
 
-### Page 3: Domain Specific Analysis
+### Page 3: Airplane Feature Explanation
+- Explanation of the abbreviated features for the features.
+
+### Page 4: Regression Playground
+- State business requirement 2
+- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
+- "Create Regression Plot" button to generate a regression plot according to the selections given in the drop down menus: 
+  - Dependent feature, e.g Wing_Span
+  - Independent feature 1, e.g. Hmax
+  - Independent feature 2, e.g. AUW
+  - Filter Option - All Airplanes or Piper vs. Cessna
+  - Regression Type: Linear or Quadratic
+  - Type of graph: 2D or 3D
+
+### Page 5: Domain Specific Analysis
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 4: Piper vs. Cessna
+### Page 6: Engine Type Airplane Study
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 5: Engine Type Airplane Study
+### Page 7: Predict Engine Type
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 6: Predict Engine Type
+### Page 8: Multi Engine Airplane Study
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 7: Multi Engine Airplane Study
+### Page 9: Predict Multi Engine
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 8: Predict Multi Engine
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
-
-### Page 9: Project Hypothesis and Validation
+### Page 10: Project Hypothesis and Validation
 - Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
 - 1 - We suspect customers are churning with low tenure levels
 	- Correct. The correlation study at Churned Customer Study supports that.
 - 2 -  A customer survey showed our customers appreciate Fibre Optic.
 	- A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
 
-### Page 10: Predict Engine Type
+### Page 11: Predict Engine Type
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline performance
 
-### Page 11: Predict Multi Engine
+### Page 12: Predict Multi Engine
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline performance
 
-### Page 12: Predict Wing Span
+### Page 13: Predict Wing Span
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Feature importance
 - Pipeline performance
 
-### Page 13: Cluster Analysis
+### Page 14: Cluster Analysis
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Silhouette plot

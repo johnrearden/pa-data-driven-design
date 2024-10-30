@@ -60,17 +60,17 @@ def DrawInputsWidgets():
 
     with col1:
         feature = "Dependent feature"
-        st.session_state.dependent_feature = st.selectbox(label=feature, options=available_features, index=0)
+        st.session_state.dependent_feature = st.selectbox(label=feature, options=available_features, index=0)  # Set the Wing Span as default
     X_live[feature] = st.session_state.dependent_feature
 
     with col2:
         feature = "Independent feature 1"
-        st.session_state.independent_feature_1 = st.selectbox(label=feature, options=available_features, index=1)
+        st.session_state.independent_feature_1 = st.selectbox(label=feature, options=available_features, index=5)  # Set AUW as default
     X_live[feature] = st.session_state.independent_feature_1
 
     with col3:
         feature = "Independent feature 2"
-        st.session_state.independent_feature_2 = st.selectbox(label=feature, options=available_features, index=2)
+        st.session_state.independent_feature_2 = st.selectbox(label=feature, options=available_features, index=11)  # Set Range as default
     X_live[feature] = st.session_state.independent_feature_2
  
     # Check for duplicate selections (in the top row of selection dropdowns)
