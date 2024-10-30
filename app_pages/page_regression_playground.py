@@ -9,12 +9,26 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
 def airplane_performance_study():
+    """
+    Load the airplane performance dataset from a CSV file.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the airplane performance data
+        with whitespace stripped from column names.
+    """
     path = 'outputs/datasets/collection/airplane_performance_study.csv'
     df = pd.read_csv(path)
     df.columns = df.columns.str.strip()  # Strip whitespace from column names
     return df
 
 def page_regression_playground_body():
+    """
+    Display the main body of the Regression Playground page in Streamlit.
+
+    This function sets up the user interface for selecting features, 
+    filters, and regression types, and calls the appropriate plotting
+    functions based on user input.
+    """
     st.write("### Regression Playground")
     st.info("* All the continuous numeric features are available for you to explore in the menu below!"
             " For fun we have pitched Piper and Cessna head to head against each other to see who's"
@@ -24,7 +38,13 @@ def page_regression_playground_body():
     st.write("---")
 
     X_live = DrawInputsWidgets()
+    """
+    Create input widgets for selecting features and options for regression analysis.
 
+    Returns:
+        pd.DataFrame: A DataFrame containing the selected features and options
+        from the user input.
+    """
     if st.button("Create Regression Plot"):
         dependent_feature = X_live["Dependent feature"].values[0]
         independent_feature_1 = X_live["Independent feature 1"].values[0]
@@ -51,6 +71,13 @@ def page_regression_playground_body():
             st.error("Please select valid features.")
 
 def DrawInputsWidgets():
+    """
+    Create input widgets for selecting features and options for regression analysis.
+
+    Returns:
+        pd.DataFrame: A DataFrame containing the selected features and options
+        from the user input.
+    """
     df = airplane_performance_study()
     excluded_features = ["Multi_Engine", "TP_mods", "Engine_Type", "Model", "Company"]  # Exclude 'Company' for feature selection
     available_features = [col for col in df.columns if col not in excluded_features]
@@ -99,6 +126,17 @@ def DrawInputsWidgets():
     return X_live
 
 def plot_2d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type):
+    """
+    Plot 2D regression using seaborn based on selected features and regression type.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing airplane performance data.
+        dependent_feature (str): The dependent feature for the regression.
+        independent_feature_1 (str): The first independent feature.
+        independent_feature_2 (str): The second independent feature.
+        filter_option (str): The filter option selected by the user.
+        regression_type (str): The type of regression ('Linear' or 'Quadratic').
+    """
     filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
 
     if filtered_df.empty:
@@ -149,6 +187,17 @@ def plot_2d_regression(df, dependent_feature, independent_feature_1, independent
 
 
 def plot_3d_regression(df, dependent_feature, independent_feature_1, independent_feature_2, filter_option, regression_type):
+    """
+    Plot 3D regression using Plotly based on selected features and regression type.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing airplane performance data.
+        dependent_feature (str): The dependent feature for the regression.
+        independent_feature_1 (str): The first independent feature.
+        independent_feature_2 (str): The second independent feature.
+        filter_option (str): The filter option selected by the user.
+        regression_type (str): The type of regression ('Linear' or 'Quadratic').
+    """
     filtered_df = df[[dependent_feature, independent_feature_1, independent_feature_2, 'Company']].dropna()
 
     # Check if there is data available after filtering (part of teh error handling)
