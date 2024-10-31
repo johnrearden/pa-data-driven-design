@@ -38,7 +38,6 @@ def page_regression_playground_body():
             " regression lines/surfaces come out on top in the different disciplines! "
             " Note that the true merit of an airplane is not captured by only comparing a limited number of features.\n")
 
-    st.write("---")
 
     X_live = DrawInputsWidgets()
     if st.button("Create Regression Plot"):
@@ -210,7 +209,7 @@ def plot_3d_regression(df, dependent_feature, independent_feature_1, independent
 
             # Ensure there's enough data for fitting the model
             if company_df.shape[0] < 2:
-                st.warning(f"Not enough data for {company}. Skipping this company.")
+                st.warning(f"Not enough data for {company}. Skipping this Company.")
                 continue
 
             X = company_df[[independent_feature_1, independent_feature_2]]

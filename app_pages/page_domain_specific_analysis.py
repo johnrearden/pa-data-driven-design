@@ -21,7 +21,7 @@ def page_domain_specific_analysis_body():
         f"* Two simple correlation studies were conducted to showcase interesting relationships"
         f" between design features and performance features. \n"
     )
-    st.write("---")
+
 
     st.info(
         """
@@ -44,7 +44,6 @@ def page_domain_specific_analysis_body():
     # Individual plots per variable
     if st.checkbox("View Effect of Wing Span on Hmax by Engine Type"):
         ceiling_as_function_of_wingspan(df)
-
     st.write("---")
 
     st.info(

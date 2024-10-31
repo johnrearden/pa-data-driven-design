@@ -29,7 +29,14 @@ def page_wing_span_predictor_body():
     3. Run the app with `streamlit run your_script.py`.
     """
     st.write("### Wingspan Predictor")
-
+    st.info("* bla bla "
+            " bla bla "
+            " bla bla "
+            " bla bla "
+            " bla bla  "
+            " bla bla .\n")
+    st.write("---")
+    
     all_features = [
         'Length', 'Height', 'AUW', 'MEW',
         'FW', 'Vmax', 'Vcruise', 'Vstall', 'Range', 
@@ -37,7 +44,7 @@ def page_wing_span_predictor_body():
         'Slo', 'Vl', 'Sl'
     ]
 
-    input_type = st.radio("Choose input method for all features", 
+    input_type = st.radio("",  # "Choose input method for all features"
                            ("Select incremental values from dropdown (interpolation)", 
                             "Enter a custom value (interpolation and extrapolation)"))
 
@@ -119,7 +126,7 @@ def page_wing_span_predictor_body():
     if st.button("Predict Wingspan"):
         if validate_inputs(inputs):
             prediction = pipeline.predict(input_data)
-            st.write(f"Predicted Wingspan: {prediction[0]:.2f} meters")
+            st.write(f"Predicted Wingspan: {prediction[0]:.2f} ft")
             st.write("This prediction is based on the input features provided.")
         else:
             st.error("Please fill in all required features before predicting.")

@@ -1,1 +1,1 @@
-Mean Squared Error: 10.941415245370358
+Mean Squared Error: 7.269560176611815
