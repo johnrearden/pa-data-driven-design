@@ -440,13 +440,16 @@ In order to ensure all the correct dependencies are installed in your local envi
 
 ### Content
 
-[k-means: The simplest (but most used) partitioning clustering method](https://www.youtube.com/watch?v=u1EUrxobvk8) was used to understand K-means and Sillhoouette-scoore.
+The tutorial [k-means: The simplest (but most used) partitioning clustering method](https://www.youtube.com/watch?v=u1EUrxobvk8) was used to understand K-means and Sillhoouette-scoore.
+
+I have looked at both the [Code Institute template](https://github.com/Code-Institute-Solutions/milestone-project-heritage-housing-issues) as well as the [CVD predictor](https://github.com/jfpaliga/CVD-predictor) for how to structure the readme.
+
 
 #### Equations
 - Equations was taken mainly from Anderson, John D. Aircraft Performance and Design. McGraw-Hill, 1999.
 
 #### Exploratory Data Analysis Notebook
-* Much of the code have been taken from the Code Institute "Churnometer" walkthrough project and adapted to this project. This code appears In particular in:
+* Much of the functionality/methodology/code have been taken from the Code Institute "Churnometer" walkthrough project and adapted to this project. This code appears In particular in:
   - 03 - DataCleaning has been used for: 4_data_cleaning
   - 04 - FeatureEngineering has been used for: 5_feature_engineering
   - 05 - Modeling and Evaluation - Predict Churn has been used for: 6A_modeling_and_evaluation-predict_engine_type

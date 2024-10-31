@@ -18,7 +18,7 @@ def airplane_performance_study():
     """
     path = 'outputs/datasets/collection/airplane_performance_study.csv'
     df = pd.read_csv(path)
-    df.columns = df.columns.str.strip()  # Strip whitespace from column names
+    df.columns = df.columns.str.strip()  # Strip whitespace from column names Check if I can remove this and then next line!!!!!!!
     return df
 
 

@@ -11,10 +11,11 @@ from app_pages.page_engine_type_airplane_study import page_engine_type_airplane_
 from app_pages.page_predict_engine_type import page_predict_engine_type_body
 from app_pages.page_multi_engine_airplane_study import page_multi_engine_airplane_study_body
 from app_pages.page_predict_multi_engine import page_predict_multi_engine_body
+from app_pages.page_wing_span_predictor import page_wing_span_predictor_body
 from app_pages.page_project_hypothesis import page_project_hypothesis_body
 from app_pages.page_ml_predict_engine_type import page_ml_predict_engine_type_body
 from app_pages.page_ml_predict_multi_engine import page_ml_predict_multi_engine_body
-from app_pages.page_ml_predict_wing_span import page_ml_predict_wing_span_body
+# from app_pages.page_ml_predict_wing_span import page_ml_predict_wing_span_body
 from app_pages.page_ml_cluster import page_ml_cluster_body
 
 app = MultiPage(app_name= "Airplane Performance Predictor") # Create an instance of the app 
@@ -29,10 +30,11 @@ app.add_page("Engine Type Airplane Study", page_engine_type_airplane_study_body)
 app.add_page("Predict Engine Type", page_predict_engine_type_body)
 app.add_page("Multi Engine Airplane Study", page_multi_engine_airplane_study_body)
 app.add_page("Predict Multi Engine", page_predict_multi_engine_body)
+app.add_page("Wing Span Predictor", page_wing_span_predictor_body)
 app.add_page("Project Hypothesis and Validation", page_project_hypothesis_body)
 app.add_page("ML: Predict Engine Type", page_ml_predict_engine_type_body)
 app.add_page("ML: Predict Multi Engine", page_ml_predict_multi_engine_body)
-app.add_page("ML: Predict Wing Span", page_ml_predict_wing_span_body)
+# app.add_page("ML: Predict Wing Span", page_ml_predict_wing_span_body)
 app.add_page("ML: Cluster Analysis", page_ml_cluster_body)
 
 app.run() # Run the app

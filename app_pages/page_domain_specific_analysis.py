@@ -57,10 +57,12 @@ def page_domain_specific_analysis_body():
         The data with its steep sloped positive regression line gives Breguet credit; however,
         the data also hint that the relationship is close to, yet not completely linear!
 
+        Note that we can form W₀ / W₁ from AUW / (AUW - FW).
+
         **Breguet Range Equation:**
         R = (η_pr / c) × (L/D) × (W₀ / W₁)
 
-        Where:
+        Where:  
         R = range (distance the aircraft can travel)  
         η_pr = propulsive efficiency  
         c = specific fuel consumption  
