@@ -13,6 +13,9 @@ def page_ml_predict_wing_span_body():  # Renamed function for clarity
     with open("outputs/ml_pipeline/predict_analysis/mse.txt", 'r') as f:
         mse = f.read()
 
+    with open("outputs/ml_pipeline/predict_analysis/error_analysis.txt", 'r') as f:
+        error_analysis = f.read()
+
     # Load DataFrames first
     try:
         X_test_head = pd.read_csv("outputs/ml_pipeline/predict_analysis/X_test_head.csv")
@@ -26,7 +29,7 @@ def page_ml_predict_wing_span_body():  # Renamed function for clarity
     st.write("### ML Pipeline: Predict Wing Span")
     # display pipeline training summary conclusions
     st.info(
-        f"* bla bla."
+        f"* MSE is ok but not great, typically off by almost 3 ft (square root on MSE)!"
         f" bla bla"
         f" bla bla"
         f" bla bla  \n"
@@ -37,6 +40,9 @@ def page_ml_predict_wing_span_body():  # Renamed function for clarity
 
     st.write("#### Mean Squared Error")
     st.info(mse)
+
+    st.write("#### Mean Error (ME) and Relative Error")
+    st.info(error_analysis)
 
     st.write("#### Feature Importance DataFrame")
     st.dataframe(feature_importance_df)

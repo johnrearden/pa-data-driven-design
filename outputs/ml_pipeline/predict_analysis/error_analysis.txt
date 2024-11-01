@@ -1,0 +1,3 @@
+Mean Error (ME): 0.0512 feet
+Range of y_test: 29.08 feet
+Relative Error: 0.0018 (0.18%)
