@@ -6,7 +6,6 @@ from src.data_management import load_airplane_data, load_pkl_file
 
 
 def page_ml_cluster_body():
-
     # load cluster analysis files and pipeline
     version = 'v1'
     cluster_pipe = load_pkl_file(
@@ -14,13 +13,20 @@ def page_ml_cluster_body():
     cluster_silhouette = plt.imread(
         f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_silhouette.png")
     features_to_cluster = plt.imread(
-        f"outputs/ml_pipeline/cluster_analysis/{version}/features_define_cluster.png")
-    cluster_profile = pd.read_csv(
-        f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
+        f"outputs/ml_pipeline/cluster_analysis/v1/features_define_cluster.png")
+    cluster_cluster_vs_engine_type = plt.imread(
+        f"outputs/ml_pipeline/cluster_analysis/v1/cluster_vs_engine_type.png")
+    features_cluster_vs_multi_engine = plt.imread(
+        f"outputs/ml_pipeline/cluster_analysis/v1/cluster_vs_multi_engine.png")
+    cluster_clusters_profile_engine_type = pd.read_csv(
+        f"outputs/ml_pipeline/cluster_analysis/v1/clusters_profile_engine_type.csv")
+    cluster_clusters_profile_multi_engine = pd.read_csv(
+        f"outputs/ml_pipeline/cluster_analysis/v1/clusters_profile_multi_engine.csv")
     cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
                         .columns
                         .to_list()
                         )
+
 
     # dataframe for cluster_distribution_per_variable()
     df_multi_engine_vs_clusters = load_airplane_data().filter(['Multi_Engine'], axis=1)
@@ -43,7 +49,7 @@ def page_ml_cluster_body():
     st.write(cluster_pipe)
 
     st.write("#### The features the model was trained with")
-    st.write(cluster_features)
+    # st.write(cluster_features)
 
     st.write("#### Clusters Silhouette Plot")
     st.image(cluster_silhouette)
@@ -65,8 +71,10 @@ def page_ml_cluster_body():
     st.success(statement)
 
     # hack to not display the index in st.table() or st.write()
-    cluster_profile.index = [" "] * len(cluster_profile)
-    st.table(cluster_profile)
+    cluster_clusters_profile_multi_engine.index = [" "] * len(cluster_clusters_profile_multi_engine)
+    st.table(cluster_clusters_profile_multi_engine)
+    cluster_clusters_profile_engine_type.index = [" "] * len(cluster_clusters_profile_engine_type)
+    st.table(cluster_clusters_profile_engine_type)
 
 
 # code coped from "07 - Modeling and Evaluation - Cluster Sklearn" notebook - under "Cluster Analysis" section
