@@ -24,6 +24,7 @@
 - [Hypothesis](#hypothesis-and-how-to-validate)
 - [Mapping Business Requirements to Data Visualisation and ML Tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
+- [Epics and User Stories](#epics-and-user-stories)
 - [Dashboard Design](#dashboard-design)
 - [Outlook](#outlook)
 - [Technologies Used](#technologies-used)
@@ -119,13 +120,26 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 <br>
 
-**Business Requirement 1** - The client is interested in understanding the relationships between the Design and Performance features in general and which of these relationships have the greatest influence on each other.
+**Business Requirement 1** - The client is interested in having the data set concretized to the reality of actual airplanes in terms of bounds and mean etc. as well as understanding the relationships between the Design and Performance features in general and which of these relationships are having the greatest influence on each other.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, C6, D1, D2, D3 and E1
 
-**Business Requirement 2** - The client is interested in categorizing the airplanes based on engine type (jet, piston or propjet) using all features and using supervised learning.
+**Business Requirement 2** - The client wants to test the premise that airplanes with Multiple Engines are “Higher, Further, Faster”.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D4, D5, D6 and E1
 
-**Business Requirement 3** - The client is interested in predicting the necessary values that Wing Span (Design feature) need to take on in order to reach certain performance targets. 
+**Business Requirement 3** - The client is interested in evaluating the “strength and weakness”-profile for two of their main competitors Piper and Cessna by evaluate the differences in performance for different features.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
-**Business Requirement 4** - The client is interested to see if any “invisible” yet distinct airplane clusters (based on features) are hiding in the data using unsupervised learning.
+**Business Requirement 4** - The client is interested in predicting the necessary values that an airplane Wing Span (Design feature) need to take on in order to reach certain performance targets.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D3, D4, D5, D6, and E1
+
+**Business Requirement 5** - The client is interested to see if any “invisible” yet distinct airplane clusters (based on features) are hiding in the data using unsupervised learning.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D4, D5, D6, and E1
+
+**Business Requirement 6** - The client (who currently investigates a new design for a high altitude loiter airplane) is interested to establish if their assumption that the max altitude (ceiling) an airplane can fly at is heavily dependent on span, larger span, higher altitude.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
+
+**Business Requirement 7** - The client wishes to refine their design tools and validate the classic Breguet Range equation, which, among other things, says that the distance an airplane can fly is linearly dependent on a weight ratio that is getting larger when, the portion of the airplanes weight that is made up by fuel, is getting larger.  
+[Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
 **Bonus Study** - Although not requested by the client, Data Driven Design has decided to include a bonus study with the goal that the client should retain the service of DDD. The bonus study consist of pitching the two largest contributors to the data set, Cessna (24%) and Piper (13%) and see who fairs the best for different performance features. It is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
 
@@ -135,11 +149,31 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 **Speed:** The model should be able to make predictions in real-time (more or less).
 
-## Hypothesis and how to validate? 
-- 1 - We suspect that airplanes with Multiple Engines can fly 'Higher, Further, Faster' as the slogan goes 
-	- A Correlation study can help in this investigation
-- 2 - We suspect that airplanes with jet Engines can fly 'Higher, Further, Faster' as the slogan goes 
-	- A Correlation study can help in this investigation
+## Hypothesis and how to validate?
+* Hypothesis 1:
+    - We suspect Airplanes with Multiple Engines are “Higher, Further, Faster”
+    - **Validation**: Build and train a model that correlates the features in the data set to the Multi Engine feature, evaluate accuracy and analyze and visualize the result with a parallel plot.
+
+* Hypothesis 2 (BR1):
+    - We propose that it is possible to create a simple regression function, based on historical airplane design and performance data, that can visualize the differences between the two manufacturers in different performance features along the range where both manufacturers are represented with airplanes.
+    - **Validation**: Plot data points for the two manufacturers togethers with two  linear regression line representing each manufacturer and compare who comes out on top (literaly) for the different features and for different ranges in each feature.
+
+* Hypothesis 3 (BR2):
+    - We propose that it is possible to create a model, based on historical airplane design and performance data, that predicts the Wing Span of an airplane with a reasonable accuracy.
+    - **Validation**: Build and train a regression model to predict the target variable Wing Span by the features in the data set, evaluate accuracy and create a user friendly interface where the user easily can predict Wing Spans by inputting desired airplane performance and design features.
+
+* Hypothesis 4 (BR3):
+    - We suspect that the data hides a few but not many distinct clusters of airplanes within the data set.
+    - **Validation**: Build a cluster model using unsupervised learning to find potential clusters in the data set and analyze and visualize these clusters with graphs such as  
+
+* Hypothesis 5 (BR4):
+    - We suspect that airplanes with a larger wing span can reach a higher altitude, i.e. higher ceiling (Hmax).
+    - **Validation**: Plot data points togethers with regression lines (without building/training a model) for different groups of the data that can be suspected to yield different characteristics and analyze the gradient of the regression lines.
+
+* Hypothesis 6 (BR5):
+    - We suspect that the linear relationship between the weight ratio in the Breguet range equations and the range might in a real world application not exhibit a non-linear.
+    - **Validation**: Plot data points togethers with a linear and a non-linear regression line (without building/training a model) and compare how much the non-linear regression line deviates from the linear regression line.
+
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks 
 - **Business Requirement 1:** Data Visualization and Correlation study
@@ -196,6 +230,39 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - The training data to fit the model comes from the Kaggle data set.
 	- Train data - features: all variables, but Model', 'Company', 'Multi_Engine', 'THR', 'SHP', 'Hmax_(One)', and 'ROC_(One)'
 
+## Epics and User Stories
+* The project was split into five Epics and within each of these, User Stories according to the agile methodology.
+
+### Epic - Information Gathering and Data Collection
+* **User Story A1** - As a data scientist, I can import/upload the dataset from Kaggle to my workspace.
+* **User Story A2** - As a data scientist, I can load a saved dataset so that I can inspect, analyze, threat and modify the data for viusalization and ML tasks.
+
+### Epic - Data Visualization, Cleaning, and Preparation
+* **User Story B1** - As a data scientist, I can visualize the dataset with graphs and images so that I can interpret and test hypothesis.
+* **User Story B2** - As a data scientist, I can evaluate the dataset to determine what data cleaning tasks need to be carried out.
+* **User Story B3** - As a data scientist, I can impute or drop missing data to prepare the dataset for a ML model.
+* **User Story B4** - As a data scientist, I can determine whether the target requires balancing in order to ensure the ML is not fed imbalanced data.
+* **User Story B5** - As a data scientist, I can carry out feature engineering to best transform the data for the ML model.
+
+### Epic - Model Training, Optimization and Validation
+* **User Story C1** - As a data scientist, I can split the data into a train and test set to prepare it for the ML model.
+* **User Story C2** - As a data scientist, I can fit a ML pipeline with all the data to prepare the ML model for deployment.
+* **User Story C3** - As a data scientist, I can determine the best algorithms for the ML models to test the hypothesis's.
+* **User Story C4** - As a data scientist, I can carry out an extensive hyperparameter optimization to ensure the ML model gives the best results
+* **User Story C5** - As a data scientist, I can determine the best features from the ML pipeline to determine whether the it can be optimized further.
+* **User Story C6** - As a data scientist, I can evaluate the ML model's performance to determine whether it can successfully test the Hypothesis.
+
+### Epic - Dashboard Planning, Designing, and Development
+* **User Story D1** - As a domain specific user, I can view a project summary that describes the project, dataset and business requirements to understand the project at a glance.
+* **User Story D2** - As a domain specific user, I can view the project hypotheses and validations to determine what the project was trying to achieve and whether it was successful.
+* **User Story D3** - As a domain specific user, I can enter unseen data into the model and receive a prediction.
+* **User Story D4** - As an data scientist, I can view the analysis to see how the outcomes were arrived at.
+* **User Story D5** - As an data scientist, I can view all the data to understand the model performance and see statistics related to the model.
+* **User Story D6** - As a domain specific user, I can view the project conclusions to see if the model was successful and if the business requirements met.
+
+### Epic - Dashboard Deployment and Release
+* **User Story E1** - As a domain specific user, I can view the project dashboard on a live deployed website.
+* **User Story E2** - As a data scientist user, I can follow instructions in the readme to fork the repository and deploy the project for myself.
 
 ## Dashboard Design
 
@@ -205,14 +272,25 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 	- Describe Project Dataset
 	- State Business Requirements
 
-### Page 2: Get to know the dataset
+### Page 2: Airplane Feature Explanation
+- Explanation of the abbreviated features for the features.
+
+### Page 3: Get to know the dataset
 - Concretize the data set for by display images of the airplanes in the "middle" and "Edges" of the data set:
 	- Image: One image of each airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
 
-### Page 3: Airplane Feature Explanation
-- Explanation of the abbreviated features for the features.
+### Page 4: Multi Engine Airplane Study
+- State business requirement 2
+- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
+- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 4: Regression Playground
+### Page 5: Wing Span Predictor
+- Considerations and conclusions after the pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline performance
+
+### Page 6: Regression Playground
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Create Regression Plot" button to generate a regression plot according to the selections given in the drop down menus: 
@@ -223,57 +301,19 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
   - Regression Type: Linear or Quadratic
   - Type of graph: 2D or 3D
 
-### Page 5: Domain Specific Analysis
+### Page 7: Domain Specific Analysis
 - State business requirement 2
 - Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
 - "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
-### Page 6: Engine Type Airplane Study
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
-
-### Page 7: Predict Engine Type
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
-
-### Page 8: Multi Engine Airplane Study
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
-
-### Page 9: Predict Multi Engine
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
-
-### Page 10: Project Hypothesis and Validation
+### Page 8: Project Hypothesis and Validation
 - Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
 - 1 - We suspect customers are churning with low tenure levels
 	- Correct. The correlation study at Churned Customer Study supports that.
 - 2 -  A customer survey showed our customers appreciate Fibre Optic.
 	- A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
 
-### Page 11: Predict Engine Type
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- Feature importance
-- Pipeline performance
-
-### Page 12: Predict Multi Engine
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- Feature importance
-- Pipeline performance
-
-### Page 13: Predict Wing Span
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- Feature importance
-- Pipeline performance
-
-### Page 14: Cluster Analysis
+### Page 9: ML: Predict Wing Span
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
 - Silhouette plot
@@ -281,6 +321,16 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - Relative Percentage (%) of Churn in each cluster
 - The most important features to define a cluster
 - Cluster Profile
+
+### Page 10: ML: Cluster Analysis
+- Considerations and conclusions after the pipeline is trained
+- Present ML pipeline steps
+- Silhouette plot
+- Clusters distribution across Churn levels
+- Relative Percentage (%) of Churn in each cluster
+- The most important features to define a cluster
+- Cluster Profile
+
 
 ## Outlook 
 
