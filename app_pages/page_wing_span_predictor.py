@@ -29,12 +29,18 @@ def page_wing_span_predictor_body():
     3. Run the app with `streamlit run your_script.py`.
     """
     st.write("### Wingspan Predictor")
-    st.info("* bla bla "
-            " bla bla "
-            " bla bla "
-            " bla bla "
-            " bla bla  "
-            " bla bla .\n")
+    st.info(
+        f"The Wing Span predictor computes what wing span an airplane need to have in order to"
+        f" reach the performance target that you set below. You can choose if you want to select"
+        f" to incrementally change default values or if you want to input decimal values inside"
+        f" (interpolation) or outside (extrapolation) of the data range.\n\n"
+        f" The relative error (RE) is small (less than 0.18%) however be aware that although"
+        f" predicting outside of the data range *can* be accurate"
+        f" (at least close to the last data point) it is generally more of a 'gamble'"
+        f" since it is 'unknown territory' with no data to support"
+        f" the 'regression'.\n"
+    )
+
     st.write("---")
     
     all_features = [

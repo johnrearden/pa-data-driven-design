@@ -33,7 +33,7 @@ def page_regression_playground_body():
     st.write("### Regression Playground")
     st.info("* All the continuous numeric features are available for you to explore in the menu below!"
             " The shaded background around the regression line shows variance (narrow variance"
-            " indicate higher predictive reliability."
+            " indicate higher predictive reliability.  \n"  
             " For fun we have pitched Piper and Cessna head to head against each other to see who's"
             " regression lines/surfaces come out on top in the different disciplines! "
             " Note that the true merit of an airplane is not captured by only comparing a limited number of features.\n")

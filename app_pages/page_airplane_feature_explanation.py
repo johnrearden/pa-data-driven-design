@@ -10,7 +10,6 @@ def page_airplane_feature_explanation_body():
 
     # text based on README file - "Dataset Content" section
     st.info(
-        f"**Features**  \n"
 
         f" **Engine Type** [categorical] Piston, Propjet or Jet type of engine  \n"
 

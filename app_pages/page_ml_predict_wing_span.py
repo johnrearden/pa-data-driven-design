@@ -29,11 +29,13 @@ def page_ml_predict_wing_span_body():  # Renamed function for clarity
     st.write("### ML Pipeline: Predict Wing Span")
     # display pipeline training summary conclusions
     st.info(
-        f"* MSE is ok but not great, typically off by almost 3 ft (square root on MSE)!"
-        f" bla bla"
-        f" bla bla"
-        f" bla bla  \n"
-        f" bla bla"
+        f"* The Wing Span predictor computes what Wing Span an airplane need to have in order to"
+        f" reach the performance target that you set below. You can select if you want to select"
+        f" and incrementally change default values or if you want to input decimal values inside"
+        f" (interpolation) of the data range or outside (extrapolation) of the data range."
+        f" The relative error (RE) small (less than 0.18%) however be aware that predicting outside of"
+        f" the data range (extrapolation) is very unreliable since this is"
+        f" effectivly 'unknown territory' with no data to support the assumption of a regression"
     )
 
     st.write("---")

@@ -35,6 +35,7 @@ def page_domain_specific_analysis_body():
         in a extremely thin air at an extremely slow air speed regime.
         Despite this, The steep gradient of the Piston Engine Type regression line as well as the less steep yet
         still clearly positive Jet Engine Type indeed fits Prof. Lissamans observation.
+        Noteworthy is however that the relationship is reversed for the propjet engine type.
 
         If it is the same phenomena behind the trend for Helios as with the airplanes in our dataset we do not know,
         we can just make a statistical observation, and indeed the gradient for the propjet does NOT fit Helios!
@@ -52,7 +53,7 @@ def page_domain_specific_analysis_body():
         The equation features the ratio between the airplane's weight at the start (with fuel)
         and weight at landing (after the fuel has been burned off). It stands to reason that
         the distance an airplane can fly is directly related to how much of its weight consists of fuel.
-
+        The question is if this relationship is linear as Breguet suggest!
         The data with its steep sloped positive regression line gives Breguet credit; however,
         the data also hint that the relationship is only *close* to, yet not completely linear!
 
