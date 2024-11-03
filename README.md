@@ -126,7 +126,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 **Business Requirement 2** - The client wants to test the premise that airplanes with Multiple Engines are “Higher, Further, Faster”.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D4, D5, D6 and E1
 
-**Business Requirement 3** - The client is interested in evaluating the “strength and weakness”-profile for two of their main competitors Piper and Cessna by evaluate the differences in performance for different features.  
+**Business Requirement 3**\*  - The client is interested in evaluating the “strength and weakness”-profile for two of their main competitors Piper and Cessna by evaluate the differences in performance for different features.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
 **Business Requirement 4** - The client is interested in predicting the necessary values that an airplane Wing Span (Design feature) need to take on in order to reach certain performance targets.  
@@ -141,13 +141,13 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 **Business Requirement 7** - The client wishes to refine their design tools and validate the classic Breguet Range equation, which, among other things, says that the distance an airplane can fly is linearly dependent on a weight ratio that is getting larger when, the portion of the airplanes weight that is made up by fuel, is getting larger.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
-**Bonus Study** - Although not requested by the client, Data Driven Design has decided to include a bonus study with the goal that the client should retain the service of DDD. The bonus study consist of pitching the two largest contributors to the data set, Cessna (24%) and Piper (13%) and see who fairs the best for different performance features. It is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
-
 **Accuracy:** Naturally the goal is always to maximize accuracy however the nature of Conceptual design is that ballpark figures goes a long way as long as it is paired with a good sense of judgment and understanding of where the data comes from. Since the predictions are intended to be used only in the early Airplane Design Phase inaccuracies does not put human life at risk. The only thing at risk is money since a wrong decision here, i.e. to select a multi Engined instead of a single Engined configuration, can have disastrous consequences if a wrong decision in the early design stages needs to be redesigned in the later stages or alternatively design that fail to address the customer wishes and have a sub-optimal performance.
 
 **Scalability:** The solution should be scalable in the sense that new features as well as new data points (Airplanes) could be added to the data set.
 
 **Speed:** The model should be able to make predictions in real-time (more or less).
+
+\* Although not requested by the client, Data Driven Design has decided to include this as a bonus study with the goal that the client should retain the service of DDD. We are pitching the two largest contributors in the data set, Cessna (24%) and Piper (13%) to see who fairs the best. Note however that it is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
 
 ## Hypothesis and how to validate?
 * Hypothesis 1:
@@ -176,17 +176,32 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks 
-- **Business Requirement 1:** Data Visualization and Correlation study
-	- We will inspect the data related to the customer base.
-	- We will conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Churn.
-	- We will plot the main variables against Churn to visualize insights.
 
-- **Business Requirement 2:** Classification, Regression, Cluster and Data Analysis
-	- We want to predict if a prospect will churn or not. We want to build a binary classifier.
-	- We want to predict the tenure level for a prospect that is expected to churn. We want to build a regression model or change the ML task to classification depending on the regressor performance.
-	- We want to cluster similar customers to predict from which cluster a prospect will belong.
-	- We want to understand a cluster profile to present potential options to maintain or bring the prospect to a non-churnable cluster.
+**Business Requirement 1 (General):** Regression an Data Visualization. 
+	- We want to inspect the data.
+	- We want to  analyze the bounds of the data set (and present a user interface for exploring these "bounding" data points)
 
+**Business Requirement 2 (Multiple Engines “Higher, Further, Faster”):** Correlation study and Data Visualization
+	- We want to inspect the data.
+	- We want to conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Multi Engine.
+	- We want to plot the main variables against Multi Engine to visualize insights.
+
+**Business Requirement 3 (Piper vs. Cessna):** Regression, Data Analysis and Data Visualization
+	- We want to make linear regressions for both manufacturers for all features
+
+**Business Requirement 4 (Wingspan Predictor):** Regression and Data Analysis
+	- We want to predict the wing span for a set of features.We want to build a regression model
+
+**Business Requirement 5 (Cluster):** Cluster and Data Analysis
+- We want to inspect the data.
+- We want to build a cluster model.
+- We want to understand a cluster profile to present potential groups or segments of airplanes in the data
+
+**Business Requirement 6 (Max altitude):** Regression, Data Analysis and Data Visualization
+	- We want to predict visualize max altitude using regression.
+
+**Business Requirement 7 (Breguet Range equation):** Regression, Data Analysis and Data Visualization
+	- We want to compare two regression lines, one linear regression and one non-linear.
 
 ## ML Business Case 
 
