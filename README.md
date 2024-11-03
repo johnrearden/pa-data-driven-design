@@ -572,7 +572,7 @@ In order to ensure all the correct dependencies are installed in your local envi
 
 The tutorial [k-means: The simplest (but most used) partitioning clustering method](https://www.youtube.com/watch?v=u1EUrxobvk8) was used to understand K-means and Sillhoouette-scoore.
 
-I have looked at both the [Code Institute template](https://github.com/Code-Institute-Solutions/milestone-project-heritage-housing-issues) as well as the [CVD predictor](https://github.com/jfpaliga/CVD-predictor) for how to structure the readme.
+I have looked at both the [Code Institute template](https://github.com/Code-Institute-Solutions/milestone-project-heritage-housing-issues) as well as the [CVD predictor](https://github.com/jfpaliga/CVD-predictor) for guidance on how to structure the readme.
 
 
 #### Equations
