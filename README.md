@@ -268,31 +268,30 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 ### Page 1: Quick project Summary
 - Quick project summary
-	- Project Terms & Jargon
+	- Terms
 	- Describe Project Dataset
 	- State Business Requirements
 
 ### Page 2: Airplane Feature Explanation
-- Explanation of the abbreviated features for the features.
+- Units and Explanations of the Quantities/Features.
 
 ### Page 3: Get to know the dataset
 - Concretize the data set for by display images of the airplanes in the "middle" and "Edges" of the data set:
 	- Image: One image of each airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
 
 ### Page 4: Multi Engine Airplane Study
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
+- State and answer business requirement 2
+- Include:
+  - Airplane data
+  - Multi Engine distribution per Feature
+  - Parallel Plot
 
 ### Page 5: Wing Span Predictor
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- Feature importance
-- Pipeline performance
+- State and answer business requirement 4
+- Include Wing Span predictor that predicts the Wing Span based on features given by user.
 
 ### Page 6: Regression Playground
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
+- State business requirement 3 (Do not state business requirement 1 although this page answers this as well)
 - "Create Regression Plot" button to generate a regression plot according to the selections given in the drop down menus: 
   - Dependent feature, e.g Wing_Span
   - Independent feature 1, e.g. Hmax
@@ -302,35 +301,41 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
   - Type of graph: 2D or 3D
 
 ### Page 7: Domain Specific Analysis
-- State business requirement 2
-- Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-- "Run predictive analysis" button that serves the prospect data to our ML pipelines and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
+- State business requirement 6 and 7
+- Two plots that answers each Hypothesis
 
 ### Page 8: Project Hypothesis and Validation
-- Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
-- 1 - We suspect customers are churning with low tenure levels
-	- Correct. The correlation study at Churned Customer Study supports that.
-- 2 -  A customer survey showed our customers appreciate Fibre Optic.
-	- A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
+- Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each.
+- Hypothesis.
+- Conclusions.
+- How to validate.
 
 ### Page 9: ML: Predict Wing Span
+- State business requirement 4
 - Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- Silhouette plot
-- Clusters distribution across Churn levels
-- Relative Percentage (%) of Churn in each cluster
-- The most important features to define a cluster
-- Cluster Profile
+- Mean Squared Error
+- Mean Error (ME) and Relative Error
+- Feature Importance DataFrame
+- Feature Names
+- Predicted vs Actual Plot
+- Residuals Distribution Plot
+- Residuals vs Fitted Plot
+- X Test Head
+- X Train Head
+- Y Test
+- Y Train
+- Wingspan Predictor Model Summary
 
 ### Page 10: ML: Cluster Analysis
+- State business requirement 5
 - Considerations and conclusions after the pipeline is trained
 - Present ML pipeline steps
+- The features the model was trained with
 - Silhouette plot
-- Clusters distribution across Churn levels
-- Relative Percentage (%) of Churn in each cluster
+- Clusters distribution
+- Relative Percentage (%) of Multi Engine in each cluster
 - The most important features to define a cluster
-- Cluster Profile
-
+- Cluster Profiles
 
 ## Outlook 
 
