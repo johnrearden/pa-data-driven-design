@@ -177,31 +177,31 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks 
 
-**Business Requirement 1 (General):** Regression an Data Visualization. 
-	- We want to inspect the data.
-	- We want to  analyze the bounds of the data set (and present a user interface for exploring these "bounding" data points)
+**Business Requirement 1 (General):** Regression an Data Visualization  
+	- We want to inspect the data.  
+	- We want to  analyze the bounds of the data set (and present a user interface for exploring these "bounding" data points)  
 
-**Business Requirement 2 (Multiple Engines “Higher, Further, Faster”):** Correlation study and Data Visualization
-	- We want to inspect the data.
-	- We want to conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Multi Engine.
-	- We want to plot the main variables against Multi Engine to visualize insights.
+**Business Requirement 2 (Multiple Engines “Higher, Further, Faster”):** Correlation study and Data Visualization  
+	- We want to inspect the data.  
+	- We want to conduct a correlation study (Pearson and Spearman) to understand better how the variables are correlated to Multi Engine.  
+	- We want to plot the main variables against Multi Engine to visualize insights.  
 
-**Business Requirement 3 (Piper vs. Cessna):** Regression, Data Analysis and Data Visualization
-	- We want to make linear regressions for both manufacturers for all features
+**Business Requirement 3 (Piper vs. Cessna):** Regression, Data Analysis and Data Visualization  
+	- We want to make linear regressions for both manufacturers for all features.  
 
-**Business Requirement 4 (Wingspan Predictor):** Regression and Data Analysis
-	- We want to predict the wing span for a set of features.We want to build a regression model
+**Business Requirement 4 (Wingspan Predictor):** Regression and Data Analysis  
+	- We want to predict the wing span for a set of features.We want to build a regression model.  
 
-**Business Requirement 5 (Cluster):** Cluster and Data Analysis
-- We want to inspect the data.
-- We want to build a cluster model.
-- We want to understand a cluster profile to present potential groups or segments of airplanes in the data
+**Business Requirement 5 (Cluster):** Cluster and Data Analysis  
+    - We want to inspect the data.  
+    - We want to build a cluster model.  
+    - We want to understand a cluster profile to present potential groups or segments of airplanes in the data.  
 
-**Business Requirement 6 (Max altitude):** Regression, Data Analysis and Data Visualization
-	- We want to predict visualize max altitude using regression.
+**Business Requirement 6 (Max altitude):** Regression, Data Analysis and Data Visualization  
+	- We want to predict visualize max altitude using regression.  
 
-**Business Requirement 7 (Breguet Range equation):** Regression, Data Analysis and Data Visualization
-	- We want to compare two regression lines, one linear regression and one non-linear.
+**Business Requirement 7 (Breguet Range equation):** Regression, Data Analysis and Data Visualization  
+	- We want to compare two regression lines, one linear regression and one non-linear.  
 
 ## ML Business Case 
 
@@ -288,7 +288,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 	- State Business Requirements
 
 ### Page 2: Airplane Feature Explanation
-- Units and Explanations of the Quantities/Features.
+- Units and explanations of the Quantities/Features.
 
 ### Page 3: Get to know the dataset
 - Concretize the data set for by display images of the airplanes in the "middle" and "Edges" of the data set:
@@ -425,8 +425,68 @@ Saving the csv-file in Excel is done the normal way however it is important to s
 <img src="image_readme/csv_in_excel_save.png" alt="Screenshot showing how to save a CSV-file in Excel" width="500"/>
 
 ## Testing 
-### Manual Testing
+### Manual Testing by User Story Testing
 Manual testing have been carried out of the Dashboard to ensure that the interface can handle all combinations of input.
+
+* Dashboard was manually tested using user stories as a basis for determining success.
+* Jupyter notebooks were reliant on consecutive functions being successful so manual testing against user stories was deemed irrelevant.
+
+*As a domain specific user, I can view a project summary that describes the project, dataset and business requirements to understand the project at a glance.*
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| Project summary page | Viewing summary page | Page is displayed, can move between sections on page | Success |
+
+---
+
+*As a domain specific user, I can view the project hypotheses and validations to determine what the project was trying to achieve and whether it was successful.*
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| Project hypotheses page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
+
+---
+
+*As a domain specific user, I can enter data, previously unseen by the model, into the model and receive a prediction.*
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| Prediction page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
+| Enter live data | Interact with widgets | All widgets are interactive, respond to user input | Success |
+| Live prediction | Click on 'Predict Wingspan' and 'Create Regression Plot' button | Clicking on buttons displays message on page with prediction and regression plot | Success |
+
+---
+
+*As an data scientist, I can view the analysis to see how the outcomes were arrived at.*
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| Correlation Study page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
+| Correlation data | Tick correlation results checkbox | Correlation data is displayed on dashboard | Success |
+| PPS Heatmap | Tick PPS heatmap checkbox | Heatmap is displayed on dashboard | Success |
+| Feature Correlation | Select feature from dropdown box | Relevant countplot is displayed | Success |
+| Parallel Plot | Tick parallel plot checkbox | Parallel plot is displayed on dashboard, is interactive | Success |
+
+---
+
+*As an data scientist, I can view all the data to understand the model performance and see statistics related to the model.*
+
+| Feature | Action | Expected Result | Actual Result |
+| --- | --- | --- | --- |
+| Model performance page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
+| Success metrics | View page | Success metrics outlined in business case are displayed | Success |
+| ML Pipelines | View page | Both ML Pipelines from Jupyter notebooks are displayed | Success |
+| Feature Importance | View page | Most important features are plotted and displayed | Success |
+| Model Performance | View page | Confusion matrix for train and test sets are displayed | Success |
+
+---
+
+
+
+
+
+
+
 
 ### Validation
 All code in the app_pages and src directories have been validated as conforming to PEP8 standards using [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/). The only remaining errors are of the type: E501 line too long (86 > 79 characters) which I have not fixed.
