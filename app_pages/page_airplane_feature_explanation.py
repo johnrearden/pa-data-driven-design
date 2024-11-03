@@ -1,4 +1,5 @@
 import streamlit as st
+
 from src.data_management import load_airplane_data, load_pkl_file
 
 

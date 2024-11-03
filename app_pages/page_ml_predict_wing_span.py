@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
+
 from src.data_management import load_airplane_data, load_pkl_file
 
-def page_ml_predict_wing_span_body():  # Renamed function for clarity
+def page_ml_predict_wing_span_body():
 
     # Load new analysis files
     feature_importance_df = pd.read_pickle("outputs/ml_pipeline/predict_analysis/feature_importance_df.pkl")
@@ -88,9 +89,7 @@ def page_ml_predict_wing_span_body():  # Renamed function for clarity
 
     st.write("---")
 
-    # If needed, you can still include more details about the model here
     st.write("#### Wingspan Predictor Model Summary")
     wingspan_predictor_model = load_pkl_file("outputs/ml_pipeline/predict_analysis/wingspan_predictor_model.pkl")
-    st.write(wingspan_predictor_model)  # Adjust based on what you want to display
+    st.write(wingspan_predictor_model)
 
-# Note: Ensure to call this function in your main app code.

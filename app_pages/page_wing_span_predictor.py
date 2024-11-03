@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# Load your DataFrame with all features
+# Load DataFrame with all features
 df = pd.read_csv("outputs/datasets/collection/airplane_performance_study.csv")
 
 # Load the trained model

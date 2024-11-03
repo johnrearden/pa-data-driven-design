@@ -1,13 +1,14 @@
 import plotly.express as px
 import numpy as np
-from feature_engine.discretisation import ArbitraryDiscretiser
 import streamlit as st
-from src.data_management import load_airplane_data
 import plotly.express as px
 import pandas as pd
-
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+from src.data_management import load_airplane_data
+from feature_engine.discretisation import ArbitraryDiscretiser
+
 sns.set_style("whitegrid")
 
 
@@ -42,7 +43,7 @@ def page_multi_engine_airplane_study_body():
         f"The most correlated features are: **{vars_to_study}**"
     )
 
-    # Text based on "3A_airplane_engine_type_study" notebook - "Conclusions"-section
+    # Text based on "3_airplane_multi_engine_study" notebook - "Conclusions"-section
     st.info(
         f"The correlation and plots (Multi Engine distributed more to the right in the histograms"
         f" and at higher values in parallel plot) below clearly shows that a"
@@ -50,7 +51,7 @@ def page_multi_engine_airplane_study_body():
         f" than a Single Engined Airplane. \n"
     )
 
-    # Code copied from "3A_airplane_engine_type_study" notebook - "EDA on selected variables"-section
+    # Code copied from "3_airplane_multi_engine_study" notebook - "EDA on selected variables"-section
     df_eda = df.filter(vars_to_study + ['Multi_Engine'])
 
     # Individual plots per variable
@@ -64,7 +65,7 @@ def page_multi_engine_airplane_study_body():
         parallel_plot_multi_engine(df_eda)
 
 
-# Code copied from "3A_airplane_engine_type_study" notebook - "Variables Distribution by Multi Engine"-section
+# Code copied from "3_airplane_multi_engine_study" notebook - "Variables Distribution by Multi Engine"-section
 def plot_numerical(df, col, target_var):
     fig, ax = plt.subplots(figsize=(8, 5))  # Create a figure and axis
     sns.histplot(data=df, x=col, hue=target_var, kde=True, element="step", ax=ax)  # Pass ax to the plot
@@ -72,7 +73,7 @@ def plot_numerical(df, col, target_var):
     st.pyplot(fig)  # Pass the figure to st.pyplot()
 
 
-# Code copied from "3A_airplane_engine_type_study" notebook - "Variables Distribution by Multi Engine"-section
+# Code copied from "3_airplane_multi_engine_study" notebook - "Variables Distribution by Multi Engine"-section
 def multi_engine_per_feature(df_eda, vars_to_study):
     target_var = 'Multi_Engine'
     for col in vars_to_study:
@@ -80,18 +81,18 @@ def multi_engine_per_feature(df_eda, vars_to_study):
         print("\n\n")
 
 
-# Function created using "3A_airplane_engine_type_study" notebook code - "Parallel Plot"-section
+# Function created using "3_airplane_multi_engine_study" notebook code - "Parallel Plot"-section
 def parallel_plot_multi_engine(df_eda):
 
     # Define the mapping arrays
-    # Maps hard coded based on inspection of the histogram plots under "Variables Distribution by Multi Engine" in 3A_airplane_engine_type_study.
+    # Maps hard coded based on inspection of the histogram plots under "Variables Distribution by Multi Engine" in 3_airplane_multi_engine_study.
     Hmax_map = [-np.Inf, 23000, 32000, 42000, 50000, np.Inf]
     Vcruise_map = [-np.Inf, 250, 350, 450, 550, np.Inf]
     Vl_map = [-np.Inf, 2000, 3000, 4000, np.Inf]
     Vmax_map = [-np.Inf, 250, 350, 450, 550, np.Inf]
     Vstall_map = [-np.Inf, 70, 90, 110, np.Inf]
 
-    # Combine all mappings into a single binning dictionary (Inbetween step necessary since we have multiple variables)
+    # Combine all mappings into a single binning dictionary (In-between step necessary since we have multiple variables)
     binning_dict = {
         'Hmax': Hmax_map,
         'Vcruise': Vcruise_map,
@@ -116,7 +117,6 @@ def parallel_plot_multi_engine(df_eda):
     else:
         print("binner_dict_ does not exist. Please check if the discretiser was fitted successfully.")
 
-    # Unsure if I need this line CHECK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     labels_map = {}
 
     # Iterate over each variable in the binning dictionary

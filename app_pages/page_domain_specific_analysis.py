@@ -3,9 +3,11 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import streamlit as st
+
 from matplotlib.lines import Line2D
 from feature_engine.discretisation import ArbitraryDiscretiser
-import streamlit as st
+
 sns.set_style("whitegrid")
 
 

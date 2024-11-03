@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objs as go
+
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
@@ -18,7 +19,7 @@ def airplane_performance_study():
     """
     path = 'outputs/datasets/collection/airplane_performance_study.csv'
     df = pd.read_csv(path)
-    df.columns = df.columns.str.strip()  # Strip whitespace from column names Check if I can remove this and then next line!!!!!!!
+    df.columns = df.columns.str.strip()  # Strip whitespace from column names
     return df
 
 

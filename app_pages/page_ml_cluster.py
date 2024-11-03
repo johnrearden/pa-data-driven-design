@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
+
 from src.data_management import load_airplane_data, load_pkl_file
 
 
@@ -59,7 +60,7 @@ def page_ml_cluster_body():
     st.write("#### Most important features to define a cluster")
     st.image(features_to_cluster)
 
-    # text based on "8 - Modeling and Evaluation - Cluster Sklearn" notebook conclusions
+    # text based on "8 - Modeling and Evaluation - Cluster" notebook conclusions
     statement = (
         f"* Based on the profile results we can label the two cluster in the following fashion:\n"
         f"* **Cluster 0** represent airplanes that does **not have TP mods** and it is made up*"

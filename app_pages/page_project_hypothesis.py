@@ -4,7 +4,6 @@ import streamlit as st
 def page_project_hypothesis_body():
     st.write("### Project Hypothesis and Validation")
 
-    # Conclusions taken from "3A_airplane_engine_type_study" notebook
     st.success(
         f"*  **1**"
         f" - We suspect Airplanes with multiple engines are 'Higher, Further, Faster': **Correct**. \n"  
