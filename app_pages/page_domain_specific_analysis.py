@@ -54,7 +54,7 @@ def page_domain_specific_analysis_body():
         the distance an airplane can fly is directly related to how much of its weight consists of fuel.
 
         The data with its steep sloped positive regression line gives Breguet credit; however,
-        the data also hint that the relationship is close to, yet not completely linear!
+        the data also hint that the relationship is only *close* to, yet not completely linear!
 
         Note that we can form W₀ / W₁ from AUW / (AUW - FW).
 

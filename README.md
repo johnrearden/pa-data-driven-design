@@ -107,7 +107,7 @@ Note that we can glean valuable insight on how the features are distributed alre
 <img src="image_readme/kaggle_data_head_4.png" alt="Head of data from Kaggle site " width=1000/>
 <img src="image_readme/kaggle_data_head_5.png" alt="Head of data from Kaggle site " width=1000/>
 
-## Project Terms and Jargon 
+## Project Terms
     - "General Aviation" is civil aviation other than large-scale passenger or freight operations.
     - A "Categorical value" is a value that falls into distinct categories or groups. For example, the Engine Type can be classified as piston, propjet, or jet.
     - A "Continuous numeric value" is a value that can take any real number (whole numbers and decimals). For example, the Cruise Speed can be 237,5 knots.
@@ -126,16 +126,16 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 **Business Requirement 2** - The client wants to test the premise that airplanes with Multiple Engines are “Higher, Further, Faster”.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D4, D5, D6 and E1
 
-**Business Requirement 3**\*  - The client is interested in evaluating the “strength and weakness”-profile for two of their main competitors Piper and Cessna by evaluate the differences in performance for different features.  
+**Business Requirement 3**\*  - The client is interested in evaluating the “strength and weakness”-profile for two of their main competitors Piper and Cessna by evaluating the differences in performance for different features.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
-**Business Requirement 4** - The client is interested in predicting the necessary values that an airplane Wing Span (Design feature) need to take on in order to reach certain performance targets.  
+**Business Requirement 4** - The client is interested in predicting the necessary values that an airplanes wing span (Design feature) need to take on in order to reach certain performance targets.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D3, D4, D5, D6, and E1
 
 **Business Requirement 5** - The client is interested to see if any “invisible” yet distinct airplane clusters (based on features) are hiding in the data using unsupervised learning.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D4, D5, D6, and E1
 
-**Business Requirement 6** - The client (who currently investigates a new design for a high altitude loiter airplane) is interested to establish if their assumption that the max altitude (ceiling) an airplane can fly at is heavily dependent on span, larger span, higher altitude.  
+**Business Requirement 6** - The client (who currently investigates a new design for a high altitude loiter airplane) is interested to establish if their assumption that the max altitude (ceiling) an airplane can fly at is heavily dependent on span (larger span, higher altitude).  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
 **Business Requirement 7** - The client wishes to refine their design tools and validate the classic Breguet Range equation, which, among other things, says that the distance an airplane can fly is linearly dependent on a weight ratio that is getting larger when, the portion of the airplanes weight that is made up by fuel, is getting larger.  
@@ -145,7 +145,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 **Scalability:** The solution should be scalable in the sense that new features as well as new data points (Airplanes) could be added to the data set.
 
-**Speed:** The model should be able to make predictions in real-time (more or less).
+**Speed:** The model should be able to make predictions in real-time.
 
 \* Although not requested by the client, Data Driven Design has decided to include this as a bonus study with the goal that the client should retain the service of DDD. We are pitching the two largest contributors in the data set, Cessna (24%) and Piper (13%) to see who fairs the best. Note however that it is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
 
@@ -155,8 +155,8 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
     - **Validation**: Build and train a model that correlates the features in the data set to the Multi Engine feature, evaluate accuracy and analyze and visualize the result with a parallel plot.
 
 * Hypothesis 2 (BR1):
-    - We propose that it is possible to create a simple regression function, based on historical airplane design and performance data, that can visualize the differences between the two manufacturers in different performance features along the range where both manufacturers are represented with airplanes.
-    - **Validation**: Plot data points for the two manufacturers togethers with two  linear regression line representing each manufacturer and compare who comes out on top (literaly) for the different features and for different ranges in each feature.
+    - We propose that it is possible to create a simple regression function, based on historical Piper and Cessna airplane design and performance data, that can visualize the differences between the two manufacturers in different performance features along the range where both manufacturers are represented with airplanes.
+    - **Validation**: Plot data points for the two manufacturers togethers with two  linear regression line representing each manufacturer and compare who comes out on top (literally) for the different features and for different ranges in each feature.
 
 * Hypothesis 3 (BR2):
     - We propose that it is possible to create a model, based on historical airplane design and performance data, that predicts the Wing Span of an airplane with a reasonable accuracy.
