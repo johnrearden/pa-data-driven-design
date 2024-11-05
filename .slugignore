@@ -2,3 +2,4 @@
 /app/images_notebook
 /app/jupyter_notebooks
 /app/.git
+.heroku/
