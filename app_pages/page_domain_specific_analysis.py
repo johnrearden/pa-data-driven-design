@@ -40,7 +40,7 @@ def page_domain_specific_analysis_body():
         Noteworthy is however that the relationship is reversed for the propjet engine type.
 
         If it is the same phenomena behind the trend for Helios as with the airplanes in our dataset we do not know,
-        we can just make a statistical observation, and indeed the gradient for the propjet does NOT fit Helios!
+        we can just make a statistical observation (answering the 'What' not the 'Why'), and indeed the gradient for the propjet does NOT fit Helios!
         """
     )
 

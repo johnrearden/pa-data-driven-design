@@ -18,6 +18,7 @@
 
 ## Table of Contents
 
+- [Aircraft Conceptual Design tools and Predictive Analysis](#aircraft-conceptual-design-tools-and-predictive-analysis)
 - [Dataset Content](#dataset-content)
 - [Project terms & Jargon](#project-terms-and-jargon)
 - [Business Requirements](#business-requirements)
@@ -37,6 +38,24 @@
 - [Acknowledgements](#acknowledgements)
 - [APPENDIX](#appendix)
 
+## Aircraft Conceptual Design tools and Predictive Analysis
+Designing an airplane, in the conceptual Design Phase, making 'predictions' based on historical data is very different than to designing by modeling the physics (aerodynamics, structures etc.) however it is entirely possible to create a descent or even good conceptual airplane design this way given that:
+* The airplane is *not* a new category of airplanes but a conventional airplane in the context of its features, meaning:
+  * The features of your design are well within the bounds of the data set (interpolation)
+  * The features of your design that is not part of the prediction does not significantly deviate from the features (of the airplanes in the dataset) that is *not* included in the dataset.
+* Domain specific Heuristics, rules of thumb and plain Engineering experience and common sense is used in assessing the model input and output.
+
+Despite the importance of domain specific knowledge when applying ML to real world problems, like that of airplane design, it is remarkable and surprising how good predictions can be made by data practitioners with close to no domain specific knowledge. This is the strength of AI and ML-Engineering.
+
+### The use of the predictions
+The main use of predictions based on historical airplane data is nothing new and has its place mostly in the early 'Conceptual Design stage' which focus on creating a viable and promising design concept that meets the requirements. It does this by defining high-level parameters and broad design goals leaving detailed engineering and fine tuning of parameters to later design stages.
+
+Concretely the predictions will serve as start values to the algorithms that models the physics.
+
+### Reliability and accuracy of predictions
+On one hand the reliability is not safety critical (no impact on human safety) since following sequential design stages will validate and refine the predicted data. On the other hand reliability (and to a degree accuracy) is cost critical having the potential to make or break a manufacturer/airplanes since a wrong prediction can lead to an extremely costly redesign in a later design stage or, if ignored, to a sub-optimal design released onto the market.
+
+   (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the misstake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
 
 ## Dataset Content 
 
@@ -59,6 +78,7 @@ The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and
 </div>
 
 <figcaption style="color: grey;">
+
     Aeronca L-16 (left) representing the "lower" end of the data set and the Bombardier Global-7500 (right) representing the "upper" end and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)
 </figcaption>
 
@@ -98,6 +118,8 @@ Note also that I have used an already partly cleaned and imputed file which mean
 
 \* Propjet is more commonly referred to as "turboprop"
 \*\* Multiple Engines is most likely refering to no more than two (twin) engines.
+
+Although the term 'Features' rather refer to shape/form/proportions, e.g. Wing Span and the term 'Attributes' to characteristics/qualities, e.g Vmax, we have, for sake of simplicity, chosen to not make this distinction but to use the term 'Feature' everywhere. Furthermore the term Parameter have also been dropped for the term 'Feature'.
 
 Note that we can glean valuable insight on how the features are distributed already when retrieving the data on the Kaggle website
 
