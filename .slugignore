@@ -1,5 +1,5 @@
-/app/image_readme
-/app/images_notebook
-/app/jupyter_notebooks
-/app/.git
-.heroku/
+image_readme
+images_notebook
+jupyter_notebooks
+.git
+.heroku
