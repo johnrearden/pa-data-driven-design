@@ -489,7 +489,11 @@ Manual testing have been carried out of the Dashboard to ensure that the interfa
 
 
 ### Validation
-All code in the app_pages and src directories have been validated as conforming to PEP8 standards using [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/). The only remaining errors are of the type: E501 line too long (86 > 79 characters) which I have not fixed.
+All code in the app_pages and src directories have been validated as conforming to PEP8 standards using [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/). The only remaining errors are of the type: 
+
+* E305 expected 2 blank lines after class or function definition, found 1 - This is intentional since the I follow PEP 8 and the [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/) conflict with the PEP 8 on this standar.
+* W292 no newline at end of file - This is intentional since 'the newline at end of file' does not apply to code in a jupyter notebook cell.
+* E501 line too long (86 > 79 characters) - Remains unfixed both due to time constraints and because that I consider this only a minor issue. 
 
 ### Automated Unit Tests
 No automated unit tests have been carried out.
