@@ -49,10 +49,27 @@ def page_ml_cluster_body():
     st.write("#### Cluster ML Pipeline steps")
     st.write(cluster_pipe)
 
-    st.write("#### The features the model was trained with")
-    # st.write(cluster_features)
-
     st.write("#### Clusters Silhouette Plot")
+
+    statement = (
+        f"* A **relatively high Average Silhouette Score** - overall high clustering"
+        f" quality, well-clustered points with minimal overlap or misclassification.  \n"
+
+        f"* Silhouette Score for both clusters are **well above the average silhouette"
+        f" score** - strong internal cohesion and separation from each other.  \n"
+
+        f"* **Uniform silhouette thickness and shape** for both clusters - well-formed clusters"
+        f" with consistent cohesion and separation across data points."
+
+        f"No **thin or overly elongated silhouettes** -"
+        f" good definition.  \n"
+
+        f"* Silhouette scores for the two clusters are **well separated with"
+        f" a gap between them** - distinctly separated"
+        f" (far apart) clusters with no overlap  \n"
+    )
+    st.success(statement)
+
     st.image(cluster_silhouette)
 
     cluster_distribution_per_variable(df=df_multi_engine_vs_clusters, target='Multi_Engine')
@@ -63,9 +80,10 @@ def page_ml_cluster_body():
     # text based on "8 - Modeling and Evaluation - Cluster" notebook conclusions
     statement = (
         f"* Based on the profile results we can label the two cluster in the following fashion:\n"
-        f"* **Cluster 0** represent airplanes that does **not have TP mods** and it is made up*"
-        f" by all Engine Types (piston, propjet and jet).\n"
-        f"* **Cluster 1** represent airplanes that **have TP mods** and is almost exclusively made up by"
+        f"* **Cluster 0** (no TP mods) made up"
+        f" by all Engine Types (piston, propjet and jet) and multi/single engine airplanes in a relatively even distribution.\n"
+        f"* **Cluster 1** (TP mods) almost more multi engine than single engined airplanes and"
+        f" almost exclusively made up by"
         f" Piston powered Airplanes (Airplane Type: piston) indicating that the TP mods is a feature only"
         f" relevant for or used on Piston Powered Engines.\n"
     )

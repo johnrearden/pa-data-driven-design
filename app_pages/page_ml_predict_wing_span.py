@@ -50,9 +50,6 @@ def page_ml_predict_wing_span_body():
     st.write("#### Feature Importance DataFrame")
     st.dataframe(feature_importance_df)
 
-    st.write("#### Feature Names")
-    st.dataframe(feature_names)
-
     # Loading plots with error handling
     try:
         predicted_vs_actual = plt.imread("outputs/ml_pipeline/predict_analysis/predicted_vs_actual.png")
