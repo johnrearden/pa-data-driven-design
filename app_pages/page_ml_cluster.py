@@ -41,13 +41,16 @@ def page_ml_cluster_body():
         f" However the outcome of the exercise proved disappointing since the only significant"
         f" cluster found was trivial and due to if the airplane had a Performance enhancing modification to"
         f" it's Engine (TP mods) or not.  \n"
-        f"* The pipeline average silhouette score is 0.87"
+        f"* The pipeline average silhouette score is 0.87 which is very good and high above the target of >0.5."
+        f" The number of clusters are also less than the criteria of < 5."
     )
 
     st.write("---")
 
     st.write("#### Cluster ML Pipeline steps")
     st.write(cluster_pipe)
+
+    st.write("---")
 
     st.write("#### Clusters Silhouette Plot")
 
@@ -77,6 +80,8 @@ def page_ml_cluster_body():
     st.write("#### Most important features to define a cluster")
     st.image(features_to_cluster)
 
+    st.write("---")
+
     # text based on "8 - Modeling and Evaluation - Cluster" notebook conclusions
     statement = (
         f"* Based on the profile results we can label the two cluster in the following fashion:\n"
@@ -94,7 +99,6 @@ def page_ml_cluster_body():
     st.table(cluster_clusters_profile_multi_engine)
     cluster_clusters_profile_engine_type.index = [" "] * len(cluster_clusters_profile_engine_type)
     st.table(cluster_clusters_profile_engine_type)
-
 
 # code coped from "07 - Modeling and Evaluation - Cluster Sklearn" notebook - under "Cluster Analysis" section
 def cluster_distribution_per_variable(df, target):

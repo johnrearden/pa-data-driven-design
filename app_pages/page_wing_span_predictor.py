@@ -12,43 +12,46 @@ pipeline = joblib.load('outputs/ml_pipeline/predict_analysis/wingspan_predictor_
 def page_wing_span_predictor_body():
     """
     Wingspan Predictor App
-
-    This Streamlit application predicts the wingspan of an airplane based on user-inputted features. Users can select values from dropdowns or enter custom values. The app provides warnings for extrapolated values and requires all input fields to be filled before making predictions.
-
-    Features:
-    - Input features: Length, Height, AUW, MEW, FW, Vmax, Vcruise, Vstall, Range, Hmax, ROC, Vlo, Slo, Vl, Sl.
-    - Validation for complete input before prediction.
-    - Extrapolation warnings for out-of-range values.
-
-    Dependencies:
-    - streamlit, pandas, numpy, joblib, scikit-learn
-
-    Instructions:
-    1. Ensure required libraries are installed.
-    2. Load the dataset `airplane_performance_study.csv` and the trained model.
-    3. Run the app with `streamlit run your_script.py`.
     """
+
     st.write("### Wingspan Predictor")
     st.info(
         f"The Wing Span predictor computes what wing span an airplane need to have in order to"
-        f" reach the performance target that you set below. You can choose if you want to select"
-        f" to incrementally change default values or if you want to input decimal values inside"
-        f" (interpolation) or outside (extrapolation) of the data range.\n\n"
-        f" The relative error (RE) is small (less than 0.18%) however be aware that although"
-        f" predicting outside of the data range *can* be accurate"
-        f" (at least close to the last data point) it is generally more of a 'gamble'"
-        f" since it is 'unknown territory' with no data to support"
-        f" the 'regression'.\n"
+        f" reach the performance target that you set below."
+        f" Each features mean value is set as default."
     )
 
     st.write("---")
     
+    # List of all feature names
     all_features = [
         'Length', 'Height', 'AUW', 'MEW',
         'FW', 'Vmax', 'Vcruise', 'Vstall', 'Range', 
         'Hmax', 'ROC', 'Vlo', 
         'Slo', 'Vl', 'Sl'
     ]
+
+    # Define units for each feature in a dictionary
+    units = {
+        'Length': 'ft', 
+        'Height': 'ft', 
+        'AUW': 'lb', 
+        'MEW': 'lb', 
+        'FW': 'lb', 
+        'Vmax': 'knots', 
+        'Vcruise': 'knots', 
+        'Vstall': 'knots', 
+        'Range': 'N.m.', 
+        'Hmax': 'ft', 
+        'ROC': 'ft/min', 
+        'Vlo': 'ft/min', 
+        'Slo': 'ft', 
+        'Vl': 'ft/min', 
+        'Sl': 'ft'
+    }
+
+    # Calculate the rounded mean values for all features
+    mean_values = {feature: round(df[feature].mean()) for feature in all_features}
 
     input_type = st.radio("",  # "Choose input method for all features"
                            ("Select incremental values from dropdown (interpolation)", 
@@ -71,22 +74,25 @@ def page_wing_span_predictor_body():
             remainder = range_span % 1
 
             min_val_adjusted = min_val + (remainder / 2)
-            max_val_adjusted = max_val - (remainder / 2)
+            max_val_adjusted = max_val - (remainder / 2)  # Ensure we use the correct variable name
 
-            dropdown_values = np.arange(
-                np.floor(min_val_adjusted), 
-                np.ceil(max_val_adjusted) + 1, 
-                1
-            ).astype(int)
+            # Create dropdown values as regular Python integers
+            dropdown_values = list(range(int(np.floor(min_val_adjusted)), int(np.ceil(max_val_adjusted)) + 1))
 
+            # If using dropdown, default to the rounded mean value
             if input_type == "Select incremental values from dropdown (interpolation)":
+                # Select the index of the closest value to the rounded mean
+                closest_value_index = min(range(len(dropdown_values)), key=lambda i: abs(dropdown_values[i] - mean_values[feature]))
                 dropdown_selection = st.selectbox(
-                    f"{feature} (data range: {min_val_formatted} - {max_val_formatted})", 
-                    options=dropdown_values
+                    f"{feature} [{units[feature]}] (data range: {min_val_formatted} - {max_val_formatted})", 
+                    options=dropdown_values,  # Use list of integers
+                    index=closest_value_index  # Set the mean value as default
                 )
                 inputs[feature] = dropdown_selection
+
+            # If using text input, default to the rounded mean value
             elif input_type == "Enter a custom value (interpolation and extrapolation)":
-                user_input = st.text_input(f"{feature} (data range: {min_val_formatted} - {max_val_formatted})", "")
+                user_input = st.text_input(f"{feature} [{units[feature]}] (data range: {min_val_formatted} - {max_val_formatted})", "")
                 if user_input:
                     try:
                         user_input = float(user_input)
@@ -99,25 +105,26 @@ def page_wing_span_predictor_body():
                         st.error(f"Invalid input for {feature}. Please enter a numerical value.")
                         inputs[feature] = None  # Set to None if input is invalid
                 else:
-                    inputs[feature] = None  # Set to None if input is empty
+                    # Use the rounded mean value as default if input is empty
+                    inputs[feature] = mean_values[feature]  # Set to rounded mean value as default
 
     # Collect inputs into a DataFrame
     input_data = pd.DataFrame({
-        'Length': [inputs.get('Length', min_val)],
-        'Height': [inputs.get('Height', min_val)],
-        'AUW': [inputs.get('AUW', min_val)],
-        'MEW': [inputs.get('MEW', min_val)],
-        'FW': [inputs.get('FW', min_val)],
-        'Vmax': [inputs.get('Vmax', min_val)],
-        'Vcruise': [inputs.get('Vcruise', min_val)],
-        'Vstall': [inputs.get('Vstall', min_val)],
-        'Range': [inputs.get('Range', min_val)],
-        'Hmax': [inputs.get('Hmax', min_val)],
-        'ROC': [inputs.get('ROC', min_val)],
-        'Vlo': [inputs.get('Vlo', min_val)],
-        'Slo': [inputs.get('Slo', min_val)],
-        'Vl': [inputs.get('Vl', min_val)],
-        'Sl': [inputs.get('Sl', min_val)]
+        'Length': [inputs.get('Length', mean_values['Length'])],
+        'Height': [inputs.get('Height', mean_values['Height'])],
+        'AUW': [inputs.get('AUW', mean_values['AUW'])],
+        'MEW': [inputs.get('MEW', mean_values['MEW'])],
+        'FW': [inputs.get('FW', mean_values['FW'])],
+        'Vmax': [inputs.get('Vmax', mean_values['Vmax'])],
+        'Vcruise': [inputs.get('Vcruise', mean_values['Vcruise'])],
+        'Vstall': [inputs.get('Vstall', mean_values['Vstall'])],
+        'Range': [inputs.get('Range', mean_values['Range'])],
+        'Hmax': [inputs.get('Hmax', mean_values['Hmax'])],
+        'ROC': [inputs.get('ROC', mean_values['ROC'])],
+        'Vlo': [inputs.get('Vlo', mean_values['Vlo'])],
+        'Slo': [inputs.get('Slo', mean_values['Slo'])],
+        'Vl': [inputs.get('Vl', mean_values['Vl'])],
+        'Sl': [inputs.get('Sl', mean_values['Sl'])]
     })
 
     # Validation function

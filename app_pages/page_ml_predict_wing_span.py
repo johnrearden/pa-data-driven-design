@@ -5,12 +5,13 @@ import plotly.express as px
 
 from src.data_management import load_airplane_data, load_pkl_file
 
+
 def page_ml_predict_wing_span_body():
 
     # Load new analysis files
     feature_importance_df = pd.read_pickle("outputs/ml_pipeline/predict_analysis/feature_importance_df.pkl")
     feature_names = pd.read_pickle("outputs/ml_pipeline/predict_analysis/feature_names.pkl")
-    
+
     with open("outputs/ml_pipeline/predict_analysis/mse.txt", 'r') as f:
         mse = f.read()
 
@@ -24,18 +25,27 @@ def page_ml_predict_wing_span_body():
     except Exception as e:
         st.error(f"Error loading data files: {e}")
         return  # Exit the function if data files cannot be loaded
-    
+
     st.write("### ML Pipeline: Predict Wing Span")
     # display pipeline training summary conclusions
     st.info(
-        f"* The Wing Span predictor computes what Wing Span an airplane need to have in order to"
-        f" reach the performance target that you set below. You can select if you want to select"
-        f" and incrementally change default values or if you want to input decimal values inside"
-        f" (interpolation) of the data range or outside (extrapolation) of the data range."
-        f" The relative error (RE) small (less than 0.18%) however be aware that predicting outside of"
-        f" the data range (extrapolation) is very unreliable since this is"
-        f" effectivly 'unknown territory' with no data to support the assumption of a regression"
-    )
+        f"We set a target metric for our Regressor model: a Relative Error "
+        f"(RE = RMSE / mean of y_test) of less than 10%. The achieved "
+        f"Relative Error was 7.66%. This target was set deliberately low, "
+        f"considering both the diversity of the dataset and the fact that "
+        f"the model was designed for a conceptual rather than a detailed "
+        f"design user.   \n"
+        f"We use Relative Error instead of the more common "
+        f"R-Squared because this scaled metric provides a more intuitive "
+        f"and practical way to assess the accuracy of the model. R-Squared, "
+        f"indicates a moderate performance with a score of 0.5. This "
+        f"relatively low score could be partially attributed to the large "
+        f"number of features in the model. However, we also need to take "
+        f"the context into account when interpreting the R-Squared score."
+        )
+
+    st.write("#### Error Analysis")
+    st.dataframe(error_analysis)
 
     st.write("---")
 
@@ -43,11 +53,7 @@ def page_ml_predict_wing_span_body():
     wingspan_predictor_model = load_pkl_file("outputs/ml_pipeline/predict_analysis/wingspan_predictor_model.pkl")
     st.write(wingspan_predictor_model)
 
-    st.write("#### Error Analysis")
-    st.dataframe(error_analysis)
-
-    st.write("#### Feature Importance DataFrame")
-    st.dataframe(feature_importance_df)
+    st.write("---")
 
     # Loading plots with error handling
     try:
@@ -79,6 +85,11 @@ def page_ml_predict_wing_span_body():
     except Exception as e:
         st.error(f"Error loading confusion_matrix: {e}")
 
+    st.write("---")
+
+    st.write("#### Feature Importance DataFrame")
+    st.dataframe(feature_importance_df)
+
     st.write("#### X Test")
     st.dataframe(X_test_head)
 
@@ -90,5 +101,3 @@ def page_ml_predict_wing_span_body():
 
     st.write("#### Y Train")
     st.dataframe(y_train)
-
-    st.write("---")

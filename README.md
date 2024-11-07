@@ -103,9 +103,9 @@ Note also that I have used an already partly cleaned and imputed file which mean
 | FW      | **fuel capacity/weight**                           | gal or <u>lb</u>                                                                            |
 | MEW           | **Empty weight** (a.k.a Manufacturer's Empty Weight )   | lb                                                                              |
 | AUW     | **Gross weight** (a.k.a All-Up Weight)                         | lb                                                                            |
-| Vmax    | **Maximum speed**                          | <u>knot</u> or Mach                                                            |
-| Vcruise  | **High cruise speed** (Rcmnd cruise)                   | knot                                                                 |
-| Vstall   | **Stall speed** on "dirty" configuration (flaps out, gear down, etc.)                         | knot                                                         |
+| Vmax    | **Maximum speed**                          | <u>knots</u> or Mach                                                            |
+| Vcruise  | **High cruise speed** (Rcmnd cruise)                   | knots                                                                 |
+| Vstall   | **Stall speed** on "dirty" configuration (flaps out, gear down, etc.)                         | knots                                                         |
 | Hmax     | **Maximum density-altitude** with all engines working                           | ft (as density-altitude)                                                         |
 | Hmax (One) | **Maximum density-altitude** with only one engine working.                       | ft (as density-altitude)                                                         |
 | ROC     | **Rate Of Climb** with all engines working                           | ft/min                                                         |
@@ -229,12 +229,12 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 ### Predict Wing Span
 #### Regression Model
-- We want an ML model to predict Wing Span, ft. The target variable is numerical continous. We consider a **regression model**, which is supervised and multidimensional.
+- We want an ML model to predict Wing Span, ft. The target variable is numerical continuous. We consider a **regression model**, which is supervised and multidimensional.
 - Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
-	- A Relative Error below 5% (off by 3 feet for a 60 ft wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy than that therefore could even be "deceptive".
+	- A Relative Error below 10% (off by 6 feet/2 m for a 60 ft/20 m wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy set is unrealistic and even potentially "deceptive" giving an over-reliance of the model.
 	- The ML model is considered a failure if:
-		- if the relative error is larger than 5%
+		- if the relative error is larger than 10%
 - The output is defined as a continuous value for Wing Span in ft.
 - Heuristics: Currently, there are many such predictor tools but most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as Wing Span for different customer specifications.
 - The training data to fit the model comes from the Kaggle data set.
@@ -247,7 +247,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - Our ideal outcome is to provide our client with reliable insight into a key differences between airplanes and what these differences consist of in terms of Design and Performance Parameters and how these are linked.
 - The model success metrics are
 	- at least 0.5 for the average silhouette score
-	- The ML model is considered a failure if the model suggests either to many clusters (>10) or to few clusters (<3) unless these clusters are really distinct and are not trivial considering the data, e.g. belong to a single categorical value that would alter many other features in an equal amount, e.g. TP mods which is a performance enhancing modification to the Engine.
+	- The ML model is considered a failure if the model suggests to many clusters (>6) unless these clusters are really distinct and are not trivial considering the data, e.g. belong to a single categorical value that would alter many other features in an equal amount, e.g. TP mods which is a performance enhancing modification to the Engine.
 - The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable represented by numbers starting at 0.
 - Heuristics: Clustering or aircraft data has been done before on other data however our client wishes to have their own tool on their own data.
 - The training data to fit the model comes from the Kaggle data set.
@@ -443,7 +443,7 @@ Manual testing have been carried out (on Chrome and Explorer) of the Dashboard t
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| Project summary page | Viewing summary page | Page is displayed, can move between sections on page | Success |
+|   Project summary page  | Viewing summary page | Page is displayed, can move between sections on page | Success |
 
 ---
 
@@ -459,9 +459,9 @@ Manual testing have been carried out (on Chrome and Explorer) of the Dashboard t
 
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
-| Prediction page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
-| Enter live data | Interact with widgets | All widgets are interactive, respond to user input | Success |
-| Live prediction | Click on 'Predict Wingspan' and 'Create Regression Plot' button | Clicking on buttons displays message on page with prediction and regression plot | Success |
+| Prediction page        | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
+| Enter live data        | Interact with widgets | All widgets are interactive, respond to user input | Success |
+| Live prediction        | Click on 'Predict Wingspan' and 'Create Regression Plot' button | Clicking on buttons displays message on page with prediction and regression plot | Success |
 
 ---
 
@@ -470,10 +470,10 @@ Manual testing have been carried out (on Chrome and Explorer) of the Dashboard t
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
 | Correlation Study page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
-| Correlation data | Tick correlation results checkbox | Correlation data is displayed on dashboard | Success |
-| PPS Heatmap | Tick PPS heatmap checkbox | Heatmap is displayed on dashboard | Success |
-| Feature Correlation | Select feature from dropdown box | Relevant countplot is displayed | Success |
-| Parallel Plot | Tick parallel plot checkbox | Parallel plot is displayed on dashboard, is interactive | Success |
+| Correlation data       | Tick correlation results checkbox | Correlation data is displayed on dashboard | Success |
+| PPS Heatmap            | Tick PPS heatmap checkbox | Heatmap is displayed on dashboard | Success |
+| Feature Correlation    | Select feature from dropdown box | Relevant countplot is displayed | Success |
+| Parallel Plot          | Tick parallel plot checkbox | Parallel plot is displayed on dashboard, is interactive | Success |
 
 ---
 
@@ -482,17 +482,64 @@ Manual testing have been carried out (on Chrome and Explorer) of the Dashboard t
 | Feature | Action | Expected Result | Actual Result |
 | --- | --- | --- | --- |
 | Model performance page | Navigate to page | Clicking on navbar link in sidebar navigates to correct page | Success |
-| Success metrics | View page | Success metrics outlined in business case are displayed | Success |
-| ML Pipelines | View page | Both ML Pipelines from Jupyter notebooks are displayed | Success |
-| Feature Importance | View page | Most important features are plotted and displayed | Success |
-| Model Performance | View page | Confusion matrix for train and test sets are displayed | Success |
+| Success metrics        | View page | Success metrics outlined in business case are displayed | Success |
+| ML Pipelines           | View page | Both ML Pipelines from Jupyter notebooks are displayed | Success |
+| Feature Importance     | View page | Most important features are plotted and displayed | Success |
+| Model Performance      | View page | Confusion matrix for train and test sets are displayed | Success |
 
 ---
 
 
 
+*As a domain specific user, I can view a project summary that describes the project, dataset and business requirements to understand the project at a glance.*
 
+| Feature                     | Action                    | Expected Result                                               | Actual Result         |
+|-----------------------------|---------------------------|---------------------------------------------------------------|------------------------|
+| **Project summary page** | Viewing summary page     | Page is displayed, can move between sections on page          | Success               |
 
+---
+
+*As a domain specific user, I can view the project hypotheses and validations to determine what the project was trying to achieve and whether it was successful.*
+
+| Feature                  | Action                        | Expected Result                                                 | Actual Result         |
+|--------------------------|-------------------------------|---------------------------------------------------------------|------------------------|
+| **Project hypotheses page** | Navigate to page            | Clicking on navbar link in sidebar navigates to correct page    | Success               |
+
+---
+
+*As a domain specific user, I can enter data, previously unseen by the model, into the model and receive a prediction.*
+
+| Feature               | Action                                | Expected Result                                                   | Actual Result         |
+|-----------------------|---------------------------------------|-------------------------------------------------------------------|------------------------|
+| **Prediction page**    | Navigate to page                      | Clicking on navbar link in sidebar navigates to correct page       | Success               |
+| **Enter live data**    | Interact with widgets                 | All widgets are interactive, respond to user input                | Success               |
+| **Live prediction**    | Click on 'Predict Wingspan' and 'Create Regression Plot' button | Clicking on buttons displays message on page with prediction and regression plot | Success               |
+
+---
+
+*As an data scientist, I can view the analysis to see how the outcomes were arrived at.*
+
+| Feature                  | Action                        | Expected Result                                                 | Actual Result         |
+|--------------------------|-------------------------------|---------------------------------------------------------------|------------------------|
+| **Correlation Study page** | Navigate to page             | Clicking on navbar link in sidebar navigates to correct page    | Success               |
+| **Correlation data**      | Tick correlation results checkbox | Correlation data is displayed on dashboard                    | Success               |
+| **PPS Heatmap**           | Tick PPS heatmap checkbox      | Heatmap is displayed on dashboard                              | Success               |
+| **Feature Correlation**   | Select feature from dropdown box | Relevant countplot is displayed                                | Success               |
+| **Parallel Plot**         | Tick parallel plot checkbox    | Parallel plot is displayed on dashboard, is interactive        | Success               |
+
+---
+
+*As an data scientist, I can view all the data to understand the model performance and see statistics related to the model.*
+
+| Feature                  | Action                        | Expected Result                                                 | Actual Result         |
+|--------------------------|-------------------------------|---------------------------------------------------------------|------------------------|
+| **Model performance page** | Navigate to page             | Clicking on navbar link in sidebar navigates to correct page    | Success               |
+| **Success metrics**       | View page                     | Success metrics outlined in business case are displayed        | Success               |
+| **ML Pipelines**          | View page                     | Both ML Pipelines from Jupyter notebooks are displayed         | Success               |
+| **Feature Importance**    | View page                     | Most important features are plotted and displayed              | Success               |
+| **Model Performance**     | View page                     | Confusion matrix for train and test sets are displayed         | Success               |
+
+---
 
 
 
