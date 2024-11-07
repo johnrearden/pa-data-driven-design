@@ -434,7 +434,7 @@ Saving the csv-file in Excel is done the normal way however it is important to s
 
 ## Testing 
 ### Manual Testing by User Story Testing
-Manual testing have been carried out of the Dashboard to ensure that the interface can handle all combinations of input.
+Manual testing have been carried out (on Chrome and Explorer) of the Dashboard to ensure that the interface can handle all combinations of input.
 
 * Dashboard was manually tested using user stories as a basis for determining success.
 * Jupyter notebooks were reliant on consecutive functions being successful so manual testing against user stories was deemed irrelevant.
@@ -510,6 +510,7 @@ No automated unit tests have been carried out.
 ## Unfixed Bugs 
 * In the Regression Playground the values on the color value bar sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate color value bars side by side, one for Piper and one for Cessna, however failed to make it work.
 * The scale in the Parallel plot feels "Upside down" in the context of the features that it represents, i.e. zero velocity or zero altitude are at the top of the "vertical axis" and the maximum values at the bottom! This is not exactly a bug however it feels very unintuitive and is for this reason desirable to change.
+* The favicon for the streamlit page (page_icon="✈️" in the multipage.py) silently fails to appear and was therefore removed.
 
 ## Deployment 
 ### Heroku
