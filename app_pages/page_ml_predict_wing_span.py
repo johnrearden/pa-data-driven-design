@@ -14,15 +14,13 @@ def page_ml_predict_wing_span_body():
     with open("outputs/ml_pipeline/predict_analysis/mse.txt", 'r') as f:
         mse = f.read()
 
-    with open("outputs/ml_pipeline/predict_analysis/error_analysis.txt", 'r') as f:
-        error_analysis = f.read()
-
-    # Load DataFrames first
+    # Load Files
     try:
         X_test_head = pd.read_csv("outputs/ml_pipeline/predict_analysis/X_test_head.csv")
         X_train_head = pd.read_csv("outputs/ml_pipeline/predict_analysis/X_train_head.csv")
         y_test = pd.read_csv("outputs/ml_pipeline/predict_analysis/y_test.csv")
         y_train = pd.read_csv("outputs/ml_pipeline/predict_analysis/y_train.csv")
+        error_analysis = pd.read_csv("outputs/ml_pipeline/predict_analysis/error_analysis.txt")
     except Exception as e:
         st.error(f"Error loading data files: {e}")
         return  # Exit the function if data files cannot be loaded
@@ -41,11 +39,12 @@ def page_ml_predict_wing_span_body():
 
     st.write("---")
 
-    st.write("#### Mean Squared Error")
-    st.info(mse)
+    st.write("#### Wingspan Predictor Model Summary")
+    wingspan_predictor_model = load_pkl_file("outputs/ml_pipeline/predict_analysis/wingspan_predictor_model.pkl")
+    st.write(wingspan_predictor_model)
 
-    st.write("#### Mean Error (ME) and Relative Error")
-    st.info(error_analysis)
+    st.write("#### Error Analysis")
+    st.dataframe(error_analysis)
 
     st.write("#### Feature Importance DataFrame")
     st.dataframe(feature_importance_df)
@@ -72,10 +71,17 @@ def page_ml_predict_wing_span_body():
     except Exception as e:
         st.error(f"Error loading residuals vs fitted plot: {e}")
 
-    st.write("#### X Test Head")
+    try:
+        confusion_matrix = plt.imread("outputs/ml_pipeline/predict_analysis/confusion_matrix.png")
+        st.write("#### Confusion Matrix")
+        st.image(confusion_matrix)
+    except Exception as e:
+        st.error(f"Error loading confusion_matrix: {e}")
+
+    st.write("#### X Test")
     st.dataframe(X_test_head)
 
-    st.write("#### X Train Head")
+    st.write("#### X Train")
     st.dataframe(X_train_head)
 
     st.write("#### Y Test")
@@ -85,8 +91,3 @@ def page_ml_predict_wing_span_body():
     st.dataframe(y_train)
 
     st.write("---")
-
-    st.write("#### Wingspan Predictor Model Summary")
-    wingspan_predictor_model = load_pkl_file("outputs/ml_pipeline/predict_analysis/wingspan_predictor_model.pkl")
-    st.write(wingspan_predictor_model)
-
