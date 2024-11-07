@@ -1,6 +1,19 @@
 # APPENDIX 
 <br>
 
+## Buisness case for unfinished Multi Engine Classification Model
+- We want an ML model to predict if an Airplane have a Multi Engine or single Engine on historical General Aviation Airplane data. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no Multi Engine), 1 (yes Multi Engine).
+- Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
+- The model success metrics are
+	- at least 80% Recall for Multi Engine, on train and test set 
+	- The ML model is considered a failure if:
+		- Precision for no Multi Engine is lower than 80% on train and test set. (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the misstake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
+- The model output is defined as a flag, indicating if an Airplane have Multi or Single Engines.
+- Heuristics: Currently, there are many predictor tools similar to this however most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as if an airplane is more suited to have Single or Multi Engines.
+- The training data to fit the model comes from the Kaggle data set.
+	- Train data - features: all variables, but: Model, Company, THR, SHP.
+
+
 ## Domain specific comments on relationships between the features in the data set
 Outlined below are the dependencies between the features in the data set (and features mentioned in the Outlook) relevant for making hypotheses. Other dataset features are encircled in red as they appear in the equations. Underlined features indicate that they are indirectly related to other features in the dataset however the selection of which features to underline is rather ambiguous.
 

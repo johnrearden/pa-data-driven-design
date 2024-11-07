@@ -74,6 +74,7 @@ def page_ml_predict_wing_span_body():
     try:
         confusion_matrix = plt.imread("outputs/ml_pipeline/predict_analysis/confusion_matrix.png")
         st.write("#### Confusion Matrix")
+        st.write("##### Only the '16 - 33.6' and '33.6 - 51.2' buckets are showing")
         st.image(confusion_matrix)
     except Exception as e:
         st.error(f"Error loading confusion_matrix: {e}")

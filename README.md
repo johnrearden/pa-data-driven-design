@@ -227,28 +227,14 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 ## ML Business Case 
 
-### Predict Multi Engine
-#### Classification Model
-- We want an ML model to predict if an Airplane have a Multi Engine or single Engine on historical General Aviation Airplane data. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no Multi Engine), 1 (yes Multi Engine).
-- Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
-- The model success metrics are
-	- at least 80%"""""""""""""""""""" Recall for Multi Engine, on train and test set 
-	- The ML model is considered a failure if:
-		- !!!!!!!!!!!!!!!!
-		- Precision for no Multi Engine is lower than 80% on train and test set. (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the misstake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
-- The model output is defined as a flag, indicating if an Airplane have Multi or Single Engines.
-- Heuristics: Currently, there are many predictor tools similar to this however most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as if an airplane is more suited to have Single or Multi Engines.
-- The training data to fit the model comes from the Kaggle data set.
-	- Train data - features: all variables, but: Model, Company, THR, SHP.
-
 ### Predict Wing Span
 #### Regression Model
 - We want an ML model to predict Wing Span, ft. The target variable is numerical continous. We consider a **regression model**, which is supervised and multidimensional.
 - Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
-	- At least 0.7!!!!!!!????????? for R2 score, on train and test set
+	- A Relative Error below 5% (off by 3 feet for a 60 ft wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy than that therefore could even be "deceptive".
 	- The ML model is considered a failure if:
-		- !!!!!!!!!!!!!!!!
+		- if the relative error is larger than 5%
 - The output is defined as a continuous value for Wing Span in ft.
 - Heuristics: Currently, there are many such predictor tools but most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as Wing Span for different customer specifications.
 - The training data to fit the model comes from the Kaggle data set.
@@ -260,7 +246,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - We want an ML model to cluster airplanes with similare Performance or Design characteristics. It is an unsupervised model.
 - Our ideal outcome is to provide our client with reliable insight into a key differences between airplanes and what these differences consist of in terms of Design and Performance Parameters and how these are linked.
 - The model success metrics are
-	- at least 0.45!!!!!!!!!!!!!!!!!! for the average silhouette score
+	- at least 0.5 for the average silhouette score
 	- The ML model is considered a failure if the model suggests either to many clusters (>10) or to few clusters (<3) unless these clusters are really distinct and are not trivial considering the data, e.g. belong to a single categorical value that would alter many other features in an equal amount, e.g. TP mods which is a performance enhancing modification to the Engine.
 - The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable represented by numbers starting at 0.
 - Heuristics: Clustering or aircraft data has been done before on other data however our client wishes to have their own tool on their own data.
