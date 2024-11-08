@@ -229,10 +229,10 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 ### Predict Wing Span
 #### Regression Model
-- We want an ML model to predict Wing Span in ft. The target variable is numerical continuous. We consider a **regression model**, which is supervised and multidimensional.
+- We want an ML model to predict Wing Span in ft. The target variable is numerical continuous. We consider a **regression model**, which is supervised and multidimensional. We have selected the a Random Forrest reggressor algorithm since it handles non-linear relationships, is robust to overfitting, and can capture feature interactions (which we expect to have) without extensive feature engineering.
 - Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
-	- A Relative Error below 10% (off by 6 feet/2 m for a 60 ft/20 m wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy set is unrealistic and even potentially "deceptive" giving an over-reliance on the model.
+	- A Relative Error below 10% (off by 6 feet/2 m for a 60 ft/19 m wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy set is unrealistic and even potentially "deceptive" giving an over-reliance on the model.
 	- The ML model is considered a failure if:
 		- if the relative error is larger than 10%
 - The output is defined as a continuous value for Wing Span in ft.
@@ -243,7 +243,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 
 ### Cluster Analysis
 #### Clustering Model
-- We want an ML model to cluster airplanes with similare Performance or Design characteristics. It is an unsupervised model.
+- We want an ML model to cluster airplanes with similare Performance or Design characteristics. It is an unsupervised model. We have selected the Gradient Boosting Classifier since it efficiently handles complex, non-linear relationships, performs well with imbalanced data
 - Our ideal outcome is to provide our client with reliable insight into a key differences between airplanes and what these differences consist of in terms of Design and Performance Parameters and how these are linked.
 - The model success metrics are
 	- at least 0.5 for the average silhouette score

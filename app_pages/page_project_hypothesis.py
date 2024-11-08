@@ -33,7 +33,7 @@ def page_project_hypothesis_body():
         f"  - Validation: The implemented algorithms in the user interface shows"
         f" that the user can predict the target variable, Wing Span, by inputting"
         f" desired airplane performance and design features."
-        f" that can be compared with each other and that the relative error (RE) is less than 0.18%. \n\n\n"  
+        f" that can be compared with each other and that the relative error (RE) is less than 5.97%. \n\n\n"  
 
         f"* **4** (BR3)"
         f"  - We suspect that the data hides a few but not many distinct clusters"

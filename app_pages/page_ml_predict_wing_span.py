@@ -12,9 +12,6 @@ def page_ml_predict_wing_span_body():
     feature_importance_df = pd.read_pickle("outputs/ml_pipeline/predict_analysis/feature_importance_df.pkl")
     feature_names = pd.read_pickle("outputs/ml_pipeline/predict_analysis/feature_names.pkl")
 
-    with open("outputs/ml_pipeline/predict_analysis/mse.txt", 'r') as f:
-        mse = f.read()
-
     # Load Files
     try:
         X_test_head = pd.read_csv("outputs/ml_pipeline/predict_analysis/X_test_head.csv")
@@ -31,7 +28,9 @@ def page_ml_predict_wing_span_body():
     st.info(
         f"We set a target metric for our Regressor model: a Relative Error "
         f"(RE = RMSE / mean of y_test) of less than 10%. The achieved "
-        f"Relative Error was 7.66%. This target was set deliberately low, "
+        f"Relative Error of 5.97% (off by 3.6 feet/1 m for a 60 ft/19 m wing span) "
+        f"cleared the target with a margin. "
+        f"This target was set deliberately low, "
         f"considering both the diversity of the dataset and the fact that "
         f"the model was designed for a conceptual rather than a detailed "
         f"design user.   \n"

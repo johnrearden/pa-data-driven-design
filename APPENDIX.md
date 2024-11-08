@@ -1,12 +1,12 @@
 # APPENDIX 
 
-## Buisness case for unfinished Multi Engine Classification Model
+## Business case for unfinished Multi Engine Classification Model
 - We want an ML model to predict if an Airplane have a Multi Engine or single Engine on historical General Aviation Airplane data. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no Multi Engine), 1 (yes Multi Engine).
 - Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
 	- at least 80% Recall for Multi Engine, on train and test set 
 	- The ML model is considered a failure if:
-		- Precision for no Multi Engine is lower than 80% on train and test set. (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the misstake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
+		- Precision for no Multi Engine is lower than 80% on train and test set. (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the mistake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
 - The model output is defined as a flag, indicating if an Airplane have Multi or Single Engines.
 - Heuristics: Currently, there are many predictor tools similar to this however most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as if an airplane is more suited to have Single or Multi Engines.
 - The training data to fit the model comes from the Kaggle data set.
@@ -19,7 +19,7 @@ Note that a conversion to SI units has not been made in the data set analysis.
 |      Quantity     | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
 |-------------------|------------------------------|---------------------------------------------|----------|
 | "Propulsion size" | THR, SHP            | lbf and HP                                  | N and W  |   
-| Length            | Wing Span, Lenght, Height, Slo and Sl           | ft and in                                   |    m     |  
+| Length            | Wing Span, Length, Height, Slo and Sl           | ft and in                                   |    m     |  
 | Distance          | Range                        | N.m. (Nautical miles)                       |   km     |  
 | Weight            | FW, AUW and MEW            | lb                                          | kg or N  |
 | Velocity          | Vmax, Vcruise, Vstall,          | knot or Mach and in                         |   m/s    |   
@@ -29,7 +29,7 @@ Note that a conversion to SI units has not been made in the data set analysis.
 Outlined below are the dependencies between the features in the data set (and features mentioned in the Outlook) relevant for making hypotheses. Other dataset features are encircled in red as they appear in the equations. Underlined features indicate that they are indirectly related to other features in the dataset however the selection of which features to underline is rather ambiguous.
 
 ### Engine Type (categories: Piston and propjet, jet)
-Jet generally offers higher **speed** and **ceilings** as well as better **range**. Propjet generally falls somewhere between these two engine types.  Piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One reasons for this "barrier" is because the large diameter propeller tips reach the speed of sound. Both jet and piston engines experience reduced performance at higher **altitudes** due to decreased air density, but generally jet engines perform better at higher altitudes than piston engines. The better Range is due to higher speed and fuel efficiency
+Jet generally offers higher **speed** and **ceilings** as well as better **range**. Propjet generally falls somewhere between these two engine types. Piston powered propeller driven propulsion units meets an invisible "speed barrier" approaching 400 knots. One reasons for this "barrier" is because the large diameter propeller tips reach the speed of sound. Both jet and piston engines experience reduced performance at higher **altitudes** due to decreased air density, but generally jet engines perform better at higher altitudes than piston engines. The better Range is due to higher speed and fuel efficiency
 
 ### Multi Engine (categories: Single Engine and Multi Engine)
 Multiple Engines generally offer better **Speed**, **Range** and **Climb** performance.
@@ -68,13 +68,26 @@ Wing Span is the one single dimensional feature of real value in the dataset how
 <img src="image_readme/equations/eq_lift.png" alt="Equation for" style="width: 70%;"/>
 <br>
 
+The classic lift equation is given by:
+
+$$
+L = \frac{1}{2} \rho v^2 S C_L
+$$
+
+Where:
+- \( L \) = Lift force (N or lbs)
+- \( \rho \) = Air density (kg/m³ or sl/ft³)
+- \( v \) = Velocity of the airflow (m/s or ft/s)
+- \( S \) = Wing reference area (m² or ft²)
+- \( C_L \) = Coefficient of lift (dimensionless)
+
 ### FW (Fuel Weight)
 Fuel weight (together with "AUW") naturally have strong correlation with **Range** Since the more fuel you carry in relationship to the weight of the airplane, the further you can fly (please see the equation for Range).
 
 Note also that the FW can be used in the Range Equation.
 
 ### MEW (Empty weight, a.k.a Manufacturer's Empty Weight )
-The Empty weight would be interesting to plot against **Year of first flight** and **Aircraft Structure** (see Outlook-chapter) to see if, with new modern material and buildung techniques" the airplanes have become lighter. For this such a study it is important to use MEW rather than AUW.
+The Empty weight would be interesting to plot against **Year of first flight** and **Aircraft Structure** (see Outlook-chapter) to see if, with new modern material and building techniques" the airplanes have become lighter. For this such a study it is important to use MEW rather than AUW.
 
 <br>
 <img src="image_readme/equations/eq_mew.png" alt="Equation for" style="width: 50%;"/>
@@ -110,7 +123,7 @@ Stall speed should have a strong correlation to AUW and the relationship with Wi
 <br>
 
 ### Hmax (Max altitude)
-**Velocity** is trongly correlated and Albeit not explicit in the below equation Hmax is strongly related to **ROC** since Hmax has been reached when the ROC reaches zero. Wing Span (more than Wing area) should also have a strong correlation. FW and AUW 
+**Velocity** is strongly correlated and Albeit not explicit in the below equation Hmax is strongly related to **ROC** since Hmax has been reached when the ROC reaches zero. Wing Span (more than Wing area) should also have a strong correlation. FW and AUW 
 
 <br>
 <img src="image_readme/equations/eq_h_max.png" alt="Equation for SHP" style="width: 40%;"/>
@@ -141,19 +154,19 @@ The takeoff ground run has a THR and AUW
 <br>
 
 ### Vl (Landing speed during normal landing for a 50 ft obstacle)
-The Vl has a strong collelation to Vstall as well as the FW and AUW.
+The Vl has a strong correlation to Vstall as well as the FW and AUW.
 <br>
 <img src="image_readme/equations/eq_vl.png" alt="Equation for SHP" style="width: 50%;/">
 <br>
 
-### Sl (Takeoff ground run)
+### Sl (Landing ground run)
 Sl will only weakly correlate to the data set features. 
 <br>
 <img src="image_readme/equations/eq_sl.png" alt="Equation for SHP" style="width: 50%;/">
 <br>
 
 ### Range
-The classic Range equation (The Breguet Range equation) shows the direct relationship on the relationship between the fuel and also, indirectly, Wing Span via Lift (see the lift equation under Wing Span).
+The classic Breguet Range equation that dates back to before 1920.) shows the direct relationship on the relationship between the fuel and also, indirectly, Wing Span via Lift (see the lift equation under Wing Span). Below eq apply to propeller driven airplanes.
 
 Please note that the AUW can be used as the initial weight in the Range Equation and that AUW - FW can be used as the final weight (After the fuel is consumed).
 
