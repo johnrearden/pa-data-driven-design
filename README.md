@@ -8,7 +8,9 @@
 <img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
-[Airplane Performance Predictor](https://airplane-performance-predictor-852b7eac4d10.herokuapp.com/) is a Machine-learning (ML) project using a dataset with Airplanes Design and Performance parameters with the goal to achieve two things:
+<br>
+
+[Airplane Performance Predictor](https://airplane-performance-predictor-852b7eac4d10.herokuapp.com/) is a Machine-Learning (ML) project using a dataset with Airplanes Design and Performance parameters with the goal to achieve two things:
    - Visualize and Analyze the data in general to gain insight that can help in the Conceptual Design Process of new airplanes.
    - Create a predictor tool by fitting ML pipelines that can predict (Regression) values necessary for reaching specific Performance targets as well as to look for hidden patterns (clustering) in the data.
 
@@ -602,7 +604,7 @@ I have looked at both the [Code Institute template](https://github.com/Code-Inst
 - Equations was taken mainly from Anderson, John D. Aircraft Performance and Design. McGraw-Hill, 1999.
 
 #### Exploratory Data Analysis Notebook
-* Much of the functionality/methodology/code have been taken from the Code Institute "Churnometer" walkthrough project and adapted to this project. This code appears In particular in:
+* Much of the functionality/methodology/code have been taken from the Code Institute ["Churnometer"](https://github.com/Code-Institute-Solutions/churnometer) walkthrough project and adapted to this project. This code appears In particular in:
   - 03 - DataCleaning has been used for: 4_data_cleaning
   - 04 - FeatureEngineering has been used for: 5_feature_engineering
   - 05 - Modeling and Evaluation - Predict Churn has been used for: 6A_modeling_and_evaluation-predict_engine_type

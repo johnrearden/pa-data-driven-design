@@ -64,7 +64,7 @@ def page_ml_cluster_body():
         f"* **Uniform silhouette thickness and shape** for both clusters - well-formed clusters"
         f" with consistent cohesion and separation across data points."
 
-        f"No **thin or overly elongated silhouettes** -"
+        f"**No thin or overly elongated silhouettes** -"
         f" good definition.  \n"
 
         f"* Silhouette scores for the two clusters are **well separated with"

@@ -68,19 +68,6 @@ Wing Span is the one single dimensional feature of real value in the dataset how
 <img src="image_readme/equations/eq_lift.png" alt="Equation for" style="width: 70%;"/>
 <br>
 
-The classic lift equation is given by:
-
-$$
-L = \frac{1}{2} \rho v^2 S C_L
-$$
-
-Where:
-- \( L \) = Lift force (N or lbs)
-- \( \rho \) = Air density (kg/m³ or sl/ft³)
-- \( v \) = Velocity of the airflow (m/s or ft/s)
-- \( S \) = Wing reference area (m² or ft²)
-- \( C_L \) = Coefficient of lift (dimensionless)
-
 ### FW (Fuel Weight)
 Fuel weight (together with "AUW") naturally have strong correlation with **Range** Since the more fuel you carry in relationship to the weight of the airplane, the further you can fly (please see the equation for Range).
 
