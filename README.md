@@ -71,13 +71,12 @@ The 1st and 2nd columns are meta data, the 3th to 13th are Design features and t
 <br>
 
 <div style="display: flex; justify-content: space-around;">
-  <img src="image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="image_readme/aeronca_11cc_super_chief.jpg" alt="Example Image of Aeronca_11CC Super Chief" height="150"/>&nbsp;&nbsp;
+  <img src="image_readme/TBM_850_eads_socata_aircraft.jpg" alt="Example Image of TBM 850 EADS_Socata Aircraft" height="150"/>&nbsp;&nbsp;
   <img src="image_readme/bombardier-global-7500.jpg" alt="Example Image of Bombardier Global-750" height="150"/>
 </div>
 
 <figcaption style="color: grey;">
-
     Aeronca L-16 (left) representing the "lower" end of the data set and the Bombardier Global-7500 (right) representing the "upper" end and the most "middle"-value (mean) represented by "TBM 850 EADS_Socata Aircraft" (middle)
 </figcaption>
 
