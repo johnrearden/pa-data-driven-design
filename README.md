@@ -8,21 +8,19 @@
 <img src="image_readme/data_driven_design_logo_5.png" alt="Logo for Data Driven Design " width=400/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
-
 [Airplane Performance Predictor](https://airplane-performance-predictor-852b7eac4d10.herokuapp.com/) is a Machine-learning (ML) project using a dataset with Airplanes Design and Performance parameters with the goal to achieve two things:
-   - Visualize and Analyze the data general to gain insight that can help in the Conceptual Design Process of new airplanes.
-   - Create a predictor tool by fitting ML pipelines that can predict (Regression) and categorize (Classification) values necessary for reaching specific Performance targets as well as to look for hidden patterns (clustering) in the data.
+   - Visualize and Analyze the data in general to gain insight that can help in the Conceptual Design Process of new airplanes.
+   - Create a predictor tool by fitting ML pipelines that can predict (Regression) values necessary for reaching specific Performance targets as well as to look for hidden patterns (clustering) in the data.
 
-<br>
 <br>
 
 ## Table of Contents
 
 - [Aircraft Conceptual Design tools and Predictive Analysis](#aircraft-conceptual-design-tools-and-predictive-analysis)
 - [Dataset Content](#dataset-content)
-- [Project terms & Jargon](#project-terms-and-jargon)
+- [Project Terms](#project-terms)
 - [Business Requirements](#business-requirements)
-- [Hypothesis](#hypothesis-and-how-to-validate)
+- [Hypothesis and how to validate](#hypothesis-and-how-to-validate)
 - [Mapping Business Requirements to Data Visualisation and ML Tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
 - [ML Business Case](#ml-business-case)
 - [Epics and User Stories](#epics-and-user-stories)
@@ -38,12 +36,13 @@
 - [Acknowledgements](#acknowledgements)
 - [APPENDIX](#appendix)
 
+
 ## Aircraft Conceptual Design tools and Predictive Analysis
-Designing an airplane, in the conceptual Design Phase, making 'predictions' based on historical data is very different than to designing by modeling the physics (aerodynamics, structures etc.) however it is entirely possible to create a descent or even good conceptual airplane design this way given that:
+Designing an airplane, in the conceptual Design Phase, making 'predictions' based on historical data is very different than designing by modeling the physics (aerodynamics, structures etc.) however it is entirely possible to create a descent or even good conceptual airplane design this way given that:
 * The airplane is *not* a new category of airplanes but a conventional airplane in the context of its features, meaning:
   * The features of your design are well within the bounds of the data set (interpolation)
-  * The features of your design that is not part of the prediction does not significantly deviate from the features (of the airplanes in the dataset) that is *not* included in the dataset.
-* Domain specific Heuristics, rules of thumb and plain Engineering experience and common sense is used in assessing the model input and output.
+  * The features of your design that is not part of the dataset does not significantly deviate from the features (of the airplanes in the dataset) that is *not* included in the dataset.
+* Domain specific Heuristics, rules of thumb and plain Engineering experience and common sense is used in selecting model input and assessing the model output.
 
 Despite the importance of domain specific knowledge when applying ML to real world problems, like that of airplane design, it is remarkable and surprising how good predictions can be made by data practitioners with close to no domain specific knowledge. This is the strength of AI and ML-Engineering.
 
@@ -53,9 +52,7 @@ The main use of predictions based on historical airplane data is nothing new and
 Concretely the predictions will serve as start values to the algorithms that models the physics.
 
 ### Reliability and accuracy of predictions
-On one hand the reliability is not safety critical (no impact on human safety) since following sequential design stages will validate and refine the predicted data. On the other hand reliability (and to a degree accuracy) is cost critical having the potential to make or break a manufacturer/airplanes since a wrong prediction can lead to an extremely costly redesign in a later design stage or, if ignored, to a sub-optimal design released onto the market.
-
-   (We don't want wrong decisions on configuration, such as Single or Multi Engine to be passed on to the Preliminary design phase potentially resulting in extremely costly redesigns if the misstake  isn ot discovered until the Preliminary Design phase or, even worse, in the Detailed Design phase)
+On one hand the reliability is not safety critical (no impact on human safety) since the, afterward following, design stages will validate and refine the predicted data. On the other hand, reliability (and to a degree also accuracy) is cost critical having the potential to make or break a manufacturer since a wrong prediction can lead to an extremely costly redesign in a later design stage or, if ignored, to a sub-optimal design released onto the market.
 
 ## Dataset Content 
 
@@ -64,10 +61,10 @@ This tabulated dataset, [Aircraft Performance (Aircraft Bluebook) ](https://www.
 
 - The dataset includes information about:
 	- Airplane Meta data such as make and model
-	- Airplane Design Attributes/Paramaters such as Engine type and Wingspan
-	- Airplane Performance Attributes/parameters such as the Airplane's gross weight, Vcruise, service ceiling, rate of climb and range
+	- Airplane Design Features/Paramaters such as Engine type and Wingspan
+	- Airplane Performance Attributes/Parameters such as the Airplane's gross weight, Vcruise, service ceiling, rate of climb and range
 
-The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and the 14th to 25th are Performance attributes
+The 1st and 2nd columns are meta data, the 3th to 13th are Design features and the 14th to 25th are Performance attributes
 
 <br>
 
@@ -86,7 +83,7 @@ The 1st and 2nd columns are meta data, the 3th to 13th are Design attributes and
 
 **Important disclaimer**: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
 
-Note also that I have used an already partly cleaned and imputed file which means that some of the data entries might be an approximation using some common type of interpolation method or similar. The information, on the dataset site on Kaggle, in regards to units are ambigous often giving to units. In the table below the units I presume are correct are underlined.
+Note also that I have used an already partly cleaned and imputed file which means that some of the data entries might be an approximation using some common type of interpolation method or similar. The information, on the dataset site on Kaggle, in regards to units are ambigous often giving two units. In the table below the units I presume are correct are underlined.
 
 | Variable/Attribute         | Meaning/Information/Quantity                                                     | Units                                                                                |
 |------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -117,7 +114,7 @@ Note also that I have used an already partly cleaned and imputed file which mean
 | Range   | **Range** The distance the airplane can fly without refueling | N.m. (Nautical miles)                                                            
 
 \* Propjet is more commonly referred to as "turboprop"
-\*\* Multiple Engines is most likely refering to no more than two (twin) engines.
+\*\* Multiple Engines is most likely only two (twin) in most or even in all teh cases.
 
 Although the term 'Features' rather refer to shape/form/proportions, e.g. Wing Span and the term 'Attributes' to characteristics/qualities, e.g Vmax, we have, for sake of simplicity, chosen to not make this distinction but to use the term 'Feature' everywhere. Furthermore the term Parameter have also been dropped for the term 'Feature'.
 
@@ -128,6 +125,7 @@ Note that we can glean valuable insight on how the features are distributed alre
 <img src="image_readme/kaggle_data_head_3.png" alt="Head of data from Kaggle site " width=1000/>
 <img src="image_readme/kaggle_data_head_4.png" alt="Head of data from Kaggle site " width=1000/>
 <img src="image_readme/kaggle_data_head_5.png" alt="Head of data from Kaggle site " width=1000/>
+
 
 ## Project Terms
     - "General Aviation" is civil aviation other than large-scale passenger or freight operations.
@@ -151,7 +149,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 **Business Requirement 3**\*  - The client is interested in evaluating the “strength and weakness”-profile for two of their main competitors Piper and Cessna by evaluating the differences in performance for different features.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, C3, D1, D2, D3, and E1
 
-**Business Requirement 4** - The client is interested in predicting the necessary values that an airplanes wing span (Design feature) need to take on in order to reach certain performance targets.  
+**Business Requirement 4** - The client is interested in predicting the necessary values that an airplanes wing span (Design feature) need take on on in order to reach certain performance targets.  
 [Epics and User Stories](#epics-and-user-stories) A1, A2, B1, B2, B3, B4, B5, C1, C2, C3, C4, C5, C6, D1, D2, D3, D4, D5, D6, and E1
 
 **Business Requirement 5** - The client is interested to see if any “invisible” yet distinct airplane clusters (based on features) are hiding in the data using unsupervised learning.  
@@ -170,6 +168,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 **Speed:** The model should be able to make predictions in real-time.
 
 \* Although not requested by the client, Data Driven Design has decided to include this as a bonus study with the goal that the client should retain the service of DDD. We are pitching the two largest contributors in the data set, Cessna (24%) and Piper (13%) to see who fairs the best. Note however that it is important to not draw too large conclusions from this superficial study since many more parameters would need to be taken into account for a fair study including aspects such as practicality, structural robustness and price just to mention a few. 
+
 
 ## Hypothesis and how to validate?
 * Hypothesis 1:
@@ -212,7 +211,7 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 	- We want to make linear regressions for both manufacturers for all features.  
 
 **Business Requirement 4 (Wingspan Predictor):** Regression and Data Analysis  
-	- We want to predict the wing span for a set of features.We want to build a regression model.  
+	- We want to predict the wing span for a set of features. We want to build a regression model.  
 
 **Business Requirement 5 (Cluster):** Cluster and Data Analysis  
     - We want to inspect the data.  
@@ -220,25 +219,26 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
     - We want to understand a cluster profile to present potential groups or segments of airplanes in the data.  
 
 **Business Requirement 6 (Max altitude):** Regression, Data Analysis and Data Visualization  
-	- We want to predict visualize max altitude using regression.  
+	- We want to predict and visualize max altitude using regression.  
 
 **Business Requirement 7 (Breguet Range equation):** Regression, Data Analysis and Data Visualization  
 	- We want to compare two regression lines, one linear regression and one non-linear.  
+
 
 ## ML Business Case 
 
 ### Predict Wing Span
 #### Regression Model
-- We want an ML model to predict Wing Span, ft. The target variable is numerical continuous. We consider a **regression model**, which is supervised and multidimensional.
+- We want an ML model to predict Wing Span in ft. The target variable is numerical continuous. We consider a **regression model**, which is supervised and multidimensional.
 - Our ideal outcome is to provide our client with a predictor tool that can assist in feasibility studies of new proposal.
 - The model success metrics are
-	- A Relative Error below 10% (off by 6 feet/2 m for a 60 ft/20 m wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy set is unrealistic and even potentially "deceptive" giving an over-reliance of the model.
+	- A Relative Error below 10% (off by 6 feet/2 m for a 60 ft/20 m wing) on test set since the nature of this predictive tool depending on so many different features, including feature not present in the data set, are such that a higher accuracy set is unrealistic and even potentially "deceptive" giving an over-reliance on the model.
 	- The ML model is considered a failure if:
 		- if the relative error is larger than 10%
 - The output is defined as a continuous value for Wing Span in ft.
-- Heuristics: Currently, there are many such predictor tools but most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as Wing Span for different customer specifications.
+- Heuristics: Currently, there are many such predictor tools building on similar regression models but most are in-house (and therefore not accessible) and our client want to develope a solid base of in-house tools to predict Design parameters such as Wing Span for different customer specifications.
 - The training data to fit the model comes from the Kaggle data set.
-    - Train data - Target: Wing Span; features: all other variables, but Model, Company, THR, SHP, Engine_Type, Multi_Engine, TP_mods, Hmax_(One), ROC_(One)
+    - Train data - Target: Wing Span; features: all other variables, except Model, Company, THR, SHP, Engine_Type, Multi_Engine, TP_mods, Hmax_(One), ROC_(One)
 
 
 ### Cluster Analysis
@@ -251,7 +251,8 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 - The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable represented by numbers starting at 0.
 - Heuristics: Clustering or aircraft data has been done before on other data however our client wishes to have their own tool on their own data.
 - The training data to fit the model comes from the Kaggle data set.
-	- Train data - features: all variables, but Model', 'Company', 'Multi_Engine', 'THR', 'SHP', 'Hmax_(One)', and 'ROC_(One)'
+	- Train data - features: all variables, except Model', 'Company', 'Multi_Engine', 'THR', 'SHP', 'Hmax_(One)', and 'ROC_(One)'
+
 
 ## Epics and User Stories
 * The project was split into five Epics and within each of these, User Stories according to the agile methodology.
@@ -287,34 +288,37 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
 * **User Story E1** - As a domain specific user, I can view the project dashboard on a live deployed website.
 * **User Story E2** - As a data scientist user, I can follow instructions in the readme to fork the repository and deploy the project for myself.
 
+
 ## Dashboard Design
 
 ### Page 1: Quick project Summary
 - Quick project summary
 	- Terms
 	- Describe Project Dataset
+  - Link to this readme
 	- State Business Requirements
 
 ### Page 2: Airplane Feature Explanation
 - Units and explanations of the Quantities/Features.
+- Checkbox to view the dataset
 
 ### Page 3: Get to know the dataset
-- Concretize the data set for by display images of the airplanes in the "middle" and "Edges" of the data set:
-	- Image: One image of each airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
+- Concretize the data set for by display images of the airplanes: One image of each airplane that falls into the minimum, mean and maximum value for each feature (except for the categorical values).
+- Checkbox to view/inspect the dataset
 
 ### Page 4: Multi Engine Airplane Study
 - State and answer business requirement 2
 - Include:
-  - Airplane data
-  - Multi Engine distribution per Feature
-  - Parallel Plot
+  - Checkbox to view the dataset
+  - Checkbox to view Multi Engine distribution per Feature
+  - Checkbox to view Parallel Plot
 
 ### Page 5: Wing Span Predictor
-- State and answer business requirement 4
+- Instructions how to use Wing Span predictor (fulfills: BR 4)
 - Include Wing Span predictor that predicts the Wing Span based on features given by user.
 
 ### Page 6: Regression Playground
-- State business requirement 3 (Do not state business requirement 1 although this page answers this as well)
+- Instructions how to use the regression playground (fulfills BR 1 and 3)
 - "Create Regression Plot" button to generate a regression plot according to the selections given in the drop down menus: 
   - Dependent feature, e.g Wing_Span
   - Independent feature 1, e.g. Hmax
@@ -324,41 +328,46 @@ The ficticous company *Data Driven Design* (DDD) consist of data practitioners w
   - Type of graph: 2D or 3D
 
 ### Page 7: Domain Specific Analysis
-- State business requirement 6 and 7
-- Two plots that answers each Hypothesis
+- Reasoning around BR 6 and 7
+- Two plots that embodies the answer to BR 6 and 7
 
 ### Page 8: Project Hypothesis and Validation
 - Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each.
 - Hypothesis.
 - Conclusions.
-- How to validate.
+- Validation.
 
 ### Page 9: ML: Predict Wing Span
-- State business requirement 4
-- Considerations and conclusions after the pipeline is trained
-- Mean Squared Error
-- Mean Error (ME) and Relative Error
-- Feature Importance DataFrame
-- Feature Names
+- Considerations and conclusions of metrics (RE and R-squared) and if target is meet (BR4)
+- Error Analysis
+  - MAE
+  - MSE
+  - RMSE
+  - RE
+  - R squared
+- Model Summary
 - Predicted vs Actual Plot
 - Residuals Distribution Plot
-- Residuals vs Fitted Plot
-- X Test Head
-- X Train Head
+- Residuals vs. Fitted Plot
+- Confusion Matrix
+- Feature Importance Data Frame
+- X Test
+- X Train
 - Y Test
 - Y Train
 - Wingspan Predictor Model Summary
 
 ### Page 10: ML: Cluster Analysis
-- State business requirement 5
-- Considerations and conclusions after the pipeline is trained
-- Present ML pipeline steps
-- The features the model was trained with
+- Considerations and conclusions of metrics (silhouette score) and if target is meet (BR5)
+- Cluster ML Pipeline steps
+- Analysis of Sillhouette Plot
 - Silhouette plot
 - Clusters distribution
 - Relative Percentage (%) of Multi Engine in each cluster
 - The most important features to define a cluster
+- Description of the most important features to define a cluster
 - Cluster Profiles
+
 
 ## Outlook 
 
@@ -368,18 +377,19 @@ Add the categorical values (Multi Engine, Engine Type and TP_mods) to the menu i
 ### Impute more features to the data
 
 The **'year of first flight'** is an easily retrievable feature that would be valuable for two reasons:
-* It would allow predictive accuracy/feasibility to be increased since old airplanes could be filtered out when predicting a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. 
-* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last ca 80 years!
+* It would allow predictive accuracy to be increased since old airplanes could be filtered out when predicting a modern design. Note that the data points ranges from today all the way back to the 40ies and perhaps even earlier. 
+* Having the year of first flight would enable a very interesting study of how Airplane performance and design have developed over the last ca 80+ years!
 
 Furthermore **Aircraft Structure** with categories "Wood and Fabric", "Metal and Fabric", "All-Metal", "Metal and Composites" and "All-Composites" would, like "year of first flight", add value in two ways:
-* It would allow predictions to be based only on relevant types of airplanes. 
+* It would allow predictions to be based only on relevant types of airplanes thereby increasing accuracy. 
 * It would allow an interesting assessment on the benefit of construction type/material on actual performance.
 
-**Wing Area** Is one of the, for aircraft Design, most important and fundamental parameters, much more important than Wing Span that currently populates the data. Imputing Wing Area would also together with the existing data allow other important features to be calculated:
-* Wing area together with wing span allow the following to be calculated:
+**Wing Area** Is one of the, for aircraft Design, most important and fundamental parameters, much more important than the current Wing Span feature. Imputing Wing Area would also together with the existing data allow other important features to be calculated:
+* Wing area together with wing span also allow the following to be calculated:
   * **Mean chord** by dividing Wing Span with Wing Area (Which in turn allow the Wing Reynolds number to be calculated tother with a velocity of your choice from the data set and some constants
   * **Wing Aspect Ratio** by squaring Wing Area and divide by Wing Span
   The Wing Area is a relatively standard item in the specs of an airplane and is therefore also a relatively easily feature to retrieve.
+
 
 ## Technologies Used 
 
@@ -391,36 +401,41 @@ The technologies used throughout the development are listed below:
 
 ### Python Packages
 
-* [plotly](https://plotly.com/) - Open-source graphing library for interactive visualizations.
-* [yellowbrick](https://www.scikit-yb.org/en/latest/) - Open-source visualization library for ML.
-* [Jinja2](https://jinja.palletsprojects.com/en/stable/) - Open-source templating engine for Python.
-* [MarkupSafe](https://pypi.org/project/MarkupSafe/) - Open-source library for escaping strings in web applications..
-* [protobuf](https://protobuf.dev/) - Language-neutral, platform-neutral extensible mechanisms for serializing structured data.
-* [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/) - Interactive browser controls for Jupyter notebooks.
 * [altair](https://altair.com/machine-learning) - Open-source declarative visualization library for Python with interactive statistical graphics.
-* [streamlit](https://streamlit.io/) - open-source framework for scientific interactive web apps.
-* [Pandas](https://pandas.pydata.org/docs/index.html) - Open source library for data manipulation and analysis.
-* [Numpy](https://numpy.org/doc/stable/index.html) - Adds support for large, multi-dimensional arrays and matrices, and high-level mathematical functions.
-* [Matplotlib](https://matplotlib.org/) - Comprehensive library for creating static, animated and interactive visualisations.
-* [Seaborn](https://seaborn.pydata.org/) - Another data visualisation library for drawing attractive and informative statistical graphics.
 * [Feature-engine](https://feature-engine.trainindata.com/en/latest/) - Library with multiple transformers to engineer and select features for machine learning models.
-* [scikit-learn](https://scikit-learn.org/stable/) - Open source machine learning library that features various algorithms for training a ML model.
-* [SciPy](https://scipy.org/) - Library used for scientific computing and technical computing.
-* [XGBoost](https://xgboost.readthedocs.io/en/stable/) - Optimised distributed gradient boosting library.
 * [Imbalanced-learn](https://imbalanced-learn.org/stable/) - Provides tools for dealing with classification problems with imbalanced classes.
+* [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/) - Interactive browser controls for Jupyter notebooks.
 * [Joblib](https://joblib.readthedocs.io/en/stable/) - Provides tools for lightweight pipelining, e.g. caching output values.
+* [Jinja2](https://jinja.palletsprojects.com/en/stable/) - Open-source templating engine for Python.
+* [MarkupSafe](https://pypi.org/project/MarkupSafe/) - Open-source library for escaping strings in web applications.
+* [Matplotlib](https://matplotlib.org/) - Comprehensive library for creating static, animated and interactive visualisations.
+* [Numpy](https://numpy.org/doc/stable/index.html) - Adds support for large, multi-dimensional arrays and matrices, and high-level mathematical functions.
+* [Pandas](https://pandas.pydata.org/docs/index.html) - Open source library for data manipulation and analysis.
+* [plotly](https://plotly.com/) - Open-source graphing library for interactive visualizations.
+* [ppscore](https://pypi.org/project/ppscore/) - Computes pairwise predictive power scores between features in a dataset.
+* [protobuf](https://protobuf.dev/) - Language-neutral, platform-neutral extensible mechanisms for serializing structured data.
+* [scikit-learn](https://scikit-learn.org/stable/) - Open source machine learning library that features various algorithms for training a ML model.
+* [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html) - Provides statistical functions for analysis, including distributions, tests, and descriptive statistics.
+* [SciPy](https://scipy.org/) - Library used for scientific computing and technical computing.
+* [Seaborn](https://seaborn.pydata.org/) - Another data visualisation library for drawing attractive and informative statistical graphics.
+* [streamlit](https://streamlit.io/) - open-source framework for scientific interactive web apps (Not exclusive to Python).
+* [warnings](https://docs.python.org/3/library/warnings.html) - Manages warning messages in Python, allowing control over their display and behavior.
+* [XGBoost](https://xgboost.readthedocs.io/en/stable/) - Optimised distributed gradient boosting library.
+* [yellowbrick](https://www.scikit-yb.org/en/latest/) - Open-source visualization library for ML.
+* [ydata_profiling](https://docs.profiling.ydata.ai/latest/) - Generates detailed data profiling reports, summarizing dataset statistics, distributions, and quality.
 
 ### Other Technologies
 
-* [Microsoft Excel](https://en.wikipedia.org/wiki/Microsoft_Excel) - For manual inspection and processing of data set
 * [Git](https://git-scm.com/) - For version control
-* [GitPod](https://www.gitpod.io/) - Cloudbased IDE used for development
 * [GitHub](https://github.com/) - Code repository
+* [GitPod](https://www.gitpod.io/) - Cloudbased IDE used for development
 * [Heroku](https://heroku.com) - For application deployment
+* [Microsoft Excel](https://en.wikipedia.org/wiki/Microsoft_Excel) - For manual inspection and processing of data set
+
 
 ## Working with CSV-files in Excel
 Opening the data in Microsoft Excel can be a good idea, especially in the beginning of the project, if you want to view, scroll and access the data-set for inspection and test things out. If the data set is a comma separated file (csv) you can not open the file in the normal manner, instead you need to import the file to Excel:
-1.Open excel and a new blank worksheet
+1. Open excel and a new blank worksheet
 2. click "From text/CSV"-icon in the "data"-tab in the "ribbon"-menu.
 3. Follow the instructions.
 
@@ -428,13 +443,14 @@ Opening the data in Microsoft Excel can be a good idea, especially in the beginn
 
 <br>
 
-Saving the csv-file in Excel is done the normal way however it is important to save it using the correct file-format: CSV UTF-8 (Comma delimited)(*.csv) and remember to give it a new file name unless you want to overwrite the original file.
+Saving the csv-file in Excel is done the normal way however it is important to save it using the correct file-format: CSV UTF-8 (Comma delimited)(*.csv), Remember to give it a new file name unless you want to overwrite the original file.
 
 <img src="image_readme/csv_in_excel_save.png" alt="Screenshot showing how to save a CSV-file in Excel" width="500"/>
 
+
 ## Testing 
 ### Manual Testing by User Story Testing
-Manual testing have been carried out (on Chrome and Explorer) of the Dashboard to ensure that the interface can handle all combinations of input.
+Manual testing have been carried out (using Chrome and Explorer) of the Dashboard to ensure that the interface can handle all combinations of input.
 
 * Dashboard was manually tested using user stories as a basis for determining success.
 * Jupyter notebooks were reliant on consecutive functions being successful so manual testing against user stories was deemed irrelevant.
@@ -489,64 +505,10 @@ Manual testing have been carried out (on Chrome and Explorer) of the Dashboard t
 
 ---
 
-
-
-*As a domain specific user, I can view a project summary that describes the project, dataset and business requirements to understand the project at a glance.*
-
-| Feature                     | Action                    | Expected Result                                               | Actual Result         |
-|-----------------------------|---------------------------|---------------------------------------------------------------|------------------------|
-| **Project summary page** | Viewing summary page     | Page is displayed, can move between sections on page          | Success               |
-
----
-
-*As a domain specific user, I can view the project hypotheses and validations to determine what the project was trying to achieve and whether it was successful.*
-
-| Feature                  | Action                        | Expected Result                                                 | Actual Result         |
-|--------------------------|-------------------------------|---------------------------------------------------------------|------------------------|
-| **Project hypotheses page** | Navigate to page            | Clicking on navbar link in sidebar navigates to correct page    | Success               |
-
----
-
-*As a domain specific user, I can enter data, previously unseen by the model, into the model and receive a prediction.*
-
-| Feature               | Action                                | Expected Result                                                   | Actual Result         |
-|-----------------------|---------------------------------------|-------------------------------------------------------------------|------------------------|
-| **Prediction page**    | Navigate to page                      | Clicking on navbar link in sidebar navigates to correct page       | Success               |
-| **Enter live data**    | Interact with widgets                 | All widgets are interactive, respond to user input                | Success               |
-| **Live prediction**    | Click on 'Predict Wingspan' and 'Create Regression Plot' button | Clicking on buttons displays message on page with prediction and regression plot | Success               |
-
----
-
-*As an data scientist, I can view the analysis to see how the outcomes were arrived at.*
-
-| Feature                  | Action                        | Expected Result                                                 | Actual Result         |
-|--------------------------|-------------------------------|---------------------------------------------------------------|------------------------|
-| **Correlation Study page** | Navigate to page             | Clicking on navbar link in sidebar navigates to correct page    | Success               |
-| **Correlation data**      | Tick correlation results checkbox | Correlation data is displayed on dashboard                    | Success               |
-| **PPS Heatmap**           | Tick PPS heatmap checkbox      | Heatmap is displayed on dashboard                              | Success               |
-| **Feature Correlation**   | Select feature from dropdown box | Relevant countplot is displayed                                | Success               |
-| **Parallel Plot**         | Tick parallel plot checkbox    | Parallel plot is displayed on dashboard, is interactive        | Success               |
-
----
-
-*As an data scientist, I can view all the data to understand the model performance and see statistics related to the model.*
-
-| Feature                  | Action                        | Expected Result                                                 | Actual Result         |
-|--------------------------|-------------------------------|---------------------------------------------------------------|------------------------|
-| **Model performance page** | Navigate to page             | Clicking on navbar link in sidebar navigates to correct page    | Success               |
-| **Success metrics**       | View page                     | Success metrics outlined in business case are displayed        | Success               |
-| **ML Pipelines**          | View page                     | Both ML Pipelines from Jupyter notebooks are displayed         | Success               |
-| **Feature Importance**    | View page                     | Most important features are plotted and displayed              | Success               |
-| **Model Performance**     | View page                     | Confusion matrix for train and test sets are displayed         | Success               |
-
----
-
-
-
 ### Validation
 All code in the app_pages and src directories have been validated as conforming to PEP8 standards using [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/). The only remaining errors are of the type: 
 
-* E305 expected 2 blank lines after class or function definition, found 1 - This is intentional since the I follow PEP 8 and the [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/) conflict with the PEP 8 on this standar.
+* E305 expected 2 blank lines after class or function definition, found 1 - This is intentional since the I follow PEP 8 and the [CodeInstitute's PEP8 Linter](https://pep8ci.herokuapp.com/) conflict with the PEP 8 on this instance.
 * W292 no newline at end of file - This is intentional since 'the newline at end of file' does not apply to code in a jupyter notebook cell.
 * E501 line too long (86 > 79 characters) - Remains unfixed both due to time constraints and because that I consider this only a minor issue. 
 
@@ -558,6 +520,7 @@ No automated unit tests have been carried out.
 * In the Regression Playground the values on the color value bar sometimes sits on top of each other when the 'Filter Option' is set to: 'Piper vs. Cessna' at the same time as the 'Type of graph' is set to: '3D regression'. I have tried to solve this by creating two separate color value bars side by side, one for Piper and one for Cessna, however failed to make it work.
 * The scale in the Parallel plot feels "Upside down" in the context of the features that it represents, i.e. zero velocity or zero altitude are at the top of the "vertical axis" and the maximum values at the bottom! This is not exactly a bug however it feels very unintuitive and is for this reason desirable to change.
 * The favicon for the streamlit page (page_icon="✈️" in the multipage.py) silently fails to appear and was therefore removed.
+
 
 ## Deployment 
 ### Heroku
@@ -600,6 +563,7 @@ web: sh setup.sh && streamlit run app.py
 15. If the build fails, check the build log carefully to troubleshoot what went wrong.
 16. Select Automatic deploys so that Heroku always uses your latest commited GitHub-version.
 
+
 ## Forking and Cloning 
 If you wish to fork or clone this repository, please follow the instructions below:
 
@@ -633,7 +597,6 @@ In order to ensure all the correct dependencies are installed in your local envi
 The tutorial [k-means: The simplest (but most used) partitioning clustering method](https://www.youtube.com/watch?v=u1EUrxobvk8) was used to understand K-means and Sillhoouette-scoore.
 
 I have looked at both the [Code Institute template](https://github.com/Code-Institute-Solutions/milestone-project-heritage-housing-issues) as well as the [CVD predictor](https://github.com/jfpaliga/CVD-predictor) for guidance on how to structure the readme.
-
 
 #### Equations
 - Equations was taken mainly from Anderson, John D. Aircraft Performance and Design. McGraw-Hill, 1999.

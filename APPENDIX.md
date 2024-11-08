@@ -1,5 +1,4 @@
 # APPENDIX 
-<br>
 
 ## Buisness case for unfinished Multi Engine Classification Model
 - We want an ML model to predict if an Airplane have a Multi Engine or single Engine on historical General Aviation Airplane data. The target variable is categorical and contains 2-classes. We consider a **classification model**. It is a supervised model, a 2-class, single-label, classification model output: 0 (no Multi Engine), 1 (yes Multi Engine).
@@ -13,6 +12,18 @@
 - The training data to fit the model comes from the Kaggle data set.
 	- Train data - features: all variables, but: Model, Company, THR, SHP.
 
+## Units of data set features
+**Page Engine Type**
+Note that a conversion to SI units has not been made in the data set analysis.
+
+|      Quantity     | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
+|-------------------|------------------------------|---------------------------------------------|----------|
+| "Propulsion size" | THR, SHP            | lbf and HP                                  | N and W  |   
+| Length            | Wing Span, Lenght, Height, Slo and Sl           | ft and in                                   |    m     |  
+| Distance          | Range                        | N.m. (Nautical miles)                       |   km     |  
+| Weight            | FW, AUW and MEW            | lb                                          | kg or N  |
+| Velocity          | Vmax, Vcruise, Vstall,          | knot or Mach and in                         |   m/s    |   
+| Vertical velocity | ROC, Vlo and Vl          | ft/min                                      |   m/s    |
 
 ## Domain specific comments on relationships between the features in the data set
 Outlined below are the dependencies between the features in the data set (and features mentioned in the Outlook) relevant for making hypotheses. Other dataset features are encircled in red as they appear in the equations. Underlined features indicate that they are indirectly related to other features in the dataset however the selection of which features to underline is rather ambiguous.
@@ -150,16 +161,3 @@ Please note that the AUW can be used as the initial weight in the Range Equation
 <img src="image_readme/equations/eq_range.png" alt="Equation for SHP" style="width: 40%;/">
 <br>
 <br>
-
-## Units of data set features
-**Page Engine Type**
-Note that a conversion to SI units has not been made in the data set analysis.
-
-|      Quantity     | Meaning/Information/Quantity | Data set units (traditional Aviation units) | SI units |
-|-------------------|------------------------------|---------------------------------------------|----------|
-| "Propulsion size" | THR, SHP            | lbf and HP                                  | N and W  |   
-| Length            | Wing Span, Lenght, Height, Slo and Sl           | ft and in                                   |    m     |  
-| Distance          | Range                        | N.m. (Nautical miles)                       |   km     |  
-| Weight            | FW, AUW and MEW            | lb                                          | kg or N  |
-| Velocity          | Vmax, Vcruise, Vstall,          | knot or Mach and in                         |   m/s    |   
-| Vertical velocity | ROC, Vlo and Vl          | ft/min                                      |   m/s    |
