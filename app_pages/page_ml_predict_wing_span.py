@@ -26,7 +26,7 @@ def page_ml_predict_wing_span_body():
     st.write("### ML Pipeline: Predict Wing Span")
     # display pipeline training summary conclusions
     st.info(
-        f"We set a target metric for our Regressor model: a Relative Error "
+        f"* We set a target metric for our Regressor model: a Relative Error "
         f"(RE = RMSE / mean of y_test) of less than 10%. The achieved "
         f"Relative Error of 5.97% (off by 3.6 feet/1 m for a 60 ft/19 m wing span) "
         f"cleared the target with a margin. "
@@ -34,7 +34,7 @@ def page_ml_predict_wing_span_body():
         f"considering both the diversity of the dataset and the fact that "
         f"the model was designed for a conceptual rather than a detailed "
         f"design user.   \n"
-        f"We use Relative Error instead of the more common "
+        f"* We use Relative Error instead of the more common "
         f"R-Squared because this scaled metric provides a more intuitive "
         f"and practical way to assess the accuracy of the model. R-Squared, "
         f"indicates a moderate performance with a score of 0.5. This "
