@@ -81,6 +81,7 @@ The 1st and 2nd columns are meta data, the 3th to 13th are Design features and t
 </figcaption>
 
 <br>
+<br>
 
 **Important disclaimer**: This dataset is not owned by me, nor the person (Heitor Nunes) who posted the dataset on Kaggle. It is under the license of Informa Markets and can be accessed here: https://aircraftbluebook.com/Tools/ABB/ShowSpecifications.do
 
