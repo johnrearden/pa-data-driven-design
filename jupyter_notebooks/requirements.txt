@@ -22,7 +22,7 @@ joblib==1.4.2
 jupyterlab_widgets==3.0.13
 kiwisolver==1.4.7
 MarkupSafe==2.0.1
-matplotlib==3.3.1
+matplotlib==3.4.0
 multimethod==1.10
 networkx==3.1
 numpy==1.18.5
