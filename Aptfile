@@ -1,6 +1,6 @@
+python3-distutils
 build-essential
 python3-venv
 build-essential
 python3-dev
 libatlas-base-dev
-python3-distutils
