@@ -61,3 +61,5 @@ wordcloud==1.9.3
 xgboost==1.2.1
 ydata-profiling==4.4.0
 yellowbrick==1.0
+setuptools>=58.0.0
+wheel
