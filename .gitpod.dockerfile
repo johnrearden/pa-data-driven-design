@@ -3,14 +3,14 @@ FROM gitpod/workspace-base
 RUN echo "CI version from base"
 
 ### Python ###
+
 USER gitpod
 
-# Install distutils explicitly
-RUN sudo apt-get update && sudo apt-get install -y python3-distutils
+# Install distutils explicitly and other necessary dependencies
+RUN sudo apt-get update && sudo apt-get install -y python3-distutils python3-pip
 
-# Install pyenv and Python version
-RUN sudo install-packages python3-pip
-ENV PYTHON_VERSION 3.8.18
+# Install pyenv and set the Python version
+ENV PYTHON_VERSION=3.8.18
 
 ENV PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
 RUN curl -fsSL https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash \
@@ -43,5 +43,5 @@ RUN echo 'alias heroku_config=". $GITPOD_REPO_ROOT/.vscode/heroku_config.sh"' >>
     echo 'alias make_url="python3 $GITPOD_REPO_ROOT/.vscode/make_url.py "' >> ~/.bashrc
 
 # Local environment variables
-ENV PORT="8080"
-ENV IP="0.0.0.0"
+ENV PORT=8080
+ENV IP=0.0.0.0
