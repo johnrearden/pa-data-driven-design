@@ -2,12 +2,12 @@ FROM gitpod/workspace-base
 
 RUN echo "CI version from base"
 
-### Python ###
+### Python Setup ###
 
 USER gitpod
 
-# Install distutils explicitly and other necessary dependencies
-RUN sudo apt-get update && sudo apt-get install -y python3-distutils python3-pip
+# Install required dependencies, but no need for distutils anymore
+RUN sudo apt-get update && sudo apt-get install -y python3-pip
 
 # Install pyenv and set the Python version
 ENV PYTHON_VERSION=3.8.18
