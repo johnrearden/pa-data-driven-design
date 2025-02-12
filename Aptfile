@@ -1,2 +1,5 @@
 build-essential
 python3-venv
+build-essential
+python3-dev
+libatlas-base-dev
