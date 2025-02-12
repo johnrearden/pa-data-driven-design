@@ -1,5 +1,6 @@
 setuptools>=68.1.2
 wheel>=0.37.1
+python3-distutils
 altair==4.2.2
 astor==0.8.1
 backports.zoneinfo==0.2.1
