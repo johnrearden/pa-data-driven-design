@@ -1,2 +1,2 @@
 build-essential
-python3-distutils
+python3-venv
